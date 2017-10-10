@@ -1,0 +1,14 @@
+/*Здесь будут стили которые писали мы сами*/
+
+/*-------------------------------------------------------------------*/
+
+.rules_of_engagement
+{
+    word-wrap: break-word;
+    border: 1px solid #7986cb;
+    overflow-y: scroll;
+    width: 100%;
+    height: 300px;
+    margin: 1.5em;
+    padding: 1.5em;
+}
