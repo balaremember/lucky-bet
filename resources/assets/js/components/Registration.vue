@@ -1,6 +1,6 @@
 <template>
     <div class="registration_box">
-        <!--TODO Сменить название кнопок в форме-->
+        <!--todo-slava Сменить название кнопок в форме-->
         <form>
             <md-stepper md-vertical>
                 <!--1. Данные для инициализации-->
@@ -41,10 +41,10 @@
                         <md-input name="patronymic" type="text" maxlength="40"></md-input>
                     </md-input-container>
                     <!--SEX-->
-                    <!--TODO Решить проблему с работой радиокнопок-->
+                    <!--TODO-ruslan Решить проблему с работой радиокнопок-->
                     <div>
-                        <md-radio id="man" name="sex" md-value="man">Мужчина</md-radio>
-                        <md-radio id="woman" name="sex" md-value="woman">Женщина</md-radio>
+                        <md-radio v-model="radio" id="man" name="sex" md-value="man">Мужчина</md-radio>
+                        <md-radio v-model="radio" id="woman" name="sex" md-value="woman">Женщина</md-radio>
                     </div>
                     <!--BIRTHDAY-->
                     <!--TODO Сделать вычислияемый атрибут max-->

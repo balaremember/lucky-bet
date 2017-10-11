@@ -48,5 +48,8 @@ Vue.component('registration', require('./components/Registration.vue'));
 
 const app = new Vue(
     {
-        el: '#app'
+        el: '#app',
+        data: {
+            radio: '',
+        },
     });
