@@ -42460,6 +42460,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
@@ -42615,37 +42622,35 @@ var render = function() {
                   "div",
                   [
                     _c(
-                      "md-radio",
-                      {
-                        attrs: { id: "man", name: "sex", "md-value": "man" },
-                        model: {
-                          value: _vm.radio,
-                          callback: function($$v) {
-                            _vm.radio = $$v
+                      "md-input-container",
+                      [
+                        _c("label", { attrs: { for: "sex" } }, [_vm._v("Пол")]),
+                        _vm._v(" "),
+                        _c(
+                          "md-select",
+                          {
+                            attrs: { name: "sex", id: "movie" },
+                            model: {
+                              value: _vm.movie,
+                              callback: function($$v) {
+                                _vm.movie = $$v
+                              },
+                              expression: "movie"
+                            }
                           },
-                          expression: "radio"
-                        }
-                      },
-                      [_vm._v("Мужчина")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "md-radio",
-                      {
-                        attrs: {
-                          id: "woman",
-                          name: "sex",
-                          "md-value": "woman"
-                        },
-                        model: {
-                          value: _vm.radio,
-                          callback: function($$v) {
-                            _vm.radio = $$v
-                          },
-                          expression: "radio"
-                        }
-                      },
-                      [_vm._v("Женщина")]
+                          [
+                            _c("md-option", { attrs: { value: "male" } }, [
+                              _vm._v("Мужской")
+                            ]),
+                            _vm._v(" "),
+                            _c("md-option", { attrs: { value: "female" } }, [
+                              _vm._v("Женский")
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
                     )
                   ],
                   1

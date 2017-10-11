@@ -43,8 +43,15 @@
                     <!--SEX-->
                     <!--TODO-ruslan Решить проблему с работой радиокнопок-->
                     <div>
-                        <md-radio v-model="radio" id="man" name="sex" md-value="man">Мужчина</md-radio>
-                        <md-radio v-model="radio" id="woman" name="sex" md-value="woman">Женщина</md-radio>
+                        <!--<md-radio v-model="radio" id="man" name="sex" md-value="man">Мужчина</md-radio>-->
+                        <!--<md-radio v-model="radio" id="woman" name="sex" md-value="woman">Женщина</md-radio>-->
+                        <md-input-container>
+                            <label for="sex">Пол</label>
+                            <md-select name="sex" id="movie" v-model="movie">
+                                <md-option value="male">Мужской</md-option>
+                                <md-option value="female">Женский</md-option>
+                            </md-select>
+                        </md-input-container>
                     </div>
                     <!--BIRTHDAY-->
                     <!--TODO Сделать вычислияемый атрибут max-->
