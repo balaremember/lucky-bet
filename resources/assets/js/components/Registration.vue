@@ -1,6 +1,7 @@
 <template>
     <div class="registration_box">
         <!--TODO Сменить название кнопок в форме-->
+        <!--TODO Сделать валидацию формы-->
         <form>
             <md-stepper md-vertical>
                 <!--1. Данные для инициализации-->
@@ -8,19 +9,17 @@
                     <!--E-MAIL-->
                     <md-input-container md-clearable>
                         <label>E-mail</label>
-                        <md-input name="e-mail" type="email" required autofocus></md-input>
-                    </md-input-container>
+                        <md-input name="e-mail" type="email" oninvalid="this.setCustomValidity('Был введен некорректный e-mail')" oninput="this.setCustomValidity('')" required autofocus></md-input>
+                </md-input-container>
                     <!--PASSWORD-->
                     <md-input-container md-clearable>
                         <label>Пароль</label>
-                        <md-input name="password" type="password" pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                        required></md-input>
+                        <md-input name="password" type="password" pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" oninvalid="this.setCustomValidity('Пароль должен содержать хотя бы одну цифру, заглавную и строчную буквы. Длина пароля не может быть меньше 8 символов и больше 32.')" oninput="this.setCustomValidity('')" required></md-input>
                     </md-input-container>
                     <!--PASSWORD REPEAT-->
                     <md-input-container md-clearable>
                         <label>Повторите ваш пароль</label>
-                        <md-input name="password_repeat" type="password" pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                                  required></md-input>
+                        <md-input name="password_repeat" type="password" pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" oninvalid="this.setCustomValidity('Пароль должен содержать хотя бы одну цифру, заглавную и строчную буквы. Длина пароля не может быть меньше 8 символов и больше 32.')" oninput="this.setCustomValidity('')" required></md-input>
                     </md-input-container>
                 </md-step>
                 <!--2. Персональные данные-->
@@ -42,15 +41,22 @@
                     </md-input-container>
                     <!--SEX-->
                     <!--TODO Решить проблему с работой радиокнопок-->
-                    <div>
-                        <md-radio id="man" name="sex" md-value="man">Мужчина</md-radio>
-                        <md-radio id="woman" name="sex" md-value="woman">Женщина</md-radio>
-                    </div>
+                    <!--<div>
+                        <md-radio v-model="sex" id="man" name="sex" md-value="man">Мужчина</md-radio>
+                        <md-radio v-model="sex" id="woman" name="sex" md-value="woman">Женщина</md-radio>
+                    </div>-->
+                    <md-input-container>
+                        <label for="sex">Пол</label>
+                        <md-select name="sex" id="movie">
+                            <md-option value="man">Мужской</md-option>
+                            <md-option value="woman">Женский</md-option>
+                        </md-select>
+                    </md-input-container>
                     <!--BIRTHDAY-->
                     <!--TODO Сделать вычислияемый атрибут max-->
                     <md-input-container>
                         <label>Дата рождения</label>
-                        <md-input id="birthday" name="birthday" type="date" min="1920-01-01" :max="1999-12-31" required></md-input>
+                        <md-input id="birthday" name="birthday" type="date" min="1920-01-01" max="1999-01-01" required></md-input>
                     </md-input-container>
                 </md-step>
                 <!--3. Контактные данные-->
@@ -121,18 +127,6 @@
 <script>
     export default
     {
-        computed:
-            {
-                CalculateMaxAttributeInTheInputBirthday: function()
-                {
-                    alert('TEST');
-                    element = document.getElementById('birthday');
-                    date = new Date();
-                    date.setDate(date.getYear() - 19);
-                    attribute = element.setAttribute('max', date.getYear());
-                    console.log('test');
-                    //return date.toString();
-                }
-            }
+        
     }
 </script>

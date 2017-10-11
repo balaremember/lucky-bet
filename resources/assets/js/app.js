@@ -26,9 +26,6 @@ Vue.material.registerTheme('default',
 
     });
 
-// !!!
-// https://github.com/probil/v-mask
-
 // As a plugin
 import VueMask from 'v-mask'
 Vue.use(VueMask);
@@ -48,5 +45,9 @@ Vue.component('registration', require('./components/Registration.vue'));
 
 const app = new Vue(
     {
-        el: '#app'
+        el: '#app',
+        data:
+            {
+                sex: ''
+            }
     });

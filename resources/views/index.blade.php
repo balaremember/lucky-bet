@@ -15,19 +15,37 @@
     <link rel="stylesheet" href="{{ asset('css/vue-material.css') }}">
     <!--Наши стили-->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <title>Ставки на спорт - Букмекерская компания "Lucky bet"</title>
+    <title>Ставки на спорт - Букмекерская компания "Lucky Bet"</title>
 </head>
 <body>
 <div id="app">
-    <header>
-
-    </header>
+    <!--TODO:-->
+    <!--HEADER-->
+    
+    <!--Без авторизации-->
+    <!--     LOGO | Информация {как делать ставки} | Компания {О компании, Акции, Вакансии} | Форма входа {Поле ввода логина/пароля, Забыл пароль, Войти, Зарегестрироваться}  -->
+    <!--С авторизацией-->
+    <!--     LOGO | Информация {как делать ставки} | Компания {О компании, Акции, Вакансии} | Баланс , Мои ставки, Выйти, Настройки профиля -->
+    <!--<header id="header"></header>-->
+    
+    <!--MAIN-->
     <main>
+        <!--LEFT SIDEBAR-->
+        <!--TODO: Все виды ставок-->
+        <!--<aside #left_sidebar></aside>-->
+        <!--RIGHT SIDEBAR-->
+        <!--TODO: Купон | Мобильное приложение | Онлайн поддержка(просто блок с номером и почтой)-->
+        <!--<aside #right_sidebar></aside>-->
+        <!--SECTION-->
+        <section>
+            <!--TODO: Обновлять будем здесь-->
+        </section>
+        
+        <!--TEST REGISTRATION-->
         <registration></registration>
     </main>
-    <footer>
-
-    </footer>
+    <!--TODO: Партнеры | Платежные системы | Ссылки на соц. сети-->
+    <!--<footer id="footer"></footer>-->
 </div>
     <!--JS-->
 <script src="{{ asset('js/app.js') }}"></script>
