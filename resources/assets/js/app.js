@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,33 +8,29 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-var Vue = require('vue')
-var VueMaterial = require('vue-material')
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import VueMaterial from 'vue-material'
 
-Vue.use(VueMaterial)
+import VueMask from 'v-mask'    // As a plugin
+Vue.use(VueMask);
+
+import {VueMaskDirective} from 'v-mask'   // As a directive
+Vue.directive('mask', VueMaskDirective);
+
+Vue.use(VueRouter);
+Vue.use(VueMaterial);
 
 Vue.material.registerTheme('default',
     {
-        primary:
-            {
-                color: 'indigo',
-                hue: 300,
-                textColor: 'white'
-            },
+        primary: {
+            color: 'indigo',
+            hue: 300,
+            textColor: 'white'
+        },
         accent: 'red',
 
     });
-
-// !!!
-// https://github.com/probil/v-mask
-
-// As a plugin
-import VueMask from 'v-mask'
-Vue.use(VueMask);
-
-// As a directive
-import { VueMaskDirective } from 'v-mask'
-Vue.directive('mask', VueMaskDirective);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -45,11 +40,20 @@ Vue.directive('mask', VueMaskDirective);
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('registration', require('./components/Registration.vue'));
+Vue.component('home', require('./components/Home.vue'));
+
+var Home = require('./components/Home.vue');
+var Registration = require('./components/Registration.vue');
+
+const router = new VueRouter({
+    routes: [
+        { path: '/', component: Home },
+        { path: '/reg', component: Registration }
+    ]
+});
 
 const app = new Vue(
     {
         el: '#app',
-        data: {
-            radio: '',
-        },
+        router: router,
     });
