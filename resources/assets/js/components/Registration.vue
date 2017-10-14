@@ -1,10 +1,10 @@
 <template>
     <div class="registration_box">
-        <!--todo-slava Сменить название кнопок в форме-->
         <form>
             <md-stepper md-vertical>
                 <!--1. Данные для инициализации-->
-                <md-step md-label="Данные для инициализации в системе">
+                <md-step md-label="Данные для инициализации в системе" md-button-back="Назад"
+                         md-button-continue="Далее">
                     <!--E-MAIL-->
                     <md-input-container md-clearable>
                         <label>E-mail</label>
@@ -26,7 +26,8 @@
                     </md-input-container>
                 </md-step>
                 <!--2. Персональные данные-->
-                <md-step md-label="Персональные данные">
+                <md-step md-label="Персональные данные" md-button-back="Назад"
+                         md-button-continue="Далее">
                     <!--SURNAME-->
                     <md-input-container md-clearable>
                         <label>Фамилия</label>
@@ -56,7 +57,8 @@
                     </md-input-container>
                 </md-step>
                 <!--3. Контактные данные-->
-                <md-step md-label="Контактные данные">
+                <md-step md-label="Контактные данные" md-button-back="Назад"
+                         md-button-continue="Далее">
                     <!--COUNTRY-->
                     <div class="field-group">
                         <md-input-container>
@@ -68,7 +70,7 @@
                                 <md-option value="Kazakhstan">Казахстан</md-option>
                                 <md-option value="Georgia">Грузия</md-option>
                                 <md-option value="Ukraine">Украина</md-option>
-                                <md-option value="Azebaidjan">Азербайджан</md-option>
+                                <md-option value="Azerbaidjan">Азербайджан</md-option>
                                 <md-option value="Armenia">Армения</md-option>
                             </md-select>
                         </md-input-container>
@@ -85,7 +87,8 @@
                     </md-input-container>
                 </md-step>
                 <!--4. Ознакомление с правилами участия-->
-                <md-step md-label="Правила участия">
+                <md-step md-label="Правила участия" md-button-back="Назад"
+                         md-button-continue="Завершить">
                     <div>
                         <md-checkbox id="consent" name="consent">Настоящим я подтверждаю и даю своё согласие на:
                         </md-checkbox>
