@@ -8,21 +8,21 @@
                     <!--E-MAIL-->
                     <md-input-container md-clearable>
                         <label>E-mail</label>
-                        <md-input name="e-mail" type="email" required autofocus></md-input>
+                        <md-input name="e-mail" type="email" v-model="email" required autofocus></md-input>
                     </md-input-container>
                     <!--PASSWORD-->
                     <md-input-container md-clearable>
                         <label>Пароль</label>
                         <md-input name="password" type="password"
                                   pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                                  required></md-input>
+                                  required v-model="password"></md-input>
                     </md-input-container>
                     <!--PASSWORD REPEAT-->
                     <md-input-container md-clearable>
                         <label>Повторите ваш пароль</label>
                         <md-input name="password_repeat" type="password"
                                   pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                                  required></md-input>
+                                  required v-model="password_repeat"></md-input>
                     </md-input-container>
                 </md-step>
                 <!--2. Персональные данные-->
@@ -31,29 +31,29 @@
                     <!--SURNAME-->
                     <md-input-container md-clearable>
                         <label>Фамилия</label>
-                        <md-input name="surname" type="text" maxlength="40" required></md-input>
+                        <md-input name="surname" type="text" maxlength="40" v-model="surname" required></md-input>
                     </md-input-container>
                     <!--NAME-->
                     <md-input-container md-clearable>
                         <label>Имя</label>
-                        <md-input name="surname" type="text" maxlength="40" required></md-input>
+                        <md-input name="surname" type="text" maxlength="40" v-model="name" required></md-input>
                     </md-input-container>
                     <!--PATRONYMIC-->
                     <md-input-container md-clearable>
                         <label>Отчество</label>
-                        <md-input name="patronymic" type="text" maxlength="40"></md-input>
+                        <md-input name="patronymic" type="text" maxlength="40" v-model="patronymic"></md-input>
                     </md-input-container>
                     <!--SEX-->
                     <div>
-                        <md-radio v-model="radio" id="man" name="sex" md-value="man">Мужчина</md-radio>
-                        <md-radio v-model="radio" id="woman" name="sex" md-value="woman">Женщина</md-radio>
+                        <md-radio v-model="sex" id="man" name="sex" md-value="man">Мужчина</md-radio>
+                        <md-radio v-model="sex" id="woman" name="sex" md-value="woman">Женщина</md-radio>
                     </div>
                     <!--BIRTHDAY-->
                     <!--TODO Сделать вычислияемый атрибут max-->
                     <md-input-container>
                         <label>Дата рождения</label>
-                        <md-input id="birthday" name="birthday" type="date" min="1920-01-01" :max="1999-12-31"
-                                  required></md-input>
+                        <md-input id="birthday" name="birthday" type="date" min="1920-01-01" max="1999-12-31"
+                                  required v-model="birthday"></md-input>
                     </md-input-container>
                 </md-step>
                 <!--3. Контактные данные-->
@@ -62,8 +62,8 @@
                     <!--COUNTRY-->
                     <div class="field-group">
                         <md-input-container>
-                            <label for="country">Country</label>
-                            <md-select name="country" id="country" required>
+                            <label for="country">Страна</label>
+                            <md-select name="country" id="country" v-model="country" required>
                                 <!--COUNTRY LIST-->
                                 <md-option value="Russia">Россия</md-option>
                                 <md-option value="Belarus">Беларусь</md-option>
@@ -78,19 +78,20 @@
                     <!--CITY-->
                     <md-input-container md-clearable>
                         <label>Город</label>
-                        <md-input name="city" type="text" maxlength="40" required></md-input>
+                        <md-input name="city" type="text" maxlength="40" v-model="city" required></md-input>
                     </md-input-container>
                     <!--TELEPHONE-->
                     <md-input-container md-clearable>
                         <label>Телефон</label>
-                        <md-input name="text" type="tel" v-mask="'# (###) ### ## ##'" required></md-input>
+                        <md-input name="text" type="tel" v-mask="'# (###) ### ## ##'" v-model="telephone" required></md-input>
                     </md-input-container>
                 </md-step>
                 <!--4. Ознакомление с правилами участия-->
                 <md-step md-label="Правила участия" md-button-back="Назад"
                          md-button-continue="Завершить">
                     <div>
-                        <md-checkbox id="consent" name="consent">Настоящим я подтверждаю и даю своё согласие на:
+                        <md-checkbox id="consent" name="consent" v-model="consent">
+                            Настоящим я подтверждаю и даю своё согласие на:
                         </md-checkbox>
                         <!--RULES OF ENGAGEMENT-->
                         <div class="rules_of_engagement">
@@ -178,7 +179,18 @@
         {
             data() {
                 return {
-                    radio: ''
+                    email: '',
+                    password: '',
+                    password_repeat: '',
+                    surname: '',
+                    name: '',
+                    patronymic: '',
+                    sex: '',
+                    birthday: '',
+                    country: '',
+                    city: '',
+                    telephone: '',
+                    consent: ''
                 };
             }
         }

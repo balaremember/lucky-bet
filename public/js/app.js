@@ -45080,11 +45080,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            radio: ''
+            email: '',
+            password: '',
+            password_repeat: '',
+            surname: '',
+            name: '',
+            patronymic: '',
+            sex: '',
+            birthday: '',
+            country: '',
+            city: '',
+            telephone: '',
+            consent: ''
         };
     }
 });
@@ -45127,6 +45139,13 @@ var render = function() {
                         type: "email",
                         required: "",
                         autofocus: ""
+                      },
+                      model: {
+                        value: _vm.email,
+                        callback: function($$v) {
+                          _vm.email = $$v
+                        },
+                        expression: "email"
                       }
                     })
                   ],
@@ -45146,6 +45165,13 @@ var render = function() {
                         pattern:
                           "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$",
                         required: ""
+                      },
+                      model: {
+                        value: _vm.password,
+                        callback: function($$v) {
+                          _vm.password = $$v
+                        },
+                        expression: "password"
                       }
                     })
                   ],
@@ -45165,6 +45191,13 @@ var render = function() {
                         pattern:
                           "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$",
                         required: ""
+                      },
+                      model: {
+                        value: _vm.password_repeat,
+                        callback: function($$v) {
+                          _vm.password_repeat = $$v
+                        },
+                        expression: "password_repeat"
                       }
                     })
                   ],
@@ -45196,6 +45229,13 @@ var render = function() {
                         type: "text",
                         maxlength: "40",
                         required: ""
+                      },
+                      model: {
+                        value: _vm.surname,
+                        callback: function($$v) {
+                          _vm.surname = $$v
+                        },
+                        expression: "surname"
                       }
                     })
                   ],
@@ -45214,6 +45254,13 @@ var render = function() {
                         type: "text",
                         maxlength: "40",
                         required: ""
+                      },
+                      model: {
+                        value: _vm.name,
+                        callback: function($$v) {
+                          _vm.name = $$v
+                        },
+                        expression: "name"
                       }
                     })
                   ],
@@ -45231,6 +45278,13 @@ var render = function() {
                         name: "patronymic",
                         type: "text",
                         maxlength: "40"
+                      },
+                      model: {
+                        value: _vm.patronymic,
+                        callback: function($$v) {
+                          _vm.patronymic = $$v
+                        },
+                        expression: "patronymic"
                       }
                     })
                   ],
@@ -45245,11 +45299,11 @@ var render = function() {
                       {
                         attrs: { id: "man", name: "sex", "md-value": "man" },
                         model: {
-                          value: _vm.radio,
+                          value: _vm.sex,
                           callback: function($$v) {
-                            _vm.radio = $$v
+                            _vm.sex = $$v
                           },
-                          expression: "radio"
+                          expression: "sex"
                         }
                       },
                       [_vm._v("Мужчина")]
@@ -45264,11 +45318,11 @@ var render = function() {
                           "md-value": "woman"
                         },
                         model: {
-                          value: _vm.radio,
+                          value: _vm.sex,
                           callback: function($$v) {
-                            _vm.radio = $$v
+                            _vm.sex = $$v
                           },
-                          expression: "radio"
+                          expression: "sex"
                         }
                       },
                       [_vm._v("Женщина")]
@@ -45288,8 +45342,15 @@ var render = function() {
                         name: "birthday",
                         type: "date",
                         min: "1920-01-01",
-                        max: 1999 - 12 - 31,
+                        max: "1999-12-31",
                         required: ""
+                      },
+                      model: {
+                        value: _vm.birthday,
+                        callback: function($$v) {
+                          _vm.birthday = $$v
+                        },
+                        expression: "birthday"
                       }
                     })
                   ],
@@ -45317,7 +45378,7 @@ var render = function() {
                       "md-input-container",
                       [
                         _c("label", { attrs: { for: "country" } }, [
-                          _vm._v("Country")
+                          _vm._v("Страна")
                         ]),
                         _vm._v(" "),
                         _c(
@@ -45327,6 +45388,13 @@ var render = function() {
                               name: "country",
                               id: "country",
                               required: ""
+                            },
+                            model: {
+                              value: _vm.country,
+                              callback: function($$v) {
+                                _vm.country = $$v
+                              },
+                              expression: "country"
                             }
                           },
                           [
@@ -45383,6 +45451,13 @@ var render = function() {
                         type: "text",
                         maxlength: "40",
                         required: ""
+                      },
+                      model: {
+                        value: _vm.city,
+                        callback: function($$v) {
+                          _vm.city = $$v
+                        },
+                        expression: "city"
                       }
                     })
                   ],
@@ -45404,7 +45479,14 @@ var render = function() {
                           expression: "'# (###) ### ## ##'"
                         }
                       ],
-                      attrs: { name: "text", type: "tel", required: "" }
+                      attrs: { name: "text", type: "tel", required: "" },
+                      model: {
+                        value: _vm.telephone,
+                        callback: function($$v) {
+                          _vm.telephone = $$v
+                        },
+                        expression: "telephone"
+                      }
                     })
                   ],
                   1
@@ -45428,10 +45510,19 @@ var render = function() {
                   [
                     _c(
                       "md-checkbox",
-                      { attrs: { id: "consent", name: "consent" } },
+                      {
+                        attrs: { id: "consent", name: "consent" },
+                        model: {
+                          value: _vm.consent,
+                          callback: function($$v) {
+                            _vm.consent = $$v
+                          },
+                          expression: "consent"
+                        }
+                      },
                       [
                         _vm._v(
-                          "Настоящим я подтверждаю и даю своё согласие на:\n                    "
+                          "\n                        Настоящим я подтверждаю и даю своё согласие на:\n                    "
                         )
                       ]
                     ),
