@@ -4,44 +4,46 @@
             <md-stepper md-vertical>
                 <!--1. Данные для инициализации-->
                 <md-step md-label="Данные для инициализации в системе" md-button-back="Назад"
-                         md-button-continue="Далее">
+                         md-button-continue="Далее" :md-editable="true"
+                         :md-error="!mailValid && !passwordValid && !passwordRepeatValid"
+                         :md-continue="mailValid && passwordValid && passwordRepeatValid && passwordsMatch"
+                         :md-message="invalidMessage_1">
                     <!--E-MAIL-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !mailValid}">
                         <label>E-mail</label>
-                        <md-input name="e-mail" type="email" v-model="email" required autofocus></md-input>
+                        <md-input name="e-mail" type="email" v-model.trim="email" required autofocus></md-input>
                     </md-input-container>
                     <!--PASSWORD-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !passwordValid}">
                         <label>Пароль</label>
-                        <md-input name="password" type="password"
-                                  pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                                  required v-model="password"></md-input>
+                        <md-input name="password" type="password" required v-model.trim="password"></md-input>
                     </md-input-container>
                     <!--PASSWORD REPEAT-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !passwordRepeatValid}">
                         <label>Повторите ваш пароль</label>
-                        <md-input name="password_repeat" type="password"
-                                  pattern="(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                                  required v-model="password_repeat"></md-input>
+                        <md-input name="password_repeat" type="password" required
+                                  v-model.trim="password_repeat"></md-input>
                     </md-input-container>
                 </md-step>
                 <!--2. Персональные данные-->
-                <md-step md-label="Персональные данные" md-button-back="Назад"
-                         md-button-continue="Далее">
+                <md-step md-label="Персональные данные" md-button-back="Назад" md-button-continue="Далее"
+                         :md-editable="true"
+                         :md-error="!surnameValid && !nameValid && !birthdayValid"
+                         :md-continue="surnameValid && nameValid && birthdayValid" :md-message="invalidMessage_2">
                     <!--SURNAME-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !surnameValid}">
                         <label>Фамилия</label>
-                        <md-input name="surname" type="text" maxlength="40" v-model="surname" required></md-input>
+                        <md-input name="surname" type="text" maxlength="40" v-model.trim="surname" required></md-input>
                     </md-input-container>
                     <!--NAME-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !nameValid}">
                         <label>Имя</label>
-                        <md-input name="surname" type="text" maxlength="40" v-model="name" required></md-input>
+                        <md-input name="surname" type="text" maxlength="40" v-model.trim="name" required></md-input>
                     </md-input-container>
                     <!--PATRONYMIC-->
                     <md-input-container md-clearable>
                         <label>Отчество</label>
-                        <md-input name="patronymic" type="text" maxlength="40" v-model="patronymic"></md-input>
+                        <md-input name="patronymic" type="text" maxlength="40" v-model.trim="patronymic"></md-input>
                     </md-input-container>
                     <!--SEX-->
                     <div>
@@ -49,21 +51,23 @@
                         <md-radio v-model="sex" id="woman" name="sex" md-value="woman">Женщина</md-radio>
                     </div>
                     <!--BIRTHDAY-->
-                    <!--TODO Сделать вычислияемый атрибут max-->
-                    <md-input-container>
+                    <md-input-container :class="{'md-input-invalid': !birthdayValid}">
                         <label>Дата рождения</label>
-                        <md-input id="birthday" name="birthday" type="date" min="1920-01-01" max="1999-12-31"
+                        <md-input id="birthday" name="birthday" type="date" min="1920-01-01"
                                   required v-model="birthday"></md-input>
                     </md-input-container>
                 </md-step>
                 <!--3. Контактные данные-->
-                <md-step md-label="Контактные данные" md-button-back="Назад"
-                         md-button-continue="Далее">
+                <md-step md-label="Контактные данные" md-button-back="Назад" md-button-continue="Далее"
+                         :md-editable="true"
+                         :md-error="!countryValid && !cityValid && !telephoneValid"
+                         :md-continue="countryValid && cityValid && telephoneValid" :md-message="invalidMessage_3">
                     <!--COUNTRY-->
                     <div class="field-group">
                         <md-input-container>
                             <label for="country">Страна</label>
-                            <md-select name="country" id="country" v-model="country" required>
+                            <md-select name="country" id="country" v-model="country"
+                                       :class="{'md-input-invalid': !countryValid}" required>
                                 <!--COUNTRY LIST-->
                                 <md-option value="Russia">Россия</md-option>
                                 <md-option value="Belarus">Беларусь</md-option>
@@ -76,21 +80,23 @@
                         </md-input-container>
                     </div>
                     <!--CITY-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !cityValid}">
                         <label>Город</label>
                         <md-input name="city" type="text" maxlength="40" v-model="city" required></md-input>
                     </md-input-container>
                     <!--TELEPHONE-->
-                    <md-input-container md-clearable>
+                    <md-input-container md-clearable :class="{'md-input-invalid': !telephoneValid}">
                         <label>Телефон</label>
-                        <md-input name="text" type="tel" v-mask="'# (###) ### ## ##'" v-model="telephone" required></md-input>
+                        <md-input name="text" type="tel" v-mask="'# (###) ###-##-##'" v-model="telephone"
+                                  required></md-input>
                     </md-input-container>
                 </md-step>
                 <!--4. Ознакомление с правилами участия-->
-                <md-step md-label="Правила участия" md-button-back="Назад"
-                         md-button-continue="Завершить">
+                <md-step md-label="Правила участия" md-button-back="Назад" md-button-continue="Завершить"
+                         :md-editable="true" :md-error="!consentValid" :md-continue="consentValid" :md-message="invalidMessage_4">
                     <div>
-                        <md-checkbox id="consent" name="consent" v-model="consent">
+                        <md-checkbox id="consent" name="consent" v-model="consent" required
+                                     :class="{'md-input-invalid': !consentValid}">
                             Настоящим я подтверждаю и даю своё согласие на:
                         </md-checkbox>
                         <!--RULES OF ENGAGEMENT-->
@@ -179,7 +185,7 @@
         {
             data() {
                 return {
-                    email: '',
+                    email: '', 
                     password: '',
                     password_repeat: '',
                     surname: '',
@@ -190,8 +196,213 @@
                     country: '',
                     city: '',
                     telephone: '',
-                    consent: ''
+                    consent: '',
+                    mailValid: false,
+                    passwordValid: false,
+                    passwordRepeatValid: false,
+                    passwordsMatch: false,
+                    invalidMessage_1: '',
+                    surnameValid: false,
+                    nameValid: false,
+                    birthdayValid: false,
+                    invalidMessage_2: '',
+                    countryValid: false,
+                    cityValid: false,
+                    telephoneValid: false,
+                    invalidMessage_3: '',
+                    consentValid: false,
+                    invalidMessage_4: ''
                 };
+            },
+            
+            watch: 
+            {
+                /*TODO Проверить не используется ли эта почта уже*/
+                email()
+                {
+                    var emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+                    this.mailValid = emailRegex.test(this.email);
+                    /*Делаем проверку на соответствие шаблону регулярного выражения*/
+                    if (this.mailValid)
+                    {
+                        this.invalidMessage_1 = '';
+                    } 
+                    else 
+                    {
+                        this.invalidMessage_1 = 'Введен некорректный адресс электронной почты';
+                    }
+                },
+                
+                password()
+                {
+                    var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+                    /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+                    this.passwordValid = passwordRegex.test(this.password);
+                    /*Делаем проверку на соответствие шаблону регулярного выражения*/
+                    if (this.passwordValid)
+                    {
+                        this.invalidMessage_1 = '';
+                    } 
+                    else 
+                    {
+                        this.invalidMessage = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' +
+                            'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
+                    }
+                    /*Проверяем совпадают ли пароли*/
+                    if(this.password !== this.password_repeat)
+                    {
+                       this.invalidMessage_1 += 'Пароли не совпадают.';
+                        this.passwordsMatch = false;
+                    }
+                    else
+                    {
+                        this.invalidMessage_1 = '';
+                        this.passwordsMatch = true;
+                    }
+                },
+                
+                password_repeat()
+                {
+                    var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+                    /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+                    this.passwordRepeatValid = passwordRegex.test(this.password_repeat);
+                    /*Делаем проверку на соответствие шаблону регулярного выражения*/
+                    if (this.passwordRepeatValid)
+                    {
+                        this.invalidMessage_1 = '';
+                    } 
+                    else 
+                    {
+                        this.invalidMessage_1 = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' +
+                            'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
+                    }
+                    /*Проверяем совпадают ли пароли*/
+                    if(this.password !== this.password_repeat)
+                    {
+                       this.invalidMessage_1 += ' Пароли не совпадают.';
+                        this.passwordsMatch = false;
+                    }
+                    else
+                    {
+                        this.invalidMessage_1 = '';
+                        this.passwordsMatch = true;
+                    }
+                },
+                
+                surname()
+                {
+                    var Regex = /[A-Za-zА-Яа-я]+[A-Za-zА-Яа-я ]*/;
+                    /*Фамилия может содержать только буквы русского и английского алфавитов в любом регистре и пробелы*/
+                    this.surnameValid = Regex.test(this.surname);
+                    /*Делаем проверку на соответствие шаблону регулярного выражения*/
+                    if (this.surnameValid)
+                    {
+                        this.invalidMessage_2 = '';
+                    } 
+                    else 
+                    {
+                        this.invalidMessage_2 = 'Фамилия может содержать только буквы русского и английского ' +
+                            'алфавитов в любом регистре и пробелы.';
+                    }
+                },
+                
+                name()
+                {
+                    var Regex = /[A-Za-zА-Яа-я]+[A-Za-zА-Яа-я ]*/;
+                    /*Имя может содержать только буквы русского и английского алфавитов в любом регистре и пробелы*/
+                    this.nameValid = Regex.test(this.name);
+                    /*Делаем проверку на соответствие шаблону регулярного выражения*/
+                    if (this.nameValid)
+                    {
+                        this.invalidMessage_2 = '';
+                    } 
+                    else 
+                    {
+                        this.invalidMessage_2 = 'Имя может содержать только буквы русского и английского алфавитов ' +
+                            'в любом регистре и пробелы.';
+                    }
+                },
+                
+                birthday()
+                {
+                    var now = new Date(); /*Дата сейчас*/
+                    var date = new Date(now.getFullYear() - 18, now.getMonth(), now.getDate()); /*Дата сейчас - 18 лет*/
+                    var birthdayAsDate = new Date(this.birthday); /*Сделали датой переменную полученную из формы*/
+                    /*Проверям что регистрирующийся 18+*/
+                    if(birthdayAsDate <= date)
+                    {
+                       this.invalidMessage_2 = '';
+                       this.birthdayValid = true;
+                    }
+                    else
+                    {
+                       this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.';
+                       this.birthdayValid = false;
+                    }
+                },
+                
+                country()
+                {
+                    /*Проверяем что значение было выбрано*/
+                    if(this.country.length > 0)
+                    {
+                       this.invalidMessage_3 = '';
+                       this.countryValid = true;
+                    }
+                    else
+                    {
+                       this.invalidMessage_3 = 'Выберите страну проживания.';
+                       this.countryValid = false;
+                    }
+                },
+                
+                city()
+                {
+                    /*Проверяем что значение было введено*/
+                    if(this.city.length > 0)
+                    {
+                       this.invalidMessage_3 = '';
+                       this.cityValid = true;
+                    }
+                    else
+                    {
+                       this.invalidMessage_3 = 'Введите город проживания.';
+                       this.cityValid = false;
+                    }
+                },
+                
+                telephone()
+                {
+                    var telephoneRegex = /\d [(](\d){3}[)] (\d){3}[-](\d){2}[-](\d){2}/;
+                    this.telephoneValid = telephoneRegex.test(this.telephone);
+                    /*Проверяем что пользователь ввел номер до конца*/
+                    if(this.telephoneValid)
+                    {
+                       this.invalidMessage_3 = '';
+                       this.telephoneValid = true;
+                    }
+                    else
+                    {
+                       this.invalidMessage_3 = 'Некорректный номер сотового телефона.';
+                       this.telephoneValid = false;
+                    }
+                },
+                
+                consent()
+                {
+                    /*Проверяем галочку в чекбоксе*/
+                    if(this.consent)
+                    {
+                       this.invalidMessage_4 = '';
+                       this.consentValid = true;
+                    }
+                    else
+                    {
+                       this.invalidMessage_4 = 'Необходимо изучить текст соглашения и принять его условия.';
+                       this.consentValid = false;
+                    }
+                }
+                
             }
         }
 </script>

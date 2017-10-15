@@ -11358,7 +11358,13 @@ var Home = __webpack_require__(12);
 var Registration = __webpack_require__(11);
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    routes: [{ path: '/', component: Home }, { path: '/reg', component: Registration }]
+    routes: [{
+        path: '/',
+        component: Home
+    }, {
+        path: '/reg',
+        component: Registration
+    }]
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -45081,6 +45087,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45096,8 +45108,153 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             country: '',
             city: '',
             telephone: '',
-            consent: ''
+            consent: '',
+            mailValid: false,
+            passwordValid: false,
+            passwordRepeatValid: false,
+            passwordsMatch: false,
+            invalidMessage_1: '',
+            surnameValid: false,
+            nameValid: false,
+            birthdayValid: false,
+            invalidMessage_2: '',
+            countryValid: false,
+            cityValid: false,
+            telephoneValid: false,
+            invalidMessage_3: '',
+            consentValid: false,
+            invalidMessage_4: ''
         };
+    },
+
+
+    watch: {
+        /*TODO Проверить не используется ли эта почта уже*/
+        email: function email() {
+            var emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+            this.mailValid = emailRegex.test(this.email);
+            /*Делаем проверку на соответствие шаблону регулярного выражения*/
+            if (this.mailValid) {
+                this.invalidMessage_1 = '';
+            } else {
+                this.invalidMessage_1 = 'Введен некорректный адресс электронной почты';
+            }
+        },
+        password: function password() {
+            var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+            /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+            this.passwordValid = passwordRegex.test(this.password);
+            /*Делаем проверку на соответствие шаблону регулярного выражения*/
+            if (this.passwordValid) {
+                this.invalidMessage_1 = '';
+            } else {
+                this.invalidMessage = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' + 'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
+            }
+            /*Проверяем совпадают ли пароли*/
+            if (this.password !== this.password_repeat) {
+                this.invalidMessage_1 += 'Пароли не совпадают.';
+                this.passwordsMatch = false;
+            } else {
+                this.invalidMessage_1 = '';
+                this.passwordsMatch = true;
+            }
+        },
+        password_repeat: function password_repeat() {
+            var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+            /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+            this.passwordRepeatValid = passwordRegex.test(this.password_repeat);
+            /*Делаем проверку на соответствие шаблону регулярного выражения*/
+            if (this.passwordRepeatValid) {
+                this.invalidMessage_1 = '';
+            } else {
+                this.invalidMessage_1 = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' + 'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
+            }
+            /*Проверяем совпадают ли пароли*/
+            if (this.password !== this.password_repeat) {
+                this.invalidMessage_1 += ' Пароли не совпадают.';
+                this.passwordsMatch = false;
+            } else {
+                this.invalidMessage_1 = '';
+                this.passwordsMatch = true;
+            }
+        },
+        surname: function surname() {
+            var Regex = /[A-Za-zА-Яа-я]+[A-Za-zА-Яа-я ]*/;
+            /*Фамилия может содержать только буквы русского и английского алфавитов в любом регистре и пробелы*/
+            this.surnameValid = Regex.test(this.surname);
+            /*Делаем проверку на соответствие шаблону регулярного выражения*/
+            if (this.surnameValid) {
+                this.invalidMessage_2 = '';
+            } else {
+                this.invalidMessage_2 = 'Фамилия может содержать только буквы русского и английского ' + 'алфавитов в любом регистре и пробелы.';
+            }
+        },
+        name: function name() {
+            var Regex = /[A-Za-zА-Яа-я]+[A-Za-zА-Яа-я ]*/;
+            /*Имя может содержать только буквы русского и английского алфавитов в любом регистре и пробелы*/
+            this.nameValid = Regex.test(this.name);
+            /*Делаем проверку на соответствие шаблону регулярного выражения*/
+            if (this.nameValid) {
+                this.invalidMessage_2 = '';
+            } else {
+                this.invalidMessage_2 = 'Имя может содержать только буквы русского и английского алфавитов ' + 'в любом регистре и пробелы.';
+            }
+        },
+        birthday: function birthday() {
+            var now = new Date(); /*Дата сейчас*/
+            var date = new Date(now.getFullYear() - 18, now.getMonth(), now.getDate()); /*Дата сейчас - 18 лет*/
+            var birthdayAsDate = new Date(this.birthday); /*Сделали датой переменную полученную из формы*/
+            /*Проверям что регистрирующийся 18+*/
+            if (birthdayAsDate <= date) {
+                this.invalidMessage_2 = '';
+                this.birthdayValid = true;
+            } else {
+                this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.';
+                this.birthdayValid = false;
+            }
+        },
+        country: function country() {
+            /*Проверяем что значение было выбрано*/
+            if (this.country.length > 0) {
+                this.invalidMessage_3 = '';
+                this.countryValid = true;
+            } else {
+                this.invalidMessage_3 = 'Выберите страну проживания.';
+                this.countryValid = false;
+            }
+        },
+        city: function city() {
+            /*Проверяем что значение было введено*/
+            if (this.city.length > 0) {
+                this.invalidMessage_3 = '';
+                this.cityValid = true;
+            } else {
+                this.invalidMessage_3 = 'Введите город проживания.';
+                this.cityValid = false;
+            }
+        },
+        telephone: function telephone() {
+            var telephoneRegex = /\d [(](\d){3}[)] (\d){3}[-](\d){2}[-](\d){2}/;
+            this.telephoneValid = telephoneRegex.test(this.telephone);
+            /*Проверяем что пользователь ввел номер до конца*/
+            if (this.telephoneValid) {
+                this.invalidMessage_3 = '';
+                this.telephoneValid = true;
+            } else {
+                this.invalidMessage_3 = 'Некорректный номер сотового телефона.';
+                this.telephoneValid = false;
+            }
+        },
+        consent: function consent() {
+            /*Проверяем галочку в чекбоксе*/
+            if (this.consent) {
+                this.invalidMessage_4 = '';
+                this.consentValid = true;
+            } else {
+                this.invalidMessage_4 = 'Необходимо изучить текст соглашения и принять его условия.';
+                this.consentValid = false;
+            }
+        }
     }
 });
 
@@ -45123,13 +45280,27 @@ var render = function() {
                 attrs: {
                   "md-label": "Данные для инициализации в системе",
                   "md-button-back": "Назад",
-                  "md-button-continue": "Далее"
+                  "md-button-continue": "Далее",
+                  "md-editable": true,
+                  "md-error":
+                    !_vm.mailValid &&
+                    !_vm.passwordValid &&
+                    !_vm.passwordRepeatValid,
+                  "md-continue":
+                    _vm.mailValid &&
+                    _vm.passwordValid &&
+                    _vm.passwordRepeatValid &&
+                    _vm.passwordsMatch,
+                  "md-message": _vm.invalidMessage_1
                 }
               },
               [
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.mailValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("E-mail")]),
                     _vm._v(" "),
@@ -45143,7 +45314,7 @@ var render = function() {
                       model: {
                         value: _vm.email,
                         callback: function($$v) {
-                          _vm.email = $$v
+                          _vm.email = typeof $$v === "string" ? $$v.trim() : $$v
                         },
                         expression: "email"
                       }
@@ -45154,7 +45325,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.passwordValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("Пароль")]),
                     _vm._v(" "),
@@ -45162,14 +45336,13 @@ var render = function() {
                       attrs: {
                         name: "password",
                         type: "password",
-                        pattern:
-                          "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$",
                         required: ""
                       },
                       model: {
                         value: _vm.password,
                         callback: function($$v) {
-                          _vm.password = $$v
+                          _vm.password =
+                            typeof $$v === "string" ? $$v.trim() : $$v
                         },
                         expression: "password"
                       }
@@ -45180,7 +45353,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.passwordRepeatValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("Повторите ваш пароль")]),
                     _vm._v(" "),
@@ -45188,14 +45364,13 @@ var render = function() {
                       attrs: {
                         name: "password_repeat",
                         type: "password",
-                        pattern:
-                          "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$",
                         required: ""
                       },
                       model: {
                         value: _vm.password_repeat,
                         callback: function($$v) {
-                          _vm.password_repeat = $$v
+                          _vm.password_repeat =
+                            typeof $$v === "string" ? $$v.trim() : $$v
                         },
                         expression: "password_repeat"
                       }
@@ -45213,13 +45388,22 @@ var render = function() {
                 attrs: {
                   "md-label": "Персональные данные",
                   "md-button-back": "Назад",
-                  "md-button-continue": "Далее"
+                  "md-button-continue": "Далее",
+                  "md-editable": true,
+                  "md-error":
+                    !_vm.surnameValid && !_vm.nameValid && !_vm.birthdayValid,
+                  "md-continue":
+                    _vm.surnameValid && _vm.nameValid && _vm.birthdayValid,
+                  "md-message": _vm.invalidMessage_2
                 }
               },
               [
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.surnameValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("Фамилия")]),
                     _vm._v(" "),
@@ -45233,7 +45417,8 @@ var render = function() {
                       model: {
                         value: _vm.surname,
                         callback: function($$v) {
-                          _vm.surname = $$v
+                          _vm.surname =
+                            typeof $$v === "string" ? $$v.trim() : $$v
                         },
                         expression: "surname"
                       }
@@ -45244,7 +45429,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.nameValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("Имя")]),
                     _vm._v(" "),
@@ -45258,7 +45446,7 @@ var render = function() {
                       model: {
                         value: _vm.name,
                         callback: function($$v) {
-                          _vm.name = $$v
+                          _vm.name = typeof $$v === "string" ? $$v.trim() : $$v
                         },
                         expression: "name"
                       }
@@ -45282,7 +45470,8 @@ var render = function() {
                       model: {
                         value: _vm.patronymic,
                         callback: function($$v) {
-                          _vm.patronymic = $$v
+                          _vm.patronymic =
+                            typeof $$v === "string" ? $$v.trim() : $$v
                         },
                         expression: "patronymic"
                       }
@@ -45333,6 +45522,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "md-input-container",
+                  { class: { "md-input-invalid": !_vm.birthdayValid } },
                   [
                     _c("label", [_vm._v("Дата рождения")]),
                     _vm._v(" "),
@@ -45342,7 +45532,6 @@ var render = function() {
                         name: "birthday",
                         type: "date",
                         min: "1920-01-01",
-                        max: "1999-12-31",
                         required: ""
                       },
                       model: {
@@ -45366,7 +45555,13 @@ var render = function() {
                 attrs: {
                   "md-label": "Контактные данные",
                   "md-button-back": "Назад",
-                  "md-button-continue": "Далее"
+                  "md-button-continue": "Далее",
+                  "md-editable": true,
+                  "md-error":
+                    !_vm.countryValid && !_vm.cityValid && !_vm.telephoneValid,
+                  "md-continue":
+                    _vm.countryValid && _vm.cityValid && _vm.telephoneValid,
+                  "md-message": _vm.invalidMessage_3
                 }
               },
               [
@@ -45384,6 +45579,7 @@ var render = function() {
                         _c(
                           "md-select",
                           {
+                            class: { "md-input-invalid": !_vm.countryValid },
                             attrs: {
                               name: "country",
                               id: "country",
@@ -45441,7 +45637,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.cityValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("Город")]),
                     _vm._v(" "),
@@ -45466,7 +45665,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "md-input-container",
-                  { attrs: { "md-clearable": "" } },
+                  {
+                    class: { "md-input-invalid": !_vm.telephoneValid },
+                    attrs: { "md-clearable": "" }
+                  },
                   [
                     _c("label", [_vm._v("Телефон")]),
                     _vm._v(" "),
@@ -45475,8 +45677,8 @@ var render = function() {
                         {
                           name: "mask",
                           rawName: "v-mask",
-                          value: "# (###) ### ## ##",
-                          expression: "'# (###) ### ## ##'"
+                          value: "# (###) ###-##-##",
+                          expression: "'# (###) ###-##-##'"
                         }
                       ],
                       attrs: { name: "text", type: "tel", required: "" },
@@ -45501,7 +45703,11 @@ var render = function() {
                 attrs: {
                   "md-label": "Правила участия",
                   "md-button-back": "Назад",
-                  "md-button-continue": "Завершить"
+                  "md-button-continue": "Завершить",
+                  "md-editable": true,
+                  "md-error": !_vm.consentValid,
+                  "md-continue": _vm.consentValid,
+                  "md-message": _vm.invalidMessage_4
                 }
               },
               [
@@ -45511,7 +45717,8 @@ var render = function() {
                     _c(
                       "md-checkbox",
                       {
-                        attrs: { id: "consent", name: "consent" },
+                        class: { "md-input-invalid": !_vm.consentValid },
+                        attrs: { id: "consent", name: "consent", required: "" },
                         model: {
                           value: _vm.consent,
                           callback: function($$v) {
@@ -45624,13 +45831,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            initialValue: ''
+            login: ''
         };
     }
 });
@@ -45644,68 +45849,66 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "log-in" }, [
-    _c("form", [
-      _c(
-        "form",
-        {
-          attrs: { novalidate: "" },
-          on: {
-            submit: function($event) {
-              $event.stopPropagation()
-              $event.preventDefault()
-              _vm.submit($event)
-            }
+    _c(
+      "form",
+      {
+        attrs: { novalidate: "" },
+        on: {
+          submit: function($event) {
+            $event.stopPropagation()
+            $event.preventDefault()
+            _vm.submit($event)
           }
-        },
-        [
-          _c(
-            "md-input-container",
-            { attrs: { "md-clearable": "" } },
-            [
-              _c("label", [_vm._v("Введите ваш логин")]),
-              _vm._v(" "),
-              _c("md-input", {
-                attrs: { type: "email", required: "", name: "login" },
-                model: {
-                  value: _vm.initialValue,
-                  callback: function($$v) {
-                    _vm.initialValue = $$v
-                  },
-                  expression: "initialValue"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "md-input-container",
-            { attrs: { "md-has-password": "" } },
-            [
-              _c("label", [_vm._v("Введите пароль")]),
-              _vm._v(" "),
-              _c("md-input", {
-                attrs: {
-                  type: "password",
-                  required: "",
-                  name: "password",
-                  pattern:
-                    "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("md-button", { staticClass: "md-raised" }, [_vm._v("Войти")]),
-          _vm._v(" "),
-          _c("md-button", { staticClass: "md-raised md-warn" }, [
-            _vm._v("Зарегистрироваться")
-          ])
-        ],
-        1
-      )
-    ])
+        }
+      },
+      [
+        _c(
+          "md-input-container",
+          { attrs: { "md-clearable": "" } },
+          [
+            _c("label", [_vm._v("Введите ваш логин")]),
+            _vm._v(" "),
+            _c("md-input", {
+              attrs: { type: "email", required: "", name: "login" },
+              model: {
+                value: _vm.login,
+                callback: function($$v) {
+                  _vm.login = $$v
+                },
+                expression: "login"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "md-input-container",
+          { attrs: { "md-has-password": "" } },
+          [
+            _c("label", [_vm._v("Введите пароль")]),
+            _vm._v(" "),
+            _c("md-input", {
+              attrs: {
+                type: "password",
+                required: "",
+                name: "password",
+                pattern:
+                  "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("md-button", { staticClass: "md-raised" }, [_vm._v("Войти")]),
+        _vm._v(" "),
+        _c("md-button", { staticClass: "md-raised md-warn" }, [
+          _vm._v("Зарегистрироваться")
+        ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []

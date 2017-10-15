@@ -46,10 +46,17 @@ var Home = require('./components/Home.vue');
 var Registration = require('./components/Registration.vue');
 
 const router = new VueRouter({
-    routes: [
-        { path: '/', component: Home },
-        { path: '/reg', component: Registration }
-    ]
+    routes:
+        [
+            {
+                path: '/',
+                component: Home
+            },
+            {
+                path: '/reg',
+                component: Registration
+            }
+        ]
 });
 
 const app = new Vue(
