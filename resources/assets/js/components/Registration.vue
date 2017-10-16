@@ -93,7 +93,8 @@
                 </md-step>
                 <!--4. Ознакомление с правилами участия-->
                 <md-step md-label="Правила участия" md-button-back="Назад" md-button-continue="Завершить"
-                         :md-editable="true" :md-error="!consentValid" :md-continue="consentValid" :md-message="invalidMessage_4">
+                         :md-editable="true" :md-error="!consentValid" :md-continue="consentValid"
+                         :md-message="invalidMessage_4">
                     <div>
                         <md-checkbox id="consent" name="consent" v-model="consent" required
                                      :class="{'md-input-invalid': !consentValid}">
@@ -211,7 +212,7 @@
                     telephoneValid: false,
                     invalidMessage_3: '',
                     consentValid: false,
-                    invalidMessage_4: ''
+                    invalidMessage_4: 'Необходимо изучить текст соглашения и принять его условия.'
                 };
             },
             
@@ -229,14 +230,15 @@
                     } 
                     else 
                     {
-                        this.invalidMessage_1 = 'Введен некорректный адресс электронной почты';
+                        this.invalidMessage_1 = 'Введен некорректный адресс электронной почты.';
                     }
                 },
                 
                 password()
                 {
                     var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-                    /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+                    /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может
+                     быть меньше 8 и больше 32 символов.*/
                     this.passwordValid = passwordRegex.test(this.password);
                     /*Делаем проверку на соответствие шаблону регулярного выражения*/
                     if (this.passwordValid)
@@ -245,14 +247,14 @@
                     } 
                     else 
                     {
-                        this.invalidMessage = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' +
+                        this.invalidMessage_1 = 'Пароль должен содержать хотя бы 1 цифру, букву в верхнем и нижнем ' +
                             'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
                     }
                     /*Проверяем совпадают ли пароли*/
                     if(this.password !== this.password_repeat)
                     {
-                       this.invalidMessage_1 += 'Пароли не совпадают.';
-                        this.passwordsMatch = false;
+                       this.invalidMessage_1 += ' Пароли не совпадают.';
+                       this.passwordsMatch = false;
                     }
                     else
                     {
@@ -264,16 +266,17 @@
                 password_repeat()
                 {
                     var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-                    /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+                    /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может
+                     быть меньше 8 и больше 32 символов.*/
                     this.passwordRepeatValid = passwordRegex.test(this.password_repeat);
                     /*Делаем проверку на соответствие шаблону регулярного выражения*/
                     if (this.passwordRepeatValid)
                     {
                         this.invalidMessage_1 = '';
-                    } 
-                    else 
+                    }
+                    else
                     {
-                        this.invalidMessage_1 = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' +
+                        this.invalidMessage_1 = 'Пароль должен содержать хотя бы 1 цифру, букву в верхнем и нижнем ' +
                             'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
                     }
                     /*Проверяем совпадают ли пароли*/

@@ -45093,6 +45093,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45123,7 +45124,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             telephoneValid: false,
             invalidMessage_3: '',
             consentValid: false,
-            invalidMessage_4: ''
+            invalidMessage_4: 'Необходимо изучить текст соглашения и принять его условия.'
         };
     },
 
@@ -45137,22 +45138,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.mailValid) {
                 this.invalidMessage_1 = '';
             } else {
-                this.invalidMessage_1 = 'Введен некорректный адресс электронной почты';
+                this.invalidMessage_1 = 'Введен некорректный адресс электронной почты.';
             }
         },
         password: function password() {
             var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-            /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+            /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может
+             быть меньше 8 и больше 32 символов.*/
             this.passwordValid = passwordRegex.test(this.password);
             /*Делаем проверку на соответствие шаблону регулярного выражения*/
             if (this.passwordValid) {
                 this.invalidMessage_1 = '';
             } else {
-                this.invalidMessage = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' + 'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
+                this.invalidMessage_1 = 'Пароль должен содержать хотя бы 1 цифру, букву в верхнем и нижнем ' + 'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
             }
             /*Проверяем совпадают ли пароли*/
             if (this.password !== this.password_repeat) {
-                this.invalidMessage_1 += 'Пароли не совпадают.';
+                this.invalidMessage_1 += ' Пароли не совпадают.';
                 this.passwordsMatch = false;
             } else {
                 this.invalidMessage_1 = '';
@@ -45161,13 +45163,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         password_repeat: function password_repeat() {
             var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-            /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может быть меньше 8 и больше 32 символов.*/
+            /*Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем регистре. Длина пароля не может
+             быть меньше 8 и больше 32 символов.*/
             this.passwordRepeatValid = passwordRegex.test(this.password_repeat);
             /*Делаем проверку на соответствие шаблону регулярного выражения*/
             if (this.passwordRepeatValid) {
                 this.invalidMessage_1 = '';
             } else {
-                this.invalidMessage_1 = 'Пароль должен содержать хотя бы цифру, букву в верхнем и нижнем ' + 'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
+                this.invalidMessage_1 = 'Пароль должен содержать хотя бы 1 цифру, букву в верхнем и нижнем ' + 'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
             }
             /*Проверяем совпадают ли пароли*/
             if (this.password !== this.password_repeat) {

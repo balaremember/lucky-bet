@@ -13,9 +13,20 @@
     padding: 1.5em;
 }
 
+.registration_box
+{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 5vh;
+    padding-left: 1vh;
+}
+
 .log-in
 {
-
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 5vh;
+    padding-left: 5vh;
 }
 
 #head
@@ -26,5 +37,5 @@
 
 #logo
 {
-    cursor: poiter;
+    cursor: pointer;
 }
