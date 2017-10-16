@@ -22,11 +22,13 @@
 <div id="app">
     <header id="head">
         <nav>
+            <router-link id="logo" to="/">Lucky Bet</router-link>
+        </nav>
+    </header>
+        <nav>
             <router-link to="/">Главная страница</router-link>
             <router-link to="/reg">Регистрация</router-link>
         </nav>
-    </header>
-
     <router-view></router-view>
 
     <footer>

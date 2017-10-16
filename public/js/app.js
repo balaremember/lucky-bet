@@ -45114,15 +45114,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             passwordValid: false,
             passwordRepeatValid: false,
             passwordsMatch: false,
-            invalidMessage_1: '',
+            invalidMessage_1: 'Необходимо заполнить обязательные поля перед тем как продолжить.',
             surnameValid: false,
             nameValid: false,
             birthdayValid: false,
-            invalidMessage_2: '',
+            invalidMessage_2: 'Необходимо заполнить обязательные поля перед тем как продолжить.',
             countryValid: false,
             cityValid: false,
             telephoneValid: false,
-            invalidMessage_3: '',
+            invalidMessage_3: 'Необходимо заполнить обязательные поля перед тем как продолжить.',
             consentValid: false,
             invalidMessage_4: 'Необходимо изучить текст соглашения и принять его условия.'
         };
@@ -45838,7 +45838,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            login: ''
+            login: '',
+            password: ''
         };
     }
 });
@@ -45876,7 +45877,7 @@ var render = function() {
               model: {
                 value: _vm.login,
                 callback: function($$v) {
-                  _vm.login = $$v
+                  _vm.login = typeof $$v === "string" ? $$v.trim() : $$v
                 },
                 expression: "login"
               }
@@ -45892,17 +45893,20 @@ var render = function() {
             _c("label", [_vm._v("Введите пароль")]),
             _vm._v(" "),
             _c("md-input", {
-              attrs: {
-                type: "password",
-                required: "",
-                name: "password",
-                pattern:
-                  "(?=^.{8,32}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              attrs: { type: "password", required: "", name: "password" },
+              model: {
+                value: _vm.password,
+                callback: function($$v) {
+                  _vm.password = typeof $$v === "string" ? $$v.trim() : $$v
+                },
+                expression: "password"
               }
             })
           ],
           1
         ),
+        _vm._v(" "),
+        _c("md-button", { staticClass: "md-raised" }, [_vm._v("Забыл пароль")]),
         _vm._v(" "),
         _c("md-button", { staticClass: "md-raised" }, [_vm._v("Войти")]),
         _vm._v(" "),

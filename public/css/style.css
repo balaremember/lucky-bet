@@ -31,11 +31,33 @@
 
 #head
 {
+    padding-top: 7vh;
     background-color: #7986cb;
     height: 20vh;
+    border-bottom: 1px solid black;
+}
+
+/*Подключаем шрифт*/
+@font-face
+{
+    font-family: BitScript;
+    src:url(./fonts/MyFonts/BitScript.ttf);
 }
 
 #logo
 {
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 30px;
+    background-color: #7986cb;
+    color: #ffffff;
+    font-family: BitScript;
+    font-size: 72px;
     cursor: pointer;
+}
+
+#logo:hover
+{
+    text-decoration: none;
+    background-color: rgba(96, 107, 165, 0.5);
 }

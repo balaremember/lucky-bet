@@ -202,15 +202,15 @@
                     passwordValid: false,
                     passwordRepeatValid: false,
                     passwordsMatch: false,
-                    invalidMessage_1: '',
+                    invalidMessage_1: 'Необходимо заполнить обязательные поля перед тем как продолжить.',
                     surnameValid: false,
                     nameValid: false,
                     birthdayValid: false,
-                    invalidMessage_2: '',
+                    invalidMessage_2: 'Необходимо заполнить обязательные поля перед тем как продолжить.',
                     countryValid: false,
                     cityValid: false,
                     telephoneValid: false,
-                    invalidMessage_3: '',
+                    invalidMessage_3: 'Необходимо заполнить обязательные поля перед тем как продолжить.',
                     consentValid: false,
                     invalidMessage_4: 'Необходимо изучить текст соглашения и принять его условия.'
                 };
