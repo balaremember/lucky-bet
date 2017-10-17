@@ -21,14 +21,10 @@
 <body>
 <div id="app">
     <header id="head">
-        <nav>
             <router-link id="logo" to="/">Lucky Bet</router-link>
-        </nav>
+            <a>Как делать ставки</a>
+            <a>О нас</a>
     </header>
-        <nav>
-            <router-link to="/">Главная страница</router-link>
-            <router-link to="/reg">Регистрация</router-link>
-        </nav>
     <router-view></router-view>
 
     <footer>

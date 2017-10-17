@@ -16,7 +16,9 @@
                 <md-button class="md-raised">Забыл пароль</md-button>
                 <md-button class="md-raised">Войти</md-button>
 
-                <md-button class="md-raised md-warn" >Зарегистрироваться</md-button>
+                <router-link to="/reg">
+                    <md-button class="md-raised md-warn" >Зарегестрироваться</md-button>
+                </router-link>
             </form>
         </div>
 </template>

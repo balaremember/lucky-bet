@@ -11340,7 +11340,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.material.registerTheme('default', {
         hue: 300,
         textColor: 'white'
     },
-    accent: 'red'
+    accent: 'white'
 
 });
 
@@ -45834,6 +45834,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45910,9 +45912,16 @@ var render = function() {
         _vm._v(" "),
         _c("md-button", { staticClass: "md-raised" }, [_vm._v("Войти")]),
         _vm._v(" "),
-        _c("md-button", { staticClass: "md-raised md-warn" }, [
-          _vm._v("Зарегистрироваться")
-        ])
+        _c(
+          "router-link",
+          { attrs: { to: "/reg" } },
+          [
+            _c("md-button", { staticClass: "md-raised md-warn" }, [
+              _vm._v("Зарегестрироваться")
+            ])
+          ],
+          1
+        )
       ],
       1
     )
