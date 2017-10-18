@@ -6,7 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta http-equiv="pragma" content="no-cache"/>
+    <!--Запрет кэширования страницы ТОЛЬКО браузером-->
+    <meta http-equiv="Cache-Control" content="private">
     <!--CSS-->
     <!--Стили Laravel по умолчанию-->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -21,12 +22,30 @@
 <body>
 <div id="app">
     <header id="head">
+        <nav id="navbar">
+            <!--TODO поменять ссылки позже-->
             <router-link id="logo" to="/">Lucky Bet</router-link>
-            <a>Как делать ставки</a>
-            <a>О нас</a>
+            <router-link to="/">Как делать ставки</router-link>
+            <router-link to="/">О нас</router-link>
+            <router-link to="/">Вакансии</router-link>
+        </nav>
+        <div>
+            <!--Форма входа-->
+        </div>        
     </header>
-    <router-view></router-view>
-
+    <main>
+        <aside id="#left_sidebar">
+        
+        </aside>
+        <section id="slider">
+        
+        </section>
+        <section id="main_section">
+            <!--Основная перерисовка будет происходить здесь-->
+            <router-view></router-view>
+        </section>
+        <aside id="right_sidebar"></aside>
+    </main>
     <footer>
 
     </footer>

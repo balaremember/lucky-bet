@@ -1,4 +1,4 @@
-/*Здесь будут стили которые писали мы сами*/
+/*Здесь будут стили который писали мы сами*/
 
 /*-------------------------------------------------------------------*/
 
@@ -17,16 +17,16 @@
 {
     padding-top: 1vh;
     padding-bottom: 1vh;
-    padding-right: 5vh;
-    padding-left: 1vh;
+    padding-right: 5vw;
+    padding-left: 1vw;
 }
 
 .log-in
 {
     padding-top: 1vh;
     padding-bottom: 1vh;
-    padding-right: 5vh;
-    padding-left: 5vh;
+    padding-right: 5vw;
+    padding-left: 5vw;
 }
 
 #head
@@ -37,7 +37,7 @@
     border-bottom: 1px solid black;
 }
 
-/*Подключаем шрифт*/
+/*Подключили шрифт для лого*/
 @font-face
 {
     font-family: BitScript;
@@ -46,12 +46,19 @@
 
 #logo
 {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-family: BitScript;
     font-size: 48px;
 }
 
-a
+#navbar > a:not(#logo)
 {
+    color: white;
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -60,7 +67,7 @@ a
     padding-right: 20px;
 }
 
-#head > a:hover
+#navbar > a:hover
 {
     text-decoration: none;
     background-color: rgba(96, 107, 165, 0.5);

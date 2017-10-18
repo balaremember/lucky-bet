@@ -11340,7 +11340,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.material.registerTheme('default', {
         hue: 300,
         textColor: 'white'
     },
-    accent: 'white'
+    accent: 'red'
 
 });
 

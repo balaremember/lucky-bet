@@ -28,7 +28,7 @@ Vue.material.registerTheme('default',
             hue: 300,
             textColor: 'white'
         },
-        accent: 'white',
+        accent: 'red',
 
     });
 
