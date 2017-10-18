@@ -41,16 +41,22 @@ Vue.material.registerTheme('default',
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('registration', require('./components/Registration.vue'));
 Vue.component('home', require('./components/Home.vue'));
+Vue.component('onboarding', require('./components/Onboarding.vue'));
 
 var Home = require('./components/Home.vue');
 var Registration = require('./components/Registration.vue');
+var OnBoarding = require('./components/Onboarding.vue');
 
 const router = new VueRouter({
     routes:
         [
             {
                 path: '/',
-                component: Home
+                components: {
+                    default: Home,
+                    board: OnBoarding,
+
+                }
             },
             {
                 path: '/reg',

@@ -42,6 +42,7 @@
         </section>
         <section id="main_section">
             <!--Основная перерисовка будет происходить здесь-->
+            <router-view name="board"></router-view>
             <router-view></router-view>
         </section>
         <aside id="right_sidebar"></aside>
@@ -52,5 +53,6 @@
 </div>
     <!--JS-->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </body>
 </html>

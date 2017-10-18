@@ -186,7 +186,7 @@
         {
             data() {
                 return {
-                    email: '', 
+                    email: '',
                     password: '',
                     password_repeat: '',
                     surname: '',
@@ -215,8 +215,8 @@
                     invalidMessage_4: 'Необходимо изучить текст соглашения и принять его условия.'
                 };
             },
-            
-            watch: 
+
+            watch:
             {
                 /*TODO Проверить не используется ли эта почта уже*/
                 email()
@@ -227,13 +227,13 @@
                     if (this.mailValid)
                     {
                         this.invalidMessage_1 = '';
-                    } 
-                    else 
+                    }
+                    else
                     {
                         this.invalidMessage_1 = 'Введен некорректный адресс электронной почты.';
                     }
                 },
-                
+
                 password()
                 {
                     var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
@@ -244,8 +244,8 @@
                     if (this.passwordValid)
                     {
                         this.invalidMessage_1 = '';
-                    } 
-                    else 
+                    }
+                    else
                     {
                         this.invalidMessage_1 = 'Пароль должен содержать хотя бы 1 цифру, букву в верхнем и нижнем ' +
                             'регистре. Длина пароля не может быть меньше 8 и больше 32 символов.';
@@ -262,7 +262,7 @@
                         this.passwordsMatch = true;
                     }
                 },
-                
+
                 password_repeat()
                 {
                     var passwordRegex = /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
@@ -291,7 +291,7 @@
                         this.passwordsMatch = true;
                     }
                 },
-                
+
                 surname()
                 {
                     var Regex = /[A-Za-zА-Яа-я]+[A-Za-zА-Яа-я ]*/;
@@ -301,14 +301,14 @@
                     if (this.surnameValid)
                     {
                         this.invalidMessage_2 = '';
-                    } 
-                    else 
+                    }
+                    else
                     {
                         this.invalidMessage_2 = 'Фамилия может содержать только буквы русского и английского ' +
                             'алфавитов в любом регистре и пробелы.';
                     }
                 },
-                
+
                 name()
                 {
                     var Regex = /[A-Za-zА-Яа-я]+[A-Za-zА-Яа-я ]*/;
@@ -318,14 +318,14 @@
                     if (this.nameValid)
                     {
                         this.invalidMessage_2 = '';
-                    } 
-                    else 
+                    }
+                    else
                     {
                         this.invalidMessage_2 = 'Имя может содержать только буквы русского и английского алфавитов ' +
                             'в любом регистре и пробелы.';
                     }
                 },
-                
+
                 birthday()
                 {
                     var now = new Date(); /*Дата сейчас*/
@@ -343,7 +343,7 @@
                        this.birthdayValid = false;
                     }
                 },
-                
+
                 country()
                 {
                     /*Проверяем что значение было выбрано*/
@@ -358,7 +358,7 @@
                        this.countryValid = false;
                     }
                 },
-                
+
                 city()
                 {
                     /*Проверяем что значение было введено*/
@@ -373,7 +373,7 @@
                        this.cityValid = false;
                     }
                 },
-                
+
                 telephone()
                 {
                     var telephoneRegex = /\d [(](\d){3}[)] (\d){3}[-](\d){2}[-](\d){2}/;
@@ -390,7 +390,7 @@
                        this.telephoneValid = false;
                     }
                 },
-                
+
                 consent()
                 {
                     /*Проверяем галочку в чекбоксе*/
@@ -405,7 +405,7 @@
                        this.consentValid = false;
                     }
                 }
-                
+
             }
         }
 </script>
