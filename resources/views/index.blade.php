@@ -34,16 +34,32 @@
         </div>        
     </header>
     <main>
-        <aside id="#left_sidebar">
-        
+        <aside id="left_sidebar">
+            <div id="line">
+                <p>Линия</p>
+            </div>
+            <!--ВСЕ ВИДЫ СТАВОК-->
+            <ul>
+                <li>Футбол</li>
+                <li>Хоккей</li>
+                <li>Теннис</li>
+                <li>Бокс</li>
+                <li>Баскетбол</li>
+                <li>Авто-мото спорт</li>
+                <li>Бадминтон</li>
+                <li>Биатлон</li>
+                <li>Гандбол</li>
+                <li>Регби</li>
+                <li>Хоккей с мячом</li>
+                <li>Шахматы</li>
+            </ul>
         </aside>
         <section id="slider">
-        
+            <router-view name="board"></router-view>
         </section>
         <section id="main_section">
             <!--Основная перерисовка будет происходить здесь-->
-            <router-view name="board"></router-view>
-            <router-view></router-view>
+            <!--<router-view></router-view>-->
         </section>
         <aside id="right_sidebar"></aside>
     </main>
@@ -53,6 +69,5 @@
 </div>
     <!--JS-->
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </body>
 </html>

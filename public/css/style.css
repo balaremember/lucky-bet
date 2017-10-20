@@ -65,6 +65,7 @@
     margin-left: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    font-family: cursive;
 }
 
 #navbar > a:hover
@@ -73,3 +74,61 @@
     background-color: rgba(96, 107, 165, 0.5);
     cursor: pointer;
 }
+
+#navbar > a:active
+{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#left_sidebar > #line > p
+{
+    text-align: center;
+    background: #7986cb;
+    padding: 1px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1em;
+    padding-top: 5px;
+    font-family: cursive;
+    text-decoration: underline;
+}
+
+#left_sidebar
+{
+    float: left;
+    width: 20vw;
+    border-right: 1px solid black;
+    background-color: #7986cb;
+}
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#left_sidebar > ul > li
+{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    line-height: normal;
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 2em;
+    margin-top: 0;
+}
+
+li:hover
+{
+    background-color: rgba(96, 107, 165, 0.5);
+    cursor: pointer;
+}
+
+li:active
+{
+    background: rgba(255, 255, 255, 0.1);
+}
+

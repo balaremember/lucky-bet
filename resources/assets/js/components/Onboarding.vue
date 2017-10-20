@@ -1,3 +1,4 @@
+<!--TODO: Растянуть фото внутри слайдера на все окно-->
 <template>
     <div id="sliderImg"></div>
 </template>
@@ -7,23 +8,28 @@
 </script>
 
 <style>
-    #sliderImg{
-        margin: auto;         /* https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp  */
-        margin-top: 5%;
-        height:300px;
-        width:600px;
+    #sliderImg
+    {
+        margin-left: 20vw;
+        height: 40vh;
+        width: 60vw;
         box-shadow: 1px 2px 5px #444;
-        -webkit-animation:slider-animation 5s infinite; /* Chrome, Safari, Opera */
-        animation:slider-animation 15s infinite;
+        /*-webkit-animation:slider-animation 3s infinite;*/ /* Chrome, Safari, Opera */
+        animation:slider-animation 36s infinite;
+        background-size: 100%;        
     }
     @-webkit-keyframes slider-animation
     {
-        0%   {background:url('https://ru.inettools.net/upload/REsgpU70jNAgaEedEAdy94y9OrTiYtcPiN71cyFE/1.Uod.jpg')}
-        15%  {background:url('https://srv4.imgonline.com.ua/result_img/imgonline-com-ua-Resize-rsqj3WHxzAlfev.jpg')}
-        30%  {background:url('https://srv4.imgonline.com.ua/result_img/imgonline-com-ua-Resize-GlwrQ5yZzIidHv5.jpg')}
-        50%  {background:url('https://ru.inettools.net/upload/REsgpU70jNAgaEedEAdy94y9OrTiYtcPiN71cyFE/1.Uod.jpg')}
-        65%   {background:url('https://ru.inettools.net/upload/REsgpU70jNAgaEedEAdy94y9OrTiYtcPiN71cyFE/1.Uod.jpg')}
-        80%  {background:url('https://srv4.imgonline.com.ua/result_img/imgonline-com-ua-Resize-rsqj3WHxzAlfev.jpg')}
-        100%  {background:url('https://ru.inettools.net/upload/REsgpU70jNAgaEedEAdy94y9OrTiYtcPiN71cyFE/1.Uod.jpg')}
+        0%   {background:url('/images/skrudzh.jpg') no-repeat; }
+        10%  {background:url('/images/skrudzh.jpg')no-repeat; }
+        20%  {background:url('/images/skrudzh.jpg')no-repeat; }
+        30%  {background:url('/images/skrudzh.jpg')|no-repeat; }
+        40%  {background:url('/images/mnogo_deneg.jpg')no-repeat; }
+        50%  {background:url('/images/mnogo_deneg.jpg')no-repeat; }
+        60%  {background:url('/images/mnogo_deneg.jpg')no-repeat; }
+        70%  {background:url('/images/devushka_v_krasnom.jpg')no-repeat; }
+        80%  {background:url('/images/devushka_v_krasnom.jpg')no-repeat; }
+        90%  {background:url('/images/devushka_v_krasnom.jpg')no-repeat; }
+        100% {background:url('/images/devushka_v_krasnom.jpg')no-repeat; }
     }
 </style>
