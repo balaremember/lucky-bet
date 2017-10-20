@@ -70,6 +70,29 @@
                     <!--Здесь будут отображать выбранные ставки, коэффициенты и суммы-->
                 </div>
             </div>
+            <!--Mobile-->
+            <div id="mobile">
+                <div>
+                    <p>Мобильные приложения</p>
+                </div>
+                <div>
+                    <ul>
+                        <!--iOS-->
+                        <li class="mobile">
+                            <md-button id="button_ios">
+                                <!--TODO: найти иконку для iOS-->
+                                    <md-icon></md-icon> iOS
+                            </md-button>
+                        </li>
+                        <!--Android-->
+                        <li class="mobile">
+                            <md-button id="button_android">
+                                    <md-icon>android</md-icon> Anroid
+                            </md-button>    
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </aside>
         <section id="slider">
             <router-view name="board"></router-view>
