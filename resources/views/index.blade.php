@@ -54,6 +54,23 @@
                 <li>Шахматы</li>
             </ul>
         </aside>
+        <aside id="right_sidebar">
+            <!--Купон-->
+            <div id="coupon">
+                <div>
+                    <p>Купон</p>
+                </div>
+                <div id="#containerClearCoupon">
+                    <md-button id="buttonClearCoupon" class="md-icon-button">
+                        <md-icon>clear</md-icon>
+                    </md-button>
+                </div>
+                <br><hr>
+                <div>
+                    <!--Здесь будут отображать выбранные ставки, коэффициенты и суммы-->
+                </div>
+            </div>
+        </aside>
         <section id="slider">
             <router-view name="board"></router-view>
         </section>
@@ -61,7 +78,6 @@
             <!--Основная перерисовка будет происходить здесь-->
             <!--<router-view></router-view>-->
         </section>
-        <aside id="right_sidebar"></aside>
     </main>
     <footer>
 
