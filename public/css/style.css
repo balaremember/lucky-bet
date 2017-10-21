@@ -195,3 +195,39 @@ div #mobile > div > p
     padding-bottom: 20px;
     border-bottom: 1px solid black;
 }
+
+#help > p:first-child
+{
+    text-align: center;
+    background: #7986cb;
+    padding: 1px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1em;
+    padding-top: 5px;
+    font-family: cursive;
+    text-decoration: underline;
+    padding-bottom: 15px;
+}
+
+#help > p
+{
+    text-align: center;
+    background: #7986cb;
+    padding: 1px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1em;
+}
+
+#help > p#help_tel, #help > p#help_email
+{
+    font-size: 28px;
+}
+
+#help
+{
+    border-bottom: 1px solid black;
+}

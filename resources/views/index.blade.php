@@ -93,6 +93,14 @@
                     </ul>
                 </div>
             </div>
+            <!--HELP-->
+            <div id="help">
+                <p>Онлайн поддержка</p>
+                <p id="help_tel">8 (800) 555-35-35</p>
+                <p>Звонок бесплатный</p>
+                <p>Электронная почта</p>
+                <p id="help_email">info@lucky-bet.com</p>
+            </div>
         </aside>
         <section id="slider">
             <router-view name="board"></router-view>
