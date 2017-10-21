@@ -46,8 +46,11 @@ Vue.component('onboarding', require('./components/Onboarding.vue'));
 var Home = require('./components/Home.vue');
 var Registration = require('./components/Registration.vue');
 var OnBoarding = require('./components/Onboarding.vue');
+var LeftSidebar = require('./components/LeftSidebar.vue');
+var RightSidebar = require('./components/RightSidebar.vue');
 
 const router = new VueRouter({
+    mode: 'history',
     routes:
         [
             {
@@ -55,12 +58,16 @@ const router = new VueRouter({
                 components: {
                     default: Home,
                     board: OnBoarding,
+                    left: LeftSidebar,
+                    right: RightSidebar,
 
                 }
             },
             {
                 path: '/reg',
-                component: Registration
+                components: {
+                    registration: Registration,
+                }
             }
         ]
 });
