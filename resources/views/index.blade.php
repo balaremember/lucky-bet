@@ -22,22 +22,23 @@
 <body>
 <div id="app">
     <header id="head">
-        <nav id="navbar">
-            <!--TODO поменять ссылки позже-->
-            <router-link id="logo" to="/">Lucky Bet</router-link>
-            <router-link to="/">Как делать ставки</router-link>
-            <router-link to="/">О нас</router-link>
-            <router-link to="/">Вакансии</router-link>
-        </nav>
-        <div>
+        <div id="navbar_container">
+            <nav id="navbar">
+                <!--TODO поменять ссылки позже-->
+                <router-link id="logo" to="/reg">Lucky Bet</router-link>
+                <router-link to="/">Как делать ставки</router-link>
+                <router-link to="/">О нас</router-link>
+                <router-link to="/">Вакансии</router-link>
+            </nav>
+        </div>
+        <div id="init_form">
             {{--<router-view></router-view>--}}
         </div>        
     </header>
     <main>
         <router-view name="left"></router-view>
         <router-view name="right"></router-view>
-        <section id="slider">
-            <router-view name="board"></router-view>
+        <section id="slider"><router-view name="board"></router-view>
         </section>
         <section id="main_section">
             <!--Основная перерисовка будет происходить здесь-->
@@ -45,7 +46,26 @@
         </section>
     </main>
     <footer>
+        <div id="paySystemsContainer">
+            <p>Платежные системы</p>
+            <div class="img_in_footer">
 
+            </div>
+        </div>
+        <hr width="80%">
+        <div id="partnersContainer">
+            <p>Наши партнеры</p>
+            <div class="img_in_footer">
+
+            </div>
+        </div>
+        <hr width="80%">
+        <div id="socialNetworksContainer">
+            <p>Мы в социальных сетях</p>
+            <div class="img_in_footer">
+
+            </div>
+        </div>
     </footer>
 </div>
     <!--JS-->

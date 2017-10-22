@@ -21,14 +21,6 @@
     padding-left: 1vw;
 }
 
-.log-in
-{
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    padding-right: 5vw;
-    padding-left: 5vw;
-}
-
 #head
 {
     padding-top: 7vh;
@@ -231,3 +223,91 @@ div #mobile > div > p
 {
     border-bottom: 1px solid black;
 }
+
+footer
+{
+    width: 100%;
+    color: white;
+    background-color: #7986cb;
+    padding-top: 30px;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    padding-bottom: 30px;
+}
+
+/*Прижимаем footer */
+body
+{
+    height: 100%;
+}
+
+/* Прижимаем footer */
+#app
+{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+/* Прижимаем footer */
+footer
+{
+    display: table-row;
+    height: 100%;
+}
+
+#paySystemsContainer > p, #socialNetworksContainer > p, #partnersContainer > p
+{
+    text-align: center;
+    padding: 1px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1em;
+    font-family: cursive;
+    text-decoration: underline;
+}
+
+#paySystemsContainer, #partnersContainer, #socialNetworksContainer, footer > hr
+{
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+#paySystemsContainer
+{
+    border-top: 1px solid black;
+    padding-top: 20px;
+}
+
+.img_in_footer
+{
+    display: inline-block;
+}
+
+/* Делаем липкую шапку */
+#head
+{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Делаем липкую шапку */
+main
+{
+    padding-top: 20vh;
+}
+
+/* Делаем липкий правый sidebar */
+#right_sidebar
+{
+    position: fixed;
+    width: 20%;
+    margin-left: 80%;
+}
+
+/*TODO: Сделать вычисляемым?(не будет хватать длины при большой высоте блока main_section) */
+/*#left_sidebar
+{
+    height: 1000px;
+}*/
