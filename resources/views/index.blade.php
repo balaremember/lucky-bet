@@ -22,18 +22,7 @@
 <body>
 <div id="app">
     <header id="head">
-        <div id="navbar_container">
-            <nav id="navbar">
-                <!--TODO поменять ссылки позже-->
-                <router-link id="logo" to="/reg">Lucky Bet</router-link>
-                <router-link to="/">Как делать ставки</router-link>
-                <router-link to="/">О нас</router-link>
-                <router-link to="/">Вакансии</router-link>
-            </nav>
-        </div>
-        <div id="init_form">
-            {{--<router-view></router-view>--}}
-        </div>        
+        <router-view name="header"></router-view>
     </header>
     <main>
         <router-view name="left"></router-view>
@@ -46,42 +35,7 @@
         </section>
     </main>
     <footer>
-        <div id="paySystemsContainer">
-            <p>Платежные системы</p>
-            <div class="img_in_footer">
-
-            </div>
-        </div>
-        <hr>
-        <div id="partnersContainer">
-            <p>Наши партнеры</p>
-            <div>
-                <ul class="img_in_footer">
-                    <li>
-                        <a href="http://pfc-cska.com">
-                            <img title="CSKA" alt="CSKA" src="/images/cska.png">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.fclm.ru">
-                            <img title="Lokomotiv" alt="Lokomotiv" src="/images/lokomotiv.png">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.fckrasnodar.ru/">
-                            <img title="Krasnodar" alt="Krasnodar" src="/images/krasnodar.png">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div id="socialNetworksContainer">
-            <p>Мы в социальных сетях</p>
-            <div class="img_in_footer">
-
-            </div>
-        </div>
+        <router-view name="footer"></router-view>
     </footer>
 </div>
     <!--JS-->

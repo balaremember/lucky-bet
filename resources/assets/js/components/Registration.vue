@@ -1,5 +1,6 @@
 <template>
     <div class="registration_box">
+        <router-view name="header"></router-view>
         <form>
             <md-stepper md-vertical>
                 <!--1. Данные для инициализации-->
