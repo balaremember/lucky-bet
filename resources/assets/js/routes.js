@@ -5,7 +5,6 @@ import VueRouter from 'vue-router';
 
 let routes = [
     {
-        mode: 'history',
         path: '/',
         components: {
             board: require('./components/Onboarding.vue'),
@@ -34,6 +33,7 @@ let routes = [
 ];
 
 export default new VueRouter({
-    routes,
+    mode: 'history',
+    routes: routes,
 
 });

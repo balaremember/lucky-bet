@@ -4,9 +4,10 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import './bootstrap';
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import VueMaterial from 'vue-material'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material';
+import axios from 'axios';
 
 window.Vue = Vue;
 
@@ -36,7 +37,7 @@ Vue.material.registerTheme('default',
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
