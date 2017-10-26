@@ -32,6 +32,7 @@
         <section id="main_section">
             <!--Основная перерисовка будет происходить здесь-->
             <router-view name="registration"></router-view>
+            <router-view name="home"></router-view>
         </section>
     </main>
     <footer>

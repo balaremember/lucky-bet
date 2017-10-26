@@ -28,7 +28,7 @@ Vue.material.registerTheme('default',
             hue: 300,
             textColor: 'white'
         },
-        accent: 'white',
+        accent: 'red',
 
     });
 
@@ -38,10 +38,13 @@ Vue.material.registerTheme('default',
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
 Vue.component('registration', require('./components/Registration.vue'));
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('onboarding', require('./components/Onboarding.vue'));
+Vue.component('left-sidebar', require('./components/LeftSidebar.vue'));
+Vue.component('right-sidebar', require('./components/RightSidebar.vue'));
+Vue.component('footer-v', require('./components/Footer.vue'));
+Vue.component('header-v', require('./components/Header.vue'));
 
 var Home = require('./components/Home.vue');
 var Registration = require('./components/Registration.vue');
@@ -58,7 +61,6 @@ const router = new VueRouter({
             {
                 path: '/',
                 components: {
-                    default: Home,
                     board: OnBoarding,
                     left: LeftSidebar,
                     right: RightSidebar,
@@ -73,6 +75,13 @@ const router = new VueRouter({
                     header: Header,
                     registration: Registration,
 
+                }
+            },
+            {
+                path: '/login',
+                components: {
+                    home: Home,
+                    header: Header,
                 }
             }
         ]

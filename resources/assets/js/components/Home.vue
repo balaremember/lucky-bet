@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <router-view name="header"></router-view>
         <div class="log_in">
             <!--todo-ruslan Выровнять по центру!!!-->
             <form novalidate @submit.stop.prevent="submit">
@@ -11,7 +13,7 @@
                     <label>Введите пароль</label>
                     <md-input type="password" required name="password" v-model.trim="password"></md-input>
                 </md-input-container>
-                <!--<ul>
+                <ul>
                     <li>
                         <md-button class="md-raised">Войти</md-button>
                     </li>
@@ -23,9 +25,10 @@
                     <li>
                         <md-button class="md-raised">Забыл пароль</md-button>
                     </li>
-                </ul>-->
+                </ul>
             </form>
         </div>
+    </div>
 </template>
 
 <script>

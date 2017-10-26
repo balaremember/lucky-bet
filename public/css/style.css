@@ -33,7 +33,27 @@
 @font-face
 {
     font-family: BitScript;
-    src:url(./fonts/MyFonts/BitScript.ttf);
+    src:url(/public/fonts/MyFonts/BitScript.ttf);
+}
+
+#bets
+{
+    color: white;
+}
+
+#jobs
+{
+    color: white;
+}
+
+#info
+{
+    color: white;
+}
+
+#login
+{
+    color: white;
 }
 
 #logo
