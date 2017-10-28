@@ -381,6 +381,15 @@ button.md-button.md-raised.md-theme-default
 
 div > .log_in > form
 {
-    border: 3px solid #7986cb;
+    border: 1px solid #7986cb;
 }
 
+#login
+{
+    background-color: #ff5722;
+}
+
+div #mobile > div > p
+{
+    font-size: 20px;
+}
