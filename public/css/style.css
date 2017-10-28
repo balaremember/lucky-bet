@@ -13,14 +13,6 @@
     padding: 1.5em;
 }
 
-.registration_box
-{
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    padding-right: 5vw;
-    padding-left: 1vw;
-}
-
 #head
 {
     padding-top: 7vh;
@@ -68,7 +60,7 @@
     font-size: 48px;
 }
 
-#navbar > a:not(#logo)
+#navbar > div > a:not(#logo)
 {
     color: white;
     font-size: 20px;
@@ -80,14 +72,14 @@
     font-family: cursive;
 }
 
-#navbar > a:hover
+#navbar > div > a:hover
 {
     text-decoration: none;
     background-color: rgba(96, 107, 165, 0.5);
     cursor: pointer;
 }
 
-#navbar > a:active
+#navbar > div > a:active
 {
     background: rgba(255, 255, 255, 0.1);
 }
@@ -362,5 +354,33 @@ footer
 hr
 {
     border-top: 10px dotted #7986cb;
+}
+
+#line > p
+{
+    margin-bottom: 0;
+}
+
+div#coupon > hr
+{
+    border-top: 1px solid #ffffff;
+}
+
+.log_in
+{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-right: 20vw;
+    padding-left: 20vw;
+}
+
+button.md-button.md-raised.md-theme-default
+{
+    min-width: 200px;
+}
+
+div > .log_in > form
+{
+    border: 3px solid #7986cb;
 }
 
