@@ -14987,7 +14987,7 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = null
 /* template */
 var __vue_template__ = __webpack_require__(45)
 /* styles */
@@ -15061,7 +15061,7 @@ exports = module.exports = __webpack_require__(41)(undefined);
 
 
 // module
-exports.push([module.i, "\n#sliderImg\n{\n    margin-left: 20vw;\n    height: 40vh;\n    width: 60vw;\n    box-shadow: 1px 2px 5px #444;\n    /*-webkit-animation:slider-animation 3s infinite;*/ /* Chrome, Safari, Opera */\n    animation:slider-animation 36s infinite;\n    background-size: 100%;\n}\n@-webkit-keyframes slider-animation\n{\n0%   {background:url('/images/skrudzh.jpg') no-repeat;\n}\n10%  {background:url('/images/skrudzh.jpg')no-repeat;\n}\n20%  {background:url('/images/skrudzh.jpg')no-repeat;\n}\n30%  {background:url('/images/skrudzh.jpg')|no-repeat;\n}\n40%  {background:url('/images/mnogo_deneg.jpg')no-repeat;\n}\n50%  {background:url('/images/mnogo_deneg.jpg')no-repeat;\n}\n60%  {background:url('/images/mnogo_deneg.jpg')no-repeat;\n}\n70%  {background:url('/images/devushka_v_krasnom.jpg')no-repeat;\n}\n80%  {background:url('/images/devushka_v_krasnom.jpg')no-repeat;\n}\n90%  {background:url('/images/devushka_v_krasnom.jpg')no-repeat;\n}\n100% {background:url('/images/devushka_v_krasnom.jpg')no-repeat;\n}\n}\n", ""]);
+exports.push([module.i, "\n#sliderImg\n{\n    margin-left: 20vw;\n    height: 50vh;\n    width: 60vw;\n    box-shadow: 1px 2px 5px #444;\n    animation: slider-animation 36s infinite;\n}\n@-webkit-keyframes slider-animation\n{\n0%   {background: url('/images/skrudzh.jpg') no-repeat; background-size: 100% 100%;\n}\n10%  {background: url('/images/skrudzh.jpg') no-repeat; background-size: 100% 100%;\n}\n20%  {background: url('/images/skrudzh.jpg') no-repeat; background-size: 100% 100%;\n}\n30%  {background: url('/images/skrudzh.jpg') no-repeat; background-size: 100% 100%;\n}\n40%  {background: url('/images/mnogo_deneg.jpg') no-repeat; background-size: 100% 100%;\n}\n50%  {background: url('/images/mnogo_deneg.jpg') no-repeat; background-size: 100% 100%;\n}\n60%  {background: url('/images/mnogo_deneg.jpg') no-repeat; background-size: 100% 100%;\n}\n70%  {background: url('/images/devushka_v_krasnom.jpg') no-repeat; background-size: 100% 100%;\n}\n80%  {background: url('/images/devushka_v_krasnom.jpg') no-repeat; background-size: 100% 100%;\n}\n90%  {background: url('/images/devushka_v_krasnom.jpg') no-repeat; background-size: 100% 100%;\n}\n100% {background: url('/images/devushka_v_krasnom.jpg') no-repeat; background-size: 100% 100%;\n}\n}\n", ""]);
 
 // exports
 
@@ -15403,16 +15403,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-
-/***/ }),
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
