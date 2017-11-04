@@ -2,7 +2,7 @@
     <div class="registration_box">
         <router-view name="header"></router-view>
         <form>
-            <md-stepper md-vertical>
+            <md-stepper md-vertical @completed ="signup">
                 <!--1. Данные для инициализации-->
                 <md-step md-label="Данные для инициализации в системе" md-button-back="Назад"
                          md-button-continue="Далее" :md-editable="true"
@@ -183,8 +183,9 @@
     </div>
 </template>
 <script>
-        export default
-        {
+    import axios from 'axios';
+
+    export default {
             data() {
                 return {
                     email: '',
@@ -407,6 +408,33 @@
                     }
                 }
 
+            },
+
+            methods: {
+                signup() {
+                    axios.post('http://lucky-bet.com/api/user',
+                        {
+                            email: this.email,
+                            password: this.password,
+                            surname: this.surname,
+                            name: this.name,
+                            patronymic: this.patronymic,
+                            sex: this.sex,
+                            birthday: this.birthday,
+                            country: this.country,
+                            city: this.city,
+                            telephone: this.telephone
+                        },
+                        {
+                            headers: {'X-Requested-With': 'XMLHttpRequest'}
+                        })
+                        .then(
+                            (response) => console.log(response)
+                        )
+                        .catch(
+                            (error) => console.log(error)
+                        );
+                }
             }
         }
 </script>

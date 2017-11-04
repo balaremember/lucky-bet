@@ -46,6 +46,14 @@ class UserController extends Controller
 
      public function signin(Request $request)
      {
+         /*
+          * $user = JWTAuth::parseToken()->toUser(); - останется ...
+          *
+          * if (!$user = JWTAuth::parseToken()->authenticate()) {
+          *     return response()->json(['message' => 'User not found', 404]);
+          * }   вместо него middleware jwt.auth ...
+          */
+
          $this->validate($request, [
              'email' => 'required|email', //не unique потому что пользователь не должен этого знать
              'password' => 'required|max:32'

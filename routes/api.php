@@ -26,3 +26,8 @@ Route::post('/user',[
 Route::post('/user/signin',[
     'uses' => 'UserController@signin'
 ]);
+
+
+/*
+ * 'middleware' => 'auth.jwt'
+ */

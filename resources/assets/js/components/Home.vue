@@ -32,6 +32,7 @@ export default {
             login: '',
             password: ''
         };
-    }
+    },
+
 }
 </script>
