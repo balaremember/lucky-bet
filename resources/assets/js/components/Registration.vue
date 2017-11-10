@@ -2,7 +2,7 @@
     <div class="registration_box">
         <router-view name="header"></router-view>
         <form>
-            <md-stepper md-vertical @completed ="signup">
+            <md-stepper md-vertical @completed="signup">
                 <!--1. Данные для инициализации-->
                 <md-step md-label="Данные для инициализации в системе" md-button-back="Назад"
                          md-button-continue="Далее" :md-editable="true"

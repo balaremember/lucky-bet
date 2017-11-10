@@ -26,7 +26,7 @@ let routes = [
     {
         path: '/login',
         components: {
-            home: require('./components/Home.vue'),
+            home: require('./components/Authorization.vue'),
             header: require('./components/Header.vue'),
         }
     }
