@@ -15788,7 +15788,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(52)
+var __vue_script__ = null
 /* template */
 var __vue_template__ = __webpack_require__(53)
 /* styles */
@@ -15828,73 +15828,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
+/* 52 */,
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15992,7 +15926,23 @@ var staticRenderFns = [
     return _c("div", { attrs: { id: "paySystemsContainer" } }, [
       _c("p", [_vm._v("Платежные системы")]),
       _vm._v(" "),
-      _c("div", { staticClass: "img_in_footer" })
+      _c("div", { staticClass: "img_in_footer" }, [
+        _c("ul", [
+          _c("li", { staticStyle: { "text-align": "center" } }, [
+            _c("a", { attrs: { href: "https://money.yandex.ru/new" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/images/yandex_money_ru.png",
+                  alt: "Яндекс.Деньги",
+                  title: "Яндекс.Деньги",
+                  width: "180",
+                  height: "90"
+                }
+              })
+            ])
+          ])
+        ])
+      ])
     ])
   },
   function() {

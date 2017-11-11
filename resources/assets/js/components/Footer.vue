@@ -3,7 +3,13 @@
     <div id="paySystemsContainer">
         <p>Платежные системы</p>
         <div class="img_in_footer">
-
+            <ul>
+                <li style="text-align: center">
+                    <a href="https://money.yandex.ru/new">
+                        <img src="/images/yandex_money_ru.png" alt="Яндекс.Деньги" title="Яндекс.Деньги" width="180" height="90">
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <hr>
@@ -59,7 +65,3 @@
     </div>
     </div>
 </template>
-
-<script>
-
-</script>
