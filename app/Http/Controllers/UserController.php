@@ -40,7 +40,7 @@ class UserController extends Controller
          $user->save();
 
          return response()->json([
-             'message' => 'Successfully, new User created!!!'
+             'message' => 'Successfully'
          ], 201);
      }
 
@@ -75,7 +75,8 @@ class UserController extends Controller
          }
 
          return response()->json([
-             'token' => $token
+             'token' => $token,
+             'message' => 'Successfully'
          ], 200);
 
      }

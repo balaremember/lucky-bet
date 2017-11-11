@@ -429,7 +429,15 @@
                             headers: {'X-Requested-With': 'XMLHttpRequest'}
                         })
                         .then(
-                            (response) => console.log(response)
+                            (response) => {
+                                console.log(response);
+
+                                if(response.data.message == 'Successfully') {
+                                    this.$router.push('/');
+                                } else {
+                                    this.$router.push('/reg');
+                                }
+                            }
                         )
                         .catch(
                             (error) => console.log(error)
