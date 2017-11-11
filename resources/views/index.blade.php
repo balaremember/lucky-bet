@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/vue-material.css') }}">
     <!--Наши стили-->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
     <title>Ставки на спорт - Букмекерская компания "Lucky Bet"</title>
 </head>
 <body>

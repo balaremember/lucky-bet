@@ -13,17 +13,17 @@
             <ul class="img_in_footer">
                 <li>
                     <a href="http://pfc-cska.com">
-                        <img title="CSKA" alt="CSKA" src="/images/cska.png">
+                        <img title="ПФК ЦСКА" alt="ПФК ЦСКА" src="/images/cska.png">
                     </a>
                 </li>
                 <li>
                     <a href="http://www.fclm.ru">
-                        <img title="Lokomotiv" alt="Lokomotiv" src="/images/lokomotiv.png">
+                        <img title="ФК Локомотив" alt="ФК Локомотив" src="/images/lokomotiv.png">
                     </a>
                 </li>
                 <li>
                     <a href="https://www.fckrasnodar.ru/">
-                        <img title="Krasnodar" alt="Krasnodar" src="/images/krasnodar.png">
+                        <img title="ФК Краснодар" alt="ФК Краснодар" src="/images/krasnodar.png">
                     </a>
                 </li>
             </ul>
@@ -32,8 +32,29 @@
     <hr>
     <div id="socialNetworksContainer">
         <p>Мы в социальных сетях</p>
-        <div class="img_in_footer">
-
+        <div>
+            <ul class="img_in_footer">
+                <li>
+                    <a href="http://facebook.com">
+                        <md-icon><i class="fa fa-facebook-square footer_icons" aria-hidden="true"></i></md-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://vk.com">
+                        <md-icon><i class="fa fa-vk footer_icons" aria-hidden="true"></i></md-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/">
+                        <md-icon><i class="fa fa-twitter footer_icons" aria-hidden="true"></i></md-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://linkedin.com">
+                        <md-icon><i class="fa fa-linkedin-square footer_icons" aria-hidden="true"></i></md-icon>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     </div>

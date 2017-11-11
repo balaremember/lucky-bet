@@ -393,3 +393,16 @@ div #mobile > div > p
 {
     font-size: 20px;
 }
+
+#socialNetworksContainer > div
+{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin-left: -400px;
+}
+
+.footer_icons
+{
+    font-size: 32px;
+    color: #7986cb;
+}
