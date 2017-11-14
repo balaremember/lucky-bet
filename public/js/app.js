@@ -583,9 +583,9 @@ module.exports = defaults;
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(54)
+var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(54)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -13811,7 +13811,7 @@ var VueMaskPlugin = function VueMaskPlugin(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(62);
+module.exports = __webpack_require__(61);
 
 
 /***/ }),
@@ -14959,13 +14959,13 @@ var routes = [{
     path: '/reg',
     components: {
         header: __webpack_require__(4),
-        registration: __webpack_require__(56)
+        registration: __webpack_require__(55)
 
     }
 }, {
     path: '/login',
     components: {
-        home: __webpack_require__(59),
+        home: __webpack_require__(58),
         header: __webpack_require__(4)
     }
 }];
@@ -15762,13 +15762,21 @@ var staticRenderFns = [
     return _c("div", { attrs: { id: "help" } }, [
       _c("p", [_vm._v("Онлайн поддержка")]),
       _vm._v(" "),
-      _c("p", { attrs: { id: "help_tel" } }, [_vm._v("8 (800) 555-35-35")]),
+      _c("p", { attrs: { id: "help_tel" } }, [
+        _c("a", { attrs: { id: "tel", href: "tel:88005553535" } }, [
+          _vm._v("8 (800) 555-35-35")
+        ])
+      ]),
       _vm._v(" "),
       _c("p", [_vm._v("Звонок бесплатный")]),
       _vm._v(" "),
       _c("p", [_vm._v("Электронная почта")]),
       _vm._v(" "),
-      _c("p", { attrs: { id: "help_email" } }, [_vm._v("info@lucky-bet.com")])
+      _c("p", { attrs: { id: "help_email" } }, [
+        _c("a", { attrs: { id: "mail", href: "mailto:info@lucky-bet.com" } }, [
+          _vm._v("info@lucky-bet.com")
+        ])
+      ])
     ])
   }
 ]
@@ -15790,7 +15798,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(53)
+var __vue_template__ = __webpack_require__(52)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -15828,8 +15836,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */,
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -15928,19 +15935,26 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "img_in_footer" }, [
         _c("ul", [
-          _c("li", { staticStyle: { "text-align": "center" } }, [
-            _c("a", { attrs: { href: "https://money.yandex.ru/new" } }, [
-              _c("img", {
-                attrs: {
-                  src: "/images/yandex_money_ru.png",
-                  alt: "Яндекс.Деньги",
-                  title: "Яндекс.Деньги",
-                  width: "180",
-                  height: "90"
-                }
-              })
-            ])
-          ])
+          _c(
+            "li",
+            {
+              staticStyle: { "text-align": "center" },
+              attrs: { id: "yandexMoney" }
+            },
+            [
+              _c("a", { attrs: { href: "https://money.yandex.ru/new" } }, [
+                _c("img", {
+                  attrs: {
+                    src: "/images/yandex_money_ru.png",
+                    alt: "Яндекс.Деньги",
+                    title: "Яндекс.Деньги",
+                    width: "180",
+                    height: "90"
+                  }
+                })
+              ])
+            ]
+          )
         ])
       ])
     ])
@@ -16004,7 +16018,7 @@ if (false) {
 }
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports) {
 
 //
@@ -16023,10 +16037,9 @@ if (false) {
 //
 //
 //
-//
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16040,7 +16053,7 @@ var render = function() {
           "div",
           [
             _c("router-link", { attrs: { id: "logo", to: "/" } }, [
-              _vm._v("Lucky Bet")
+              _vm._v("LuckyBet")
             ]),
             _vm._v(" "),
             _c("router-link", { attrs: { id: "bets", to: "/" } }, [
@@ -16076,15 +16089,15 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(57)
+var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(58)
+var __vue_template__ = __webpack_require__(57)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -16122,7 +16135,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16483,6 +16496,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         signup: function signup() {
+            var _this = this;
+
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user', {
                 email: this.email,
                 password: this.password,
@@ -16497,7 +16512,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, {
                 headers: { 'X-Requested-With': 'XMLHttpRequest' }
             }).then(function (response) {
-                return console.log(response);
+                console.log(response);
+
+                if (response.data.message == 'Successfully') {
+                    _this.$router.push('/');
+                } else {
+                    _this.$router.push('/reg');
+                }
             }).catch(function (error) {
                 return console.log(error);
             });
@@ -16506,7 +16527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17065,15 +17086,15 @@ if (false) {
 }
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(59)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(60)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -17111,14 +17132,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
 //
 //
 //
@@ -17159,6 +17179,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         signin: function signin() {
+            var _this = this;
+
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user/signin', {
                 email: this.email,
                 password: this.password
@@ -17170,6 +17192,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var base64 = base64Url.replace('-', '+').replace('_', '/');
                 console.log(JSON.parse(window.atob(base64)));
                 localStorage.setItem('token', token);
+
+                if (response.data.message == 'Successfully') {
+                    _this.$router.push('/');
+                } else {
+                    _this.$router.push('/login');
+                }
             }).catch(function (error) {
                 return console.log(error);
             });
@@ -17179,7 +17207,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17303,7 +17331,7 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

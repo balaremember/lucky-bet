@@ -2,7 +2,6 @@
     <div>
         <router-view name="header"></router-view>
         <div class="log_in">
-            <!--todo-ruslan Выровнять по центру!!!-->
             <form novalidate @submit.stop.prevent="submit">
                 <div class="log_in">
                 <md-input-container md-clearable>
@@ -52,7 +51,13 @@
                             const base64Url = token.split('.')[1];
                             const base64 = base64Url.replace('-', '+').replace('_', '/');
                             console.log(JSON.parse(window.atob(base64)));
-                            localStorage.setItem('token', token)
+                            localStorage.setItem('token', token);
+
+                            if(response.data.message == 'Successfully') {
+                                this.$router.push('/');
+                            } else {
+                                this.$router.push('/login');
+                            }
                         }
                     )
                     .catch(

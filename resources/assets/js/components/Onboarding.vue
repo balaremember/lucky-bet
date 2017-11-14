@@ -1,4 +1,3 @@
-<!--TODO: Растянуть фото внутри слайдера на все окно-->
 <template>
     <div id="sliderImg"></div>
 </template>
