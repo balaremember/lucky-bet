@@ -595,9 +595,9 @@ module.exports = defaults;
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(55)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -14494,7 +14494,7 @@ var VueMaskPlugin = function VueMaskPlugin(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(64);
+module.exports = __webpack_require__(63);
 
 
 /***/ }),
@@ -15677,13 +15677,13 @@ var routes = [{
     path: '/reg',
     components: {
         header: __webpack_require__(4),
-        registration: __webpack_require__(58)
+        registration: __webpack_require__(57)
 
     }
 }, {
     path: '/login',
     components: {
-        home: __webpack_require__(61),
+        home: __webpack_require__(60),
         header: __webpack_require__(4)
     }
 }];
@@ -16512,9 +16512,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(54)
+var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -16555,73 +16555,6 @@ module.exports = Component.exports
 
 /***/ }),
 /* 54 */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16718,7 +16651,23 @@ var staticRenderFns = [
     return _c("div", { attrs: { id: "paySystemsContainer" } }, [
       _c("p", [_vm._v("Платежные системы")]),
       _vm._v(" "),
-      _c("div", { staticClass: "img_in_footer" })
+      _c("div", { staticClass: "img_in_footer" }, [
+        _c("ul", [
+          _c("li", { staticStyle: { "text-align": "center" } }, [
+            _c("a", { attrs: { href: "https://money.yandex.ru/new" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/images/yandex_money_ru.png",
+                  alt: "Яндекс.Деньги",
+                  title: "Яндекс.Деньги",
+                  width: "180",
+                  height: "90"
+                }
+              })
+            ])
+          ])
+        ])
+      ])
     ])
   },
   function() {
@@ -16780,7 +16729,7 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports) {
 
 //
@@ -16802,7 +16751,7 @@ if (false) {
 //
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16852,15 +16801,15 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(58)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(59)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -16900,7 +16849,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17261,6 +17210,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         signup: function signup() {
+            var _this = this;
+
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user', {
                 email: this.email,
                 password: this.password,
@@ -17275,7 +17226,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, {
                 headers: { 'X-Requested-With': 'XMLHttpRequest' }
             }).then(function (response) {
-                return console.log(response);
+                console.log(response);
+
+                if (response.data.message == 'Successfully') {
+                    _this.$router.push('/');
+                } else {
+                    _this.$router.push('/reg');
+                }
             }).catch(function (error) {
                 return console.log(error);
             });
@@ -17284,7 +17241,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17843,15 +17800,15 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(62)
+var __vue_script__ = __webpack_require__(61)
 /* template */
-var __vue_template__ = __webpack_require__(63)
+var __vue_template__ = __webpack_require__(62)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -17891,7 +17848,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17967,7 +17924,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18091,7 +18048,7 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
