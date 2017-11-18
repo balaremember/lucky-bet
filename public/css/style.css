@@ -16,7 +16,7 @@
 #head
 {
     padding-top: 7vh;
-    background-color: #7986cb;
+    background-color: #34459e;
     height: 20vh;
     border-bottom: 1px solid black;
 }
@@ -75,7 +75,7 @@
 #navbar > div > a:hover
 {
     text-decoration: none;
-    background-color: rgba(96, 107, 165, 0.5);
+    background-color: rgba(0, 23, 142, 1);
     cursor: pointer;
 }
 
@@ -87,7 +87,7 @@
 #left_sidebar > #line > p
 {
     text-align: center;
-    background: #7986cb;
+    background: #34459e;
     padding: 1px;
     font-size: 32px;
     font-weight: 500;
@@ -128,7 +128,7 @@ ul
 
 li:hover:not(.mobile)
 {
-    background-color: rgba(96, 107, 165, 0.5);
+    background-color: rgba(0, 23, 142, 1);
     cursor: pointer;
 }
 
@@ -145,12 +145,22 @@ li:active:not(.mobile)
     width: 20vw;
 }
 
+div #coupon
+{
+    background-color: #34459e;
+}
+
+div #mobile
+{
+    background: #34459e;
+}
+
 div #coupon > div > p
 {
     text-align: center;
-    background: #7986cb;
+    background: #34459e;
     padding: 1px;
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 500;
     color: #ffffff;
     line-height: 1em;
@@ -174,7 +184,7 @@ div #coupon > div > p
 div #mobile > div > p
 {
     text-align: center;
-    background: #7986cb;
+    background: #34459e;
     padding: 1px;
     font-size: 32px;
     font-weight: 500;
@@ -188,7 +198,7 @@ div #mobile > div > p
 #button_ios, #button_android
 {
     background-color: #ffffff;
-    color: #7986cb;
+    color: #34459e;
     min-width: 120px;
     text-transform: none;
     margin-left: 70px;
@@ -205,7 +215,7 @@ div #mobile > div > p
     text-align: center;
     background: #7986cb;
     padding: 1px;
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 500;
     color: #ffffff;
     line-height: 1em;
@@ -330,12 +340,6 @@ main
     margin-left: 80%;
 }
 
-/*TODO: Сделать вычисляемым?(не будет хватать длины при большой высоте блока main_section) */
-/*#left_sidebar
-{
-    height: 1000px;
-}*/
-
 .registration_box
 {
     padding-top: 5vh;
@@ -405,4 +409,25 @@ div #mobile > div > p
 {
     font-size: 32px;
     color: #7986cb;
+}
+
+#right_sidebar , #left_sidebar
+{
+    height: 100%;
+}
+
+#yandexMoney:hover
+{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#mail, #tel
+{
+    color: #FFFFFF;
+}
+
+.rules_of_engagement > ul > li:hover
+{
+    background-color: rgba(0, 0, 0, 0);
+    cursor: auto;
 }

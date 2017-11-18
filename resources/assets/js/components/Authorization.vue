@@ -2,7 +2,6 @@
     <div>
         <router-view name="header"></router-view>
         <div class="log_in">
-            <!--todo-ruslan Выровнять по центру!!!-->
             <form novalidate @submit.stop.prevent="submit">
                 <div class="log_in">
                 <md-input-container md-clearable>

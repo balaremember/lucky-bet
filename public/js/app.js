@@ -595,9 +595,9 @@ module.exports = defaults;
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(55)
+var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(56)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -14494,7 +14494,7 @@ var VueMaskPlugin = function VueMaskPlugin(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(63);
+module.exports = __webpack_require__(64);
 
 
 /***/ }),
@@ -15677,13 +15677,13 @@ var routes = [{
     path: '/reg',
     components: {
         header: __webpack_require__(4),
-        registration: __webpack_require__(57)
+        registration: __webpack_require__(58)
 
     }
 }, {
     path: '/login',
     components: {
-        home: __webpack_require__(60),
+        home: __webpack_require__(61),
         header: __webpack_require__(4)
     }
 }];
@@ -16512,9 +16512,13 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<<<< Temporary merge branch 1
 var __vue_script__ = null
+=========
+var __vue_script__ = __webpack_require__(54)
+>>>>>>>>> Temporary merge branch 2
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(55)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -16554,7 +16558,79 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<<<< Temporary merge branch 1
+/* 52 */,
+/* 53 */
+=========
 /* 54 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+/* 55 */
+>>>>>>>>> Temporary merge branch 2
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16729,7 +16805,7 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 //
@@ -16751,7 +16827,7 @@ if (false) {
 //
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16801,15 +16877,15 @@ if (false) {
 }
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(58)
+var __vue_script__ = __webpack_require__(59)
 /* template */
-var __vue_template__ = __webpack_require__(59)
+var __vue_template__ = __webpack_require__(60)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -16849,7 +16925,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17210,8 +17286,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         signup: function signup() {
-            var _this = this;
-
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user', {
                 email: this.email,
                 password: this.password,
@@ -17226,13 +17300,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, {
                 headers: { 'X-Requested-With': 'XMLHttpRequest' }
             }).then(function (response) {
-                console.log(response);
-
-                if (response.data.message == 'Successfully') {
-                    _this.$router.push('/');
-                } else {
-                    _this.$router.push('/reg');
-                }
+                return console.log(response);
             }).catch(function (error) {
                 return console.log(error);
             });
@@ -17241,7 +17309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17800,15 +17868,15 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = __webpack_require__(62)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -17848,7 +17916,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17924,7 +17992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18048,7 +18116,7 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

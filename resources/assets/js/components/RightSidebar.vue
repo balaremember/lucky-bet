@@ -40,10 +40,10 @@
         <!--HELP-->
         <div id="help">
             <p>Онлайн поддержка</p>
-            <p id="help_tel">8 (800) 555-35-35</p>
+            <p id="help_tel"><a id="tel" href="tel:88005553535">8 (800) 555-35-35</a></p>
             <p>Звонок бесплатный</p>
             <p>Электронная почта</p>
-            <p id="help_email">info@lucky-bet.com</p>
+            <p id="help_email"><a id="mail" href="mailto:info@lucky-bet.com">info@lucky-bet.com</a></p>
         </div>
     </aside>
 </template>
