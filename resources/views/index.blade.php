@@ -34,6 +34,7 @@
             <!--Основная перерисовка будет происходить здесь-->
             <router-view name="registration"></router-view>
             <router-view name="home"></router-view>
+            <router-view name="error"></router-view>
         </section>
     </main>
     <footer>

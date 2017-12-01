@@ -3,7 +3,8 @@
  */
 import VueRouter from 'vue-router';
 
-let routes = [
+let routes;
+routes = [
     {
         path: '/',
         components: {
@@ -15,6 +16,7 @@ let routes = [
 
         }
     },
+
     {
         path: '/reg',
         components: {
@@ -23,12 +25,24 @@ let routes = [
 
         }
     },
+
     {
         path: '/login',
         components: {
             home: require('./components/Authorization.vue'),
             header: require('./components/Header.vue'),
         }
+    },
+
+    {
+        path: '/404', components: {
+            header: require('./components/Header.vue'),
+            error: require('./components/NotFound.vue'),
+        }
+    },
+
+    {
+        path: '/*', redirect: "/404"
     }
 ];
 

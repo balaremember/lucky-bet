@@ -48,6 +48,12 @@
     color: white;
 }
 
+#error
+{
+    color: black;
+    font-size: 40px;
+}
+
 #logo
 {
     color: white;
