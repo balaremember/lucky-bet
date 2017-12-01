@@ -28,6 +28,6 @@ class User extends Authenticatable
     ];
 
     public function bets() {
-        $this->hasMany('App\Bet');
+        return $this->hasMany('App\Bet');
     }
 }

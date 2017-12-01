@@ -25,6 +25,7 @@ class CreateUserTable extends Migration
             $table->string('telephone');
             $table->string('email')->unique();
             $table->string('password');
+            $table->decimal('balance', 8, 2)->default(0.00);
             $table->rememberToken();
             $table->timestamps();
         });
