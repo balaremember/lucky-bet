@@ -15,8 +15,8 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->delete();
 
         DB::table('categories')->insert([
-            ['id' => 1, 'category_name' => 'Футбол/Мужской/Клубный/Лига Чемпионов УЕФА'],
-            ['id' => 2, 'category_name' => 'Футбол/Мужской/Клубный/Лига Европы УЕФА'],
+            ['id' => 1, 'category_name' => 'Футбол/Клубный/Лига Чемпионов УЕФА'],
+            ['id' => 2, 'category_name' => 'Футбол/Клубный/Лига Европы УЕФА'],
             ['id' => 3, 'category_name' => 'Хоккей/Сборные/Кубок мира'],
             ['id' => 4, 'category_name' => 'Хоккей/Сборные/Кубок Первого канала'],
             ['id' => 5, 'category_name' => 'Футбол/Клубный/Англия/Премьер-лига'],
