@@ -27,6 +27,9 @@ Route::post('/user/signin',[
     'uses' => 'UserController@signin'
 ]);
 
+Route::get('/categories_tree',[
+    'uses' => 'CategoryController@sendCategoriesTree'
+]);
 
 /*
  * 'middleware' => 'auth.jwt'

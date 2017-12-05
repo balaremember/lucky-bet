@@ -22,5 +22,29 @@
 </template>
 
 <script>
+    import axios from 'axios';
 
+    export default
+    {
+        data(){
+            return {};
+        },
+
+        mounted(){
+            if (typeof sessionStorage['categoriesTree'] === "undefined")
+            {
+                axios.get('http://lucky-bet.com/api/categories_tree')
+                    .then(function (response)
+                    {
+                        //console.log(response);
+                        console.log(response.data);
+                        sessionStorage['categoriesTree'] = JSON.stringify(response.data);
+                    })
+                    .catch(function (error)
+                    {
+                        console.log(error);
+                    });
+            }
+        }
+    }
 </script>

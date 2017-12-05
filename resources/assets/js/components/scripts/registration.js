@@ -38,7 +38,7 @@ export default {
 
     watch:
         {
-            /*TODO Проверить не используется ли эта почта уже*/
+            /*  TODO Проверить не используется ли эта почта уже*/
             email()
             {
                 var emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
@@ -250,7 +250,7 @@ export default {
                     (response) => {
                         console.log(response);
 
-                        if(response.data.message == 'Successfully') {
+                        if(response.data.message === 'Successfully') {
                             this.$router.push('/');
                         } else {
                             this.$router.push('/reg');

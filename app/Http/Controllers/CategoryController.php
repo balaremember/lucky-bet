@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function showTree()
+    public function sendCategoriesTree()
     {
         $entries = DB::select('SELECT category_name FROM categories');
         //dump($entries);
@@ -29,6 +29,7 @@ class CategoryController extends Controller
             {
                 $temp =  array_merge($temp, [$value => []]);
             }
+            unset($categories);
             while (count($temp) > 1)
             {
                 $lastTwoElements = array_splice($temp, -2, 2);
@@ -41,6 +42,9 @@ class CategoryController extends Controller
             }
             $categoriesAsTree = array_merge_recursive($categoriesAsTree, $temp);
         }
-        dump($categoriesAsTree);
+        unset($categories, $temp, $categoriesAsStrings, $category);
+        //dump($categoriesAsTree);
+        return response()->json($categoriesAsTree, 200, ['Content-Type' => 'application/json; charset=utf-8'],
+            JSON_UNESCAPED_UNICODE);
     }
 }
