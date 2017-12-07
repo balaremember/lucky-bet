@@ -508,7 +508,10 @@ div#eventsInMainListContainer > ul > li:active
     margin: 0;
 }
 
-#eventsBlock > h3
+#eventsBlock > p
 {
+    padding-top: 2%;
     padding-left: 27%;
+    font-weight: 400;
+    font-size: 24px;
 }

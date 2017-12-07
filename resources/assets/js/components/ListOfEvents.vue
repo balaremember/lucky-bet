@@ -1,10 +1,10 @@
 <template>
     <div id="eventsBlock">
-        <h3>Кликните на событие чтобы добавить его в купон.</h3>
+        <p>Кликните на событие чтобы добавить его в купон.</p>
         <div v-if="showEvents" id="eventsInMainListContainer">
             <ul id="eventsInMainList" v-for="event in events">
                 <li>
-                    <h6>Номер события: #{{event.id}}</h6>
+                    <p>Номер события: #{{event.id}}</p>
                     <h5>Дата: {{event.date}}</h5>
                     <h5>Турнир: {{event.tournamentName}}</h5>
                     <h5>Событие: {{event.eventName}}</h5>
