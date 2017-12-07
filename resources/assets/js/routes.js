@@ -13,7 +13,7 @@ routes = [
             right: require('./components/RightSidebar.vue'),
             footer: require('./components/Footer.vue'),
             header: require('./components/Header.vue'),
-
+            listOfEvents: require('./components/ListOfEvents.vue')
         }
     },
 

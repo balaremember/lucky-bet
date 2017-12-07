@@ -15267,8 +15267,8 @@ routes = [{
         left: __webpack_require__(46),
         right: __webpack_require__(49),
         footer: __webpack_require__(52),
-        header: __webpack_require__(3)
-
+        header: __webpack_require__(3),
+        listOfEvents: __webpack_require__(79)
     }
 }, {
     path: '/reg',
@@ -17445,6 +17445,198 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(80)
+/* template */
+var __vue_template__ = __webpack_require__(81)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\ListOfEvents.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ListOfEvents.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-112d02e2", Component.options)
+  } else {
+    hotAPI.reload("data-v-112d02e2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            showEvents: true,
+            events: [{
+                id: 0,
+                eventName: 'eventName #1',
+                tournamentName: 'tournamentName #1',
+                coefficient: 777,
+                date: '01/01/2017'
+            }, {
+                id: 1,
+                eventName: 'eventName #2',
+                tournamentName: 'tournamentName #2',
+                coefficient: 177,
+                date: '01/01/2014'
+            }, {
+                id: 2,
+                eventName: 'eventName #3',
+                tournamentName: 'tournamentName #3',
+                coefficient: 7,
+                date: '01/03/2017'
+            }, {
+                id: 3,
+                eventName: 'eventName #4',
+                tournamentName: 'tournamentName #4',
+                coefficient: 5,
+                date: '23/01/2017'
+            }, {
+                id: 4,
+                eventName: 'eventName #5',
+                tournamentName: 'tournamentName #5',
+                coefficient: 2,
+                date: '30/05/2017'
+            }, {
+                id: 5,
+                eventName: 'eventName #6',
+                tournamentName: 'tournamentName #6',
+                coefficient: 12.4,
+                date: '01/12/2016'
+            }, {
+                id: 6,
+                eventName: 'eventName #7',
+                tournamentName: 'tournamentName #7',
+                coefficient: 5.34,
+                date: '11/08/2017'
+            }, {
+                id: 7,
+                eventName: 'eventName #8',
+                tournamentName: 'tournamentName #8',
+                coefficient: 3.34,
+                date: '31/01/2017'
+            }, {
+                id: 8,
+                eventName: 'eventName #9',
+                tournamentName: 'tournamentName #9',
+                coefficient: 2.43,
+                date: '04/07/2017'
+            }]
+        };
+    }
+});
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "eventsBlock" } }, [
+    _c("h3", [_vm._v("Кликните на событие чтобы добавить его в купон.")]),
+    _vm._v(" "),
+    _vm.showEvents
+      ? _c(
+          "div",
+          { attrs: { id: "eventsInMainListContainer" } },
+          _vm._l(_vm.events, function(event) {
+            return _c("ul", { attrs: { id: "eventsInMainList" } }, [
+              _c("li", [
+                _c("h6", [_vm._v("Номер события: #" + _vm._s(event.id))]),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Турнир: " + _vm._s(event.tournamentName))]),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Событие: " + _vm._s(event.eventName))]),
+                _vm._v(" "),
+                _c("h4", [_vm._v("Коэффициент: " + _vm._s(event.coefficient))])
+              ])
+            ])
+          })
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-112d02e2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

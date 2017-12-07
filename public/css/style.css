@@ -456,3 +456,59 @@ div #mobile > div > p
 {
     background-color: rgba(249, 76, 6, 0.8);
 }
+
+#left_sidebar
+{
+    height:  1150px;
+    border-bottom: 1px solid black;
+}
+
+#betsInMainList > li:hover
+{
+    cursor: auto;
+    background-color: rgba(249, 76, 6, 0.8);
+}
+
+div#eventsInMainListContainer
+{
+    margin-top: 3vh;
+    margin-left: 22%;
+    margin-right: 22%;
+    margin-bottom: 3vh;
+}
+
+div#eventsInMainListContainer > ul > li:hover
+{
+    background-color: rgba(249, 76, 6, 0.8);
+}
+
+div#eventsInMainListContainer > ul > li:active
+{
+    background-color: rgba(255, 149, 5, 0.3);
+}
+
+#eventsInMainListContainer
+{
+    height: 700px;
+    overflow-y: scroll;
+}
+
+#eventsInMainList
+{
+    border: 3px solid #7986cb;
+}
+
+#eventsInMainList > li > h6
+{
+    text-decoration: underline;
+}
+
+#eventsInMainList > li > *
+{
+    margin: 0;
+}
+
+#eventsBlock > h3
+{
+    padding-left: 27%;
+}

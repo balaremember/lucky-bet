@@ -28,13 +28,15 @@
     <main>
         <router-view name="left"></router-view>
         <router-view name="right"></router-view>
-        <section id="slider"><router-view name="board"></router-view>
+        <section id="slider">
+            <router-view name="board"></router-view>
         </section>
         <section id="main_section">
             <!--Основная перерисовка будет происходить здесь-->
             <router-view name="registration"></router-view>
             <router-view name="home"></router-view>
             <router-view name="error"></router-view>
+            <router-view name="listOfEvents"></router-view>
         </section>
     </main>
     <footer>
