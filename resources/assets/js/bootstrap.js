@@ -20,6 +20,9 @@ Vue.directive('mask', VueMaskDirective);
 Vue.use(VueRouter);
 Vue.use(VueMaterial);
 
+import VueSessionStorage from 'vue-sessionstorage';
+Vue.use(VueSessionStorage);
+
 Vue.material.registerTheme('default',
     {
         primary: {
