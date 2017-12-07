@@ -11,8 +11,19 @@
                 </md-button>
             </div>
             <br><hr>
-            <div>
+            <div v-if="showCoupon">
                 <!--Здесь будут отображать выбранные ставки, коэффициенты и суммы-->
+                <form id="couponForm">
+                    <div id="betTypeContainer">
+                        <md-radio v-model="bet_type" id="single" name="bet_type" mdValue="single">Одиночные</md-radio>
+                        <md-radio v-model="bet_type" id="express" name="bet_type" mdValue="express">Экспресс</md-radio>
+                    </div>
+                    <div id="betsContainer">
+                        <ul v-for="bet in bets">
+                            <li id="betInList">{{bet.name}}</li>
+                        </ul>
+                    </div>
+                </form>
             </div>
         </div>
         <!--Mobile-->
@@ -49,5 +60,15 @@
 </template>
 
 <script>
-
+    export default
+    {
+        data(){
+            return{
+                showCoupon: true,
+                bet_type: 'single',
+                bets: [{name: 'bet #1'}, {name: 'bet #2'}, {name: ' bet #3'}, {name: 'bet #4'}, {name: 'bet #5'},
+                    {name: 'bet #6'}, {name: 'bet #7'}, {name: ' bet #8'}, {name: 'bet #9'}, {name: 'bet #10'}]
+            };
+        }
+    }
 </script>

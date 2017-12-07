@@ -437,3 +437,22 @@ div #mobile > div > p
     background-color: rgba(0, 0, 0, 0);
     cursor: auto;
 }
+
+#couponForm
+{
+    background-color: #FFFFFF;
+}
+
+#betsContainer
+{
+    word-wrap: break-word;
+    border-top: 1px solid black;
+    overflow-y: scroll;
+    height: 100px;
+    padding-left: 5px;
+}
+
+#betInList:hover
+{
+    background-color: rgba(249, 76, 6, 0.8);
+}
