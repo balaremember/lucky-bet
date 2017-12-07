@@ -26,22 +26,22 @@
 
     export default
     {
-        data(){
-            return {
-                categoriesTree: []
-            };
+        data() {
+            return {};
         },
 
-        mounted(){
-            if (typeof sessionStorage['categoriesTree'] === "undefined") {
+        mounted() {
+            if (typeof sessionStorage['categoriesTree'] === "undefined")
+            {
                 axios.get('http://lucky-bet.com/api/categories_tree')
-                    .then(function (response) {
+                    .then(function (response)
+                    {
                         //console.log(response);
-                        console.log('response.data:');
                         console.log(response.data);
                         sessionStorage['categoriesTree'] = JSON.stringify(response.data);
                     })
-                    .catch(function (error) {
+                    .catch(function (error)
+                    {
                         console.log(error);
                     });
             }
