@@ -483,9 +483,9 @@ module.exports = __webpack_require__(20);
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(53)
+var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(55)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -636,6 +636,8 @@ module.exports = defaults;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_v_mask__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_sessionstorage__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_sessionstorage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_vue_sessionstorage__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -657,6 +659,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.directive('mask', __WEBPACK_IMPORTED
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_material___default.a);
+
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vue_sessionstorage___default.a);
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.material.registerTheme('default', {
     primary: {
@@ -13908,7 +13913,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(43)
+var listToStyles = __webpack_require__(44)
 
 /*
 type StyleObject = {
@@ -14114,7 +14119,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(66);
+module.exports = __webpack_require__(70);
 
 
 /***/ }),
@@ -14124,7 +14129,7 @@ module.exports = __webpack_require__(66);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(40);
 
 
 
@@ -15239,6 +15244,12 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.VueSessionStorage=e():t.VueSessionStorage=e()}(this,function(){return function(t){function e(i){if(s[i])return s[i].exports;var n=s[i]={exports:{},id:i,loaded:!1};return t[i].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var s={};return e.m=t,e.c=s,e.p="",e(0)}([function(t,e,s){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}var n=s(2),o=i(n),r=s(1),u=i(r);window.sessionStorage||(window.sessionStorage=u.default);var a={install:function(t,e){t.prototype.$session=new o.default}};t.exports=a},function(t,e){"use strict";function s(){this.data={},this.setItem=function(t,e){this.data[t]=e},this.getItem=function(t){return this.data[t]}}t.exports=s},function(t,e){"use strict";function s(){this.key=null,this.__getRandomString=function(){for(var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:10,e="";t--;)e+=String.fromCharCode(48+~~(42*Math.random()));return e},this.__getKey=function(){var t=window.sessionStorage.getItem("sessionKey");t||(t=this.__getRandomString(),window.sessionStorage.setItem("sessionKey",t)),this.key=t},this.__get=function(){this.key||this.__getKey();var t=JSON.parse(window.sessionStorage.getItem(this.key));return t||{}},this.get=function(t){var e=this.__get();return e[t]},this.__set=function(t){this.key||this.__getKey(),window.sessionStorage.setItem(this.key,JSON.stringify(t))},this.set=function(t,e){var s=this.__get();s[t]=e,this.__set(s)},this.exists=function(t){var e=this.__get();return t in e},this.remove=function(t){var e=this.__get();delete e[t],this.__set(e)},this.clear=function(){this.__set({})}}t.exports=s}])});
+
+/***/ }),
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15252,30 +15263,30 @@ var routes = void 0;
 routes = [{
     path: '/',
     components: {
-        board: __webpack_require__(40),
-        left: __webpack_require__(45),
-        right: __webpack_require__(48),
-        footer: __webpack_require__(51),
-        header: __webpack_require__(3)
-
+        board: __webpack_require__(41),
+        left: __webpack_require__(46),
+        right: __webpack_require__(49),
+        footer: __webpack_require__(52),
+        header: __webpack_require__(3),
+        listOfEvents: __webpack_require__(56)
     }
 }, {
     path: '/reg',
     components: {
         header: __webpack_require__(3),
-        registration: __webpack_require__(55)
+        registration: __webpack_require__(59)
 
     }
 }, {
     path: '/login',
     components: {
-        home: __webpack_require__(58),
+        home: __webpack_require__(62),
         header: __webpack_require__(3)
     }
 }, {
     path: '/404', components: {
         header: __webpack_require__(3),
-        error: __webpack_require__(61)
+        error: __webpack_require__(65)
     }
 }, {
     path: '/*', redirect: "/404"
@@ -15288,19 +15299,19 @@ routes = [{
 }));
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(41)
+  __webpack_require__(42)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(45)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -15338,13 +15349,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(42);
+var content = __webpack_require__(43);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -15364,7 +15375,7 @@ if(false) {
 }
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(14)(undefined);
@@ -15378,7 +15389,7 @@ exports.push([module.i, "\n#sliderImg\n{\n    margin-left: 20vw;\n    height: 50
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 /**
@@ -15411,7 +15422,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -15431,15 +15442,15 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(46)
+var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(47)
+var __vue_template__ = __webpack_require__(48)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -15477,7 +15488,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15528,7 +15539,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -15583,15 +15594,15 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(51)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -15629,9 +15640,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
-/***/ (function(module, exports) {
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -15682,9 +15695,91 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            showCoupon: true,
+            bet_type: 'single',
+            events: [{
+                id: 0,
+                eventName: 'eventName #1',
+                tournamentName: 'tournamentName #1',
+                coefficient: 777,
+                date: '01/01/2017'
+            }, {
+                id: 1,
+                eventName: 'eventName #2',
+                tournamentName: 'tournamentName #2',
+                coefficient: 177,
+                date: '01/01/2014'
+            }, {
+                id: 2,
+                eventName: 'eventName #3',
+                tournamentName: 'tournamentName #3',
+                coefficient: 7,
+                date: '01/03/2017'
+            }, {
+                id: 3,
+                eventName: 'eventName #4',
+                tournamentName: 'tournamentName #4',
+                coefficient: 5,
+                date: '23/01/2017'
+            }, {
+                id: 4,
+                eventName: 'eventName #5',
+                tournamentName: 'tournamentName #5',
+                coefficient: 2,
+                date: '30/05/2017'
+            }, {
+                id: 5,
+                eventName: 'eventName #6',
+                tournamentName: 'tournamentName #6',
+                coefficient: 12.4,
+                date: '01/12/2016'
+            }, {
+                id: 6,
+                eventName: 'eventName #7',
+                tournamentName: 'tournamentName #7',
+                coefficient: 5.34,
+                date: '11/08/2017'
+            }, {
+                id: 7,
+                eventName: 'eventName #8',
+                tournamentName: 'tournamentName #8',
+                coefficient: 3.34,
+                date: '31/01/2017'
+            }, {
+                id: 8,
+                eventName: 'eventName #9',
+                tournamentName: 'tournamentName #9',
+                coefficient: 2.43,
+                date: '04/07/2017'
+            }]
+        };
+    }
+});
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -15715,7 +15810,84 @@ var render = function() {
       _c("br"),
       _c("hr"),
       _vm._v(" "),
-      _c("div")
+      _vm.showCoupon
+        ? _c("div", [
+            _c("p", [
+              _vm._v("Кликните на событие чтобы удалить его из купона")
+            ]),
+            _vm._v(" "),
+            _c("form", { attrs: { id: "couponForm" } }, [
+              _c(
+                "div",
+                { attrs: { id: "betTypeContainer" } },
+                [
+                  _c(
+                    "md-radio",
+                    {
+                      attrs: {
+                        id: "single",
+                        name: "bet_type",
+                        mdValue: "single"
+                      },
+                      model: {
+                        value: _vm.bet_type,
+                        callback: function($$v) {
+                          _vm.bet_type = $$v
+                        },
+                        expression: "bet_type"
+                      }
+                    },
+                    [_vm._v("Одиночные")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "md-radio",
+                    {
+                      attrs: {
+                        id: "express",
+                        name: "bet_type",
+                        mdValue: "express"
+                      },
+                      model: {
+                        value: _vm.bet_type,
+                        callback: function($$v) {
+                          _vm.bet_type = $$v
+                        },
+                        expression: "bet_type"
+                      }
+                    },
+                    [_vm._v("Экспресс")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { attrs: { id: "betsContainer" } },
+                _vm._l(_vm.events, function(event) {
+                  return _c("ul", [
+                    _c("li", { attrs: { id: "betInList" } }, [
+                      _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
+                      _vm._v(" "),
+                      _c("h5", [
+                        _vm._v("Турнир: " + _vm._s(event.tournamentName))
+                      ]),
+                      _vm._v(" "),
+                      _c("h5", [_vm._v("Событие: " + _vm._s(event.eventName))]),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v("Коэффициент: " + _vm._s(event.coefficient))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("hr")
+                  ])
+                })
+              )
+            ])
+          ])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { attrs: { id: "mobile" } }, [
@@ -15821,7 +15993,7 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -15829,7 +16001,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(52)
+var __vue_template__ = __webpack_require__(53)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -15867,7 +16039,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16049,7 +16221,7 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports) {
 
 //
@@ -16070,7 +16242,7 @@ if (false) {
 //
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16120,15 +16292,192 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(57)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(58)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\ListOfEvents.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ListOfEvents.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-112d02e2", Component.options)
+  } else {
+    hotAPI.reload("data-v-112d02e2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            showEvents: true,
+            events: [{
+                id: 0,
+                eventName: 'eventName #1',
+                tournamentName: 'tournamentName #1',
+                coefficient: 777,
+                date: '01/01/2017'
+            }, {
+                id: 1,
+                eventName: 'eventName #2',
+                tournamentName: 'tournamentName #2',
+                coefficient: 177,
+                date: '01/01/2014'
+            }, {
+                id: 2,
+                eventName: 'eventName #3',
+                tournamentName: 'tournamentName #3',
+                coefficient: 7,
+                date: '01/03/2017'
+            }, {
+                id: 3,
+                eventName: 'eventName #4',
+                tournamentName: 'tournamentName #4',
+                coefficient: 5,
+                date: '23/01/2017'
+            }, {
+                id: 4,
+                eventName: 'eventName #5',
+                tournamentName: 'tournamentName #5',
+                coefficient: 2,
+                date: '30/05/2017'
+            }, {
+                id: 5,
+                eventName: 'eventName #6',
+                tournamentName: 'tournamentName #6',
+                coefficient: 12.4,
+                date: '01/12/2016'
+            }, {
+                id: 6,
+                eventName: 'eventName #7',
+                tournamentName: 'tournamentName #7',
+                coefficient: 5.34,
+                date: '11/08/2017'
+            }, {
+                id: 7,
+                eventName: 'eventName #8',
+                tournamentName: 'tournamentName #8',
+                coefficient: 3.34,
+                date: '31/01/2017'
+            }, {
+                id: 8,
+                eventName: 'eventName #9',
+                tournamentName: 'tournamentName #9',
+                coefficient: 2.43,
+                date: '04/07/2017'
+            }]
+        };
+    }
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "eventsBlock" } }, [
+    _c("p", [_vm._v("Кликните на событие чтобы добавить его в купон.")]),
+    _vm._v(" "),
+    _vm.showEvents
+      ? _c(
+          "div",
+          { attrs: { id: "eventsInMainListContainer" } },
+          _vm._l(_vm.events, function(event) {
+            return _c("ul", { attrs: { id: "eventsInMainList" } }, [
+              _c("li", [
+                _c("p", [_vm._v("Номер события: #" + _vm._s(event.id))]),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Турнир: " + _vm._s(event.tournamentName))]),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Событие: " + _vm._s(event.eventName))]),
+                _vm._v(" "),
+                _c("h4", [_vm._v("Коэффициент: " + _vm._s(event.coefficient))])
+              ])
+            ])
+          })
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-112d02e2", module.exports)
+  }
+}
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -16166,7 +16515,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16376,7 +16725,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16935,15 +17284,15 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(63)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(64)
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -16981,7 +17330,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17056,7 +17405,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17180,19 +17529,19 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(62)
+  __webpack_require__(66)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(64)
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = __webpack_require__(65)
+var __vue_template__ = __webpack_require__(69)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -17230,13 +17579,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(63);
+var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -17256,7 +17605,7 @@ if(false) {
 }
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(14)(undefined);
@@ -17270,7 +17619,7 @@ exports.push([module.i, "\n.error-template {\n    padding: 40px 15px;\n    text-
 
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, exports) {
 
 //
@@ -17296,7 +17645,7 @@ exports.push([module.i, "\n.error-template {\n    padding: 40px 15px;\n    text-
 //
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17343,7 +17692,7 @@ if (false) {
 }
 
 /***/ }),
-/* 66 */
+/* 70 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
