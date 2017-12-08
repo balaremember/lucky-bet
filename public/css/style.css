@@ -445,7 +445,7 @@ div #mobile > div > p
     background-color: #FFFFFF;
 }
 
-#betsContainer
+#eventsContainer
 {
     word-wrap: break-word;
     border-top: 1px solid black;
@@ -454,7 +454,7 @@ div #mobile > div > p
     padding-left: 5px;
 }
 
-#betInList:hover
+#eventInList:hover
 {
     background-color: rgba(249, 76, 6, 0.8);
 }
@@ -518,19 +518,19 @@ div#eventsInMainListContainer > ul > li:active
     font-size: 24px;
 }
 
-li#betInList:active
+li#eventInList:active
 {
     background-color: rgba(255, 149, 5, 0.3);
 }
 
-li#betInList > *
+li#eventInList > *
 {
     margin: 0;
     padding: 0;
 }
 
 
-#betsContainer > ul > hr
+#eventsContainer > ul > hr
 {
     margin-top: 0;
     margin-bottom: 0;

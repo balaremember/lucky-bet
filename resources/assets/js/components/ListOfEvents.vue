@@ -1,9 +1,9 @@
 <template>
     <div id="eventsBlock">
-        <p>Кликните на событие чтобы добавить его в купон.</p>
+        <!--<p>Кликните на событие чтобы добавить его в купон.</p>-->
         <div v-if="showEvents" id="eventsInMainListContainer">
             <ul id="eventsInMainList" v-for="event in events">
-                <li>
+                <li v-on:click="addEventToCoupon" v-model="events">
                     <p>Номер события: #{{event.id}}</p>
                     <h5>Дата: {{event.date}}</h5>
                     <h5>Турнир: {{event.tournamentName}}</h5>
@@ -86,6 +86,16 @@
                         date: '04/07/2017'
                     }]
             };
-        }
+        },
+        methods:
+            {
+                addEventToCoupon: function (event)
+                {
+                    console.log(event.currentTarget);
+                    let element = event.currentTarget;
+                    //element = element.firstChild;
+                    //console.log(element);
+                }
+            }
     }
 </script>

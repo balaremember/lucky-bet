@@ -26,25 +26,40 @@
 
     export default
     {
-        data() {
-            return {};
+        name: 'categoriesTree',
+
+        data()
+        {
+            return {
+                categoriesTree: {}
+            };
         },
 
-        mounted() {
-            if (typeof sessionStorage['categoriesTree'] === "undefined")
+        mounted()
+        {
+            this.getCategoriesTree();
+        },
+
+        methods:
             {
-                axios.get('http://lucky-bet.com/api/categories_tree')
-                    .then(function (response)
+                getCategoriesTree: function () {
+                    if (typeof sessionStorage['categoriesTree'] === "undefined")
                     {
-                        //console.log(response);
-                        console.log(response.data);
-                        sessionStorage['categoriesTree'] = JSON.stringify(response.data);
-                    })
-                    .catch(function (error)
-                    {
-                        console.log(error);
-                    });
+                        axios.get('http://lucky-bet.com/api/categories_tree')
+                            .then(function (response)
+                            {
+                                //console.log(response);
+                                console.log(response.data);
+                                sessionStorage['categoriesTree'] = JSON.stringify(response.data);
+                                //this.categoriesTree = response.data;
+                                //console.log(this.categoriesTree);
+                            })
+                            .catch(function (error)
+                            {
+                                console.log(error);
+                            });
+                    }
+                }
             }
-        }
     }
 </script>

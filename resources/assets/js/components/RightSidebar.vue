@@ -6,22 +6,22 @@
                 <p>Купон</p>
             </div>
             <div id="#containerClearCoupon">
-                <md-button id="buttonClearCoupon" class="md-icon-button">
+                <md-button id="buttonClearCoupon" class="md-icon-button" v-on:click="clearCoupon">
                     <md-icon>clear</md-icon>
                 </md-button>
             </div>
             <br><hr>
             <div v-if="showCoupon">
                 <!--Здесь будут отображать выбранные ставки, коэффициенты и суммы-->
-                <p>Кликните на событие чтобы удалить его из купона</p>
+                <!--<p>Кликните на событие чтобы удалить его из купона</p>-->
                 <form id="couponForm">
                     <div id="betTypeContainer">
                         <md-radio v-model="bet_type" id="single" name="bet_type" mdValue="single">Одиночные</md-radio>
                         <md-radio v-model="bet_type" id="express" name="bet_type" mdValue="express">Экспресс</md-radio>
                     </div>
-                    <div id="betsContainer">
-                        <ul v-for="event in events">
-                            <li id="betInList">
+                    <div id="eventsContainer">
+                        <ul v-for="event in events" v-model="events">
+                            <li id="eventInList" v-on:click="deleteEventFromCoupon" v-model="events">
                                 <h5>Дата: {{event.date}}</h5>
                                 <h5>Турнир: {{event.tournamentName}}</h5>
                                 <h5>Событие: {{event.eventName}}</h5>
@@ -138,6 +138,18 @@
                         date: '04/07/2017'
                     }]
             };
-        }
+        },
+        methods:
+            {
+                deleteEventFromCoupon: function (event)
+                {
+                    let element = event.currentTarget;
+                    console.log(element);
+                },
+
+                clearCoupon: function () {
+                    this.events = {};
+                }
+            }
     }
 </script>
