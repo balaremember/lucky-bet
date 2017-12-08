@@ -182,4 +182,5 @@
         </form>
     </div>
 </template>
+
 <script src="./scripts/registration.js"></script>

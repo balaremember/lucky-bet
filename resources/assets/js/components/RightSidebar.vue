@@ -69,8 +69,8 @@
 <script>
     export default
     {
-        data(){
-            return{
+        data() {
+            return {
                 showCoupon: true,
                 bet_type: 'single',
                 events:[

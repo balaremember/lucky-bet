@@ -4,6 +4,7 @@
 import axios from 'axios';
 
 export default {
+
     data() {
         return {
             email: '',
@@ -251,7 +252,7 @@ export default {
                         console.log(response);
 
                         if(response.data.message === 'Successfully') {
-                            this.$router.push('/');
+                            this.$router.push('/login');
                         } else {
                             this.$router.push('/reg');
                         }
