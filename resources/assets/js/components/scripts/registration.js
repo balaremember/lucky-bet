@@ -163,6 +163,17 @@ export default {
                     this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.';
                     this.birthdayValid = false;
                 }
+				var minDate = new Date(1920, 0, 1);
+				if(birthdayAsDate >= minDate)
+                {
+                    this.invalidMessage_2 = '';
+                    this.birthdayValid = true;
+                }
+                else
+                {
+                    this.invalidMessage_2 = 'Введите реальную дату рождения.';
+                    this.birthdayValid = false;
+                }
             },
 
             country()
