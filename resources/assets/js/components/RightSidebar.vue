@@ -13,14 +13,21 @@
             <br><hr>
             <div v-if="showCoupon">
                 <!--Здесь будут отображать выбранные ставки, коэффициенты и суммы-->
+                <p>Кликните на событие чтобы удалить его из купона</p>
                 <form id="couponForm">
                     <div id="betTypeContainer">
                         <md-radio v-model="bet_type" id="single" name="bet_type" mdValue="single">Одиночные</md-radio>
                         <md-radio v-model="bet_type" id="express" name="bet_type" mdValue="express">Экспресс</md-radio>
                     </div>
                     <div id="betsContainer">
-                        <ul v-for="bet in bets">
-                            <li id="betInList">{{bet.name}}</li>
+                        <ul v-for="event in events">
+                            <li id="betInList">
+                                <h5>Дата: {{event.date}}</h5>
+                                <h5>Турнир: {{event.tournamentName}}</h5>
+                                <h5>Событие: {{event.eventName}}</h5>
+                                <h4>Коэффициент: {{event.coefficient}}</h4>
+                            </li>
+                            <hr>
                         </ul>
                     </div>
                 </form>
@@ -66,8 +73,70 @@
             return{
                 showCoupon: true,
                 bet_type: 'single',
-                bets: [{name: 'bet #1'}, {name: 'bet #2'}, {name: ' bet #3'}, {name: 'bet #4'}, {name: 'bet #5'},
-                    {name: 'bet #6'}, {name: 'bet #7'}, {name: ' bet #8'}, {name: 'bet #9'}, {name: 'bet #10'}]
+                events:[
+                    {
+                        id: 0,
+                        eventName: 'eventName #1',
+                        tournamentName: 'tournamentName #1',
+                        coefficient: 777,
+                        date: '01/01/2017'
+                    },
+                    {
+                        id: 1,
+                        eventName: 'eventName #2',
+                        tournamentName: 'tournamentName #2',
+                        coefficient: 177,
+                        date: '01/01/2014'
+                    },
+                    {
+                        id: 2,
+                        eventName: 'eventName #3',
+                        tournamentName: 'tournamentName #3',
+                        coefficient: 7,
+                        date: '01/03/2017'
+                    },
+                    {
+                        id: 3,
+                        eventName: 'eventName #4',
+                        tournamentName: 'tournamentName #4',
+                        coefficient: 5,
+                        date: '23/01/2017'
+                    },
+                    {
+                        id: 4,
+                        eventName: 'eventName #5',
+                        tournamentName: 'tournamentName #5',
+                        coefficient: 2,
+                        date: '30/05/2017'
+                    },
+                    {
+                        id: 5,
+                        eventName: 'eventName #6',
+                        tournamentName: 'tournamentName #6',
+                        coefficient: 12.4,
+                        date: '01/12/2016'
+                    },
+                    {
+                        id: 6,
+                        eventName: 'eventName #7',
+                        tournamentName: 'tournamentName #7',
+                        coefficient: 5.34,
+                        date: '11/08/2017'
+                    },
+                    {
+                        id: 7,
+                        eventName: 'eventName #8',
+                        tournamentName: 'tournamentName #8',
+                        coefficient:3.34,
+                        date: '31/01/2017'
+                    },
+                    {
+                        id: 8,
+                        eventName: 'eventName #9',
+                        tournamentName: 'tournamentName #9',
+                        coefficient: 2.43,
+                        date: '04/07/2017'
+                    }]
             };
         }
     }

@@ -15706,13 +15706,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             showCoupon: true,
             bet_type: 'single',
-            bets: [{ name: 'bet #1' }, { name: 'bet #2' }, { name: ' bet #3' }, { name: 'bet #4' }, { name: 'bet #5' }, { name: 'bet #6' }, { name: 'bet #7' }, { name: ' bet #8' }, { name: 'bet #9' }, { name: 'bet #10' }]
+            events: [{
+                id: 0,
+                eventName: 'eventName #1',
+                tournamentName: 'tournamentName #1',
+                coefficient: 777,
+                date: '01/01/2017'
+            }, {
+                id: 1,
+                eventName: 'eventName #2',
+                tournamentName: 'tournamentName #2',
+                coefficient: 177,
+                date: '01/01/2014'
+            }, {
+                id: 2,
+                eventName: 'eventName #3',
+                tournamentName: 'tournamentName #3',
+                coefficient: 7,
+                date: '01/03/2017'
+            }, {
+                id: 3,
+                eventName: 'eventName #4',
+                tournamentName: 'tournamentName #4',
+                coefficient: 5,
+                date: '23/01/2017'
+            }, {
+                id: 4,
+                eventName: 'eventName #5',
+                tournamentName: 'tournamentName #5',
+                coefficient: 2,
+                date: '30/05/2017'
+            }, {
+                id: 5,
+                eventName: 'eventName #6',
+                tournamentName: 'tournamentName #6',
+                coefficient: 12.4,
+                date: '01/12/2016'
+            }, {
+                id: 6,
+                eventName: 'eventName #7',
+                tournamentName: 'tournamentName #7',
+                coefficient: 5.34,
+                date: '11/08/2017'
+            }, {
+                id: 7,
+                eventName: 'eventName #8',
+                tournamentName: 'tournamentName #8',
+                coefficient: 3.34,
+                date: '31/01/2017'
+            }, {
+                id: 8,
+                eventName: 'eventName #9',
+                tournamentName: 'tournamentName #9',
+                coefficient: 2.43,
+                date: '04/07/2017'
+            }]
         };
     }
 });
@@ -15751,6 +15812,10 @@ var render = function() {
       _vm._v(" "),
       _vm.showCoupon
         ? _c("div", [
+            _c("p", [
+              _vm._v("Кликните на событие чтобы удалить его из купона")
+            ]),
+            _vm._v(" "),
             _c("form", { attrs: { id: "couponForm" } }, [
               _c(
                 "div",
@@ -15800,11 +15865,23 @@ var render = function() {
               _c(
                 "div",
                 { attrs: { id: "betsContainer" } },
-                _vm._l(_vm.bets, function(bet) {
+                _vm._l(_vm.events, function(event) {
                   return _c("ul", [
                     _c("li", { attrs: { id: "betInList" } }, [
-                      _vm._v(_vm._s(bet.name))
-                    ])
+                      _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
+                      _vm._v(" "),
+                      _c("h5", [
+                        _vm._v("Турнир: " + _vm._s(event.tournamentName))
+                      ]),
+                      _vm._v(" "),
+                      _c("h5", [_vm._v("Событие: " + _vm._s(event.eventName))]),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v("Коэффициент: " + _vm._s(event.coefficient))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("hr")
                   ])
                 })
               )

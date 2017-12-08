@@ -515,3 +515,22 @@ div#eventsInMainListContainer > ul > li:active
     font-weight: 400;
     font-size: 24px;
 }
+
+li#betInList:active
+{
+    background-color: rgba(255, 149, 5, 0.3);
+}
+
+li#betInList > *
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+#betsContainer > ul > hr
+{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px double black;
+}
