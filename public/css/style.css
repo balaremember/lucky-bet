@@ -221,7 +221,7 @@ div #mobile > div > p
 #help > p:first-child
 {
     text-align: center;
-    background: #7986cb;
+    background: #34459e;
     padding: 1px;
     font-size: 20px;
     font-weight: 500;
@@ -236,7 +236,7 @@ div #mobile > div > p
 #help > p
 {
     text-align: center;
-    background: #7986cb;
+    background: #34459e;
     padding: 1px;
     font-size: 20px;
     font-weight: 500;
@@ -252,6 +252,7 @@ div #mobile > div > p
 #help
 {
     border-bottom: 1px solid black;
+    background-color: #34459e;
 }
 
 footer
