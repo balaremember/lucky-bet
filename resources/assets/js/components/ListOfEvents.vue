@@ -4,6 +4,11 @@
         <div v-if="showEvents" id="eventsInMainListContainer">
             <ul id="eventsInMainList" v-for="event in events">
                 <li v-on:click="addEventToCoupon" v-model="events">
+                    <div class="eventAddContainer">
+                        <md-button>
+                            <md-icon>add</md-icon>
+                        </md-button>
+                    </div>
                     <p>Номер события: #{{event.id}}</p>
                     <h5>Дата: {{event.date}}</h5>
                     <h5>Турнир: {{event.tournamentName}}</h5>

@@ -64,13 +64,14 @@
                     })
                     .catch((error) => {
                         console.log(error);
+                        alert('Ошибка при загрузки категорий событий.');
                     });
             },
 
             initLine: function()
             {
-                console.log('method initLine start:');
-                console.log(this.categoriesTree);
+                //console.log('method initLine start:');
+                //console.log(this.categoriesTree);
                 let currentLevelOfTree = [];
                 for(let categoryName in this.categoriesTree)
                 {

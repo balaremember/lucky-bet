@@ -15557,12 +15557,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.initLine();
             }).catch(function (error) {
                 console.log(error);
+                alert('Ошибка при загрузки категорий событий.');
             });
         },
 
         initLine: function initLine() {
-            console.log('method initLine start:');
-            console.log(this.categoriesTree);
+            //console.log('method initLine start:');
+            //console.log(this.categoriesTree);
             var currentLevelOfTree = [];
             for (var categoryName in this.categoriesTree) {
                 //console.log(categoryName);
@@ -16593,6 +16594,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -16697,6 +16703,13 @@ var render = function() {
                   }
                 },
                 [
+                  _c(
+                    "div",
+                    { staticClass: "eventAddContainer" },
+                    [_c("md-button", [_c("md-icon", [_vm._v("add")])], 1)],
+                    1
+                  ),
+                  _vm._v(" "),
                   _c("p", [_vm._v("Номер события: #" + _vm._s(event.id))]),
                   _vm._v(" "),
                   _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
