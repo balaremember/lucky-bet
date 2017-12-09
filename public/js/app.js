@@ -15536,17 +15536,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         getCategoriesTree: function getCategoriesTree() {
-            if (typeof sessionStorage['categoriesTree'] === "undefined") {
-                __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://lucky-bet.com/api/categories_tree').then(function (response) {
-                    //console.log(response);
-                    console.log(response.data);
-                    sessionStorage['categoriesTree'] = JSON.stringify(response.data);
-                    //this.categoriesTree = response.data;
-                    //console.log(this.categoriesTree);
-                }).catch(function (error) {
-                    console.log(error);
-                });
-            }
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://lucky-bet.com/api/categories_tree').then(function (response) {
+                //console.log(response);
+                //console.log(response.data);
+                _this.categoriesTree = response.data;
+                console.log(_this.categoriesTree);
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     }
 });
@@ -15827,7 +15826,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         clearCoupon: function clearCoupon() {
             this.events = {};
-        }
+        },
+
+        getPayment: function getPayment(event) {}
     }
 });
 
@@ -15985,14 +15986,6 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.events.amount,
-                                      expression: "events.amount"
-                                    }
-                                  ],
                                   attrs: {
                                     id: "amount",
                                     type: "number",
@@ -16002,19 +15995,18 @@ var render = function() {
                                     max: "1000000",
                                     step: "1",
                                     maxlength: "6"
-                                  },
-                                  domProps: { value: _vm.events.amount },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.events.amount = $event.target.value
-                                    }
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(2, true)
+                                _c("div", [
+                                  _c("p", [_vm._v("Возможный выигрыш")]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(event.coefficient * event.amount)
+                                    )
+                                  ])
+                                ])
                               ])
                             : _vm._e()
                         ]
@@ -16031,7 +16023,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { attrs: { id: "mobile" } }, [
-      _vm._m(3),
+      _vm._m(2),
       _vm._v(" "),
       _c("div", [
         _c("ul", [
@@ -16082,7 +16074,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(4)
+    _vm._m(3)
   ])
 }
 var staticRenderFns = [
@@ -16091,16 +16083,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [_c("p", [_vm._v("Купон")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Возможный выигрыш")]),
-      _vm._v(" "),
-      _c("span")
-    ])
   },
   function() {
     var _vm = this

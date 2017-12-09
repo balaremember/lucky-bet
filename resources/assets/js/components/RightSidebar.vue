@@ -39,10 +39,10 @@
                                     <label for="amount">Сумма ставки</label>
                                     <input id="amount" type="number"
                                            title="min сумма ставки 50 RUR, max - 1000000 RUR."
-                                           min="50" max="1000000" step="1" maxlength="6" v-model="events.amount">
+                                           min="50" max="1000000" step="1" maxlength="6">
                                     <div>
                                         <p>Возможный выигрыш</p>
-                                        <span></span>
+                                        <span>{{event.coefficient * event.amount}}</span>
                                     </div>
                                 </div>
                             </li>
@@ -178,6 +178,10 @@
 
                 clearCoupon: function () {
                     this.events = {};
+                },
+
+                getPayment: function (event) {
+
                 }
             }
     }
