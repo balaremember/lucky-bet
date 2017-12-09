@@ -15742,12 +15742,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             showCoupon: true,
             bet_type: 'single',
+            expressAmount: 0,
             events: [{
                 id: 0,
                 eventName: 'eventName #1',
@@ -15912,7 +15916,15 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("input", {
-                          attrs: { id: "amount", type: "number" }
+                          attrs: {
+                            id: "amount",
+                            type: "number",
+                            title: "min сумма ставки 50 RUR, max - 1000000 RUR",
+                            min: "50",
+                            max: "1000000",
+                            step: "1",
+                            maxlength: "6"
+                          }
                         }),
                         _vm._v(" "),
                         _vm._m(1)
@@ -15973,7 +15985,33 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("input", {
-                                  attrs: { id: "amount", type: "number" }
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.events.amount,
+                                      expression: "events.amount"
+                                    }
+                                  ],
+                                  attrs: {
+                                    id: "amount",
+                                    type: "number",
+                                    title:
+                                      "min сумма ставки 50 RUR, max - 1000000 RUR.",
+                                    min: "50",
+                                    max: "1000000",
+                                    step: "1",
+                                    maxlength: "6"
+                                  },
+                                  domProps: { value: _vm.events.amount },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.events.amount = $event.target.value
+                                    }
+                                  }
                                 }),
                                 _vm._v(" "),
                                 _vm._m(2, true)

@@ -536,3 +536,8 @@ li#eventInList > *
     margin-bottom: 0;
     border: 1px double black;
 }
+
+#betTypeContainer > div > div > p
+{
+    margin: 0;
+}

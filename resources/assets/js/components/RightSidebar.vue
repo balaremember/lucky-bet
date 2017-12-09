@@ -20,7 +20,8 @@
                         <md-radio v-model="bet_type" id="express" name="bet_type" mdValue="express">Экспресс</md-radio>
                         <div v-if="bet_type === 'express'">
                             <label for="amount">Сумма ставки</label>
-                            <input id="amount" type="number">
+                            <input id="amount" type="number" title="min сумма ставки 50 RUR, max - 1000000 RUR"
+                                   min="50" max="1000000" step="1" maxlength="6">
                             <div>
                                 <p>Возможный выигрыш</p>
                                 <span></span>
@@ -36,7 +37,9 @@
                                 <h4>Коэффициент: {{event.coefficient}}</h4>
                                 <div v-if="bet_type === 'single'">
                                     <label for="amount">Сумма ставки</label>
-                                    <input id="amount" type="number">
+                                    <input id="amount" type="number"
+                                           title="min сумма ставки 50 RUR, max - 1000000 RUR."
+                                           min="50" max="1000000" step="1" maxlength="6" v-model="events.amount">
                                     <div>
                                         <p>Возможный выигрыш</p>
                                         <span></span>
@@ -89,6 +92,7 @@
             return {
                 showCoupon: true,
                 bet_type: 'single',
+                expressAmount: 0,
                 events:[
                     {
                         id: 0,
