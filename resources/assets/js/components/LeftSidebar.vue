@@ -9,6 +9,28 @@
                 {{categoryName}}
             </li>
         </ul>
+        <!--Mobile-->
+        <div id="mobile">
+            <div>
+                <p>Мобильные приложения</p>
+            </div>
+            <div>
+                <ul>
+                    <!--iOS-->
+                    <li class="mobile">
+                        <md-button id="button_ios">
+                            <md-icon><i class="fa fa-apple" aria-hidden="true"></i></md-icon> iOS
+                        </md-button>
+                    </li>
+                    <!--Android-->
+                    <li class="mobile">
+                        <md-button id="button_android">
+                            <md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon> Anroid
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </aside>
 </template>
 
@@ -20,7 +42,7 @@
         data()
         {
             return {
-                categoriesTree: null,
+                categoriesTree: [],
                 currentLevelOfCategoriesTree: []
             };
         },

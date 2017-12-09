@@ -450,7 +450,7 @@ div #mobile > div > p
     word-wrap: break-word;
     border-top: 1px solid black;
     overflow-y: scroll;
-    height: 100px;
+    height: 150px;
     padding-left: 5px;
 }
 
@@ -540,4 +540,22 @@ li#eventInList > *
 #betTypeContainer > div > div > p
 {
     margin: 0;
+}
+
+#betTypeContainer
+{
+    margin-left: 10px;
+}
+
+.md-radio
+{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#betTypeContainer > button
+{
+    margin-left: 50px;
+    color: #FFFFFF;
+    background-color: #ff5722;
 }

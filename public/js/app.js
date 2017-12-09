@@ -15509,13 +15509,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            categoriesTree: null,
+            categoriesTree: [],
             currentLevelOfCategoriesTree: []
         };
     },
@@ -15570,7 +15592,59 @@ var render = function() {
           _vm._v("\n            " + _vm._s(categoryName) + "\n        ")
         ])
       })
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "mobile" } }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", [
+        _c("ul", [
+          _c(
+            "li",
+            { staticClass: "mobile" },
+            [
+              _c(
+                "md-button",
+                { attrs: { id: "button_ios" } },
+                [
+                  _c("md-icon", [
+                    _c("i", {
+                      staticClass: "fa fa-apple",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]),
+                  _vm._v(" iOS\n                    ")
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mobile" },
+            [
+              _c(
+                "md-button",
+                { attrs: { id: "button_android" } },
+                [
+                  _c("md-icon", [
+                    _c("i", {
+                      staticClass: "fa fa-android",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]),
+                  _vm._v(" Anroid\n                    ")
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -15579,6 +15653,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { attrs: { id: "line" } }, [_c("p", [_vm._v("Линия")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("p", [_vm._v("Мобильные приложения")])])
   }
 ]
 render._withStripped = true
@@ -15642,6 +15722,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -15811,7 +15892,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         clearCoupon: function clearCoupon() {
-            this.events = {};
+            this.events = [];
         }
     }
 });
@@ -15912,6 +15993,10 @@ var render = function() {
                           }
                         })
                       ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.events.length > 0
+                    ? _c("md-button", [_vm._v("Сделать ставку")])
                     : _vm._e()
                 ],
                 1
@@ -15921,72 +16006,60 @@ var render = function() {
                 "div",
                 { attrs: { id: "eventsContainer" } },
                 _vm._l(_vm.events, function(event) {
-                  return _c(
-                    "ul",
-                    {
-                      model: {
-                        value: _vm.events,
-                        callback: function($$v) {
-                          _vm.events = $$v
-                        },
-                        expression: "events"
-                      }
-                    },
-                    [
-                      _c(
-                        "li",
-                        {
-                          attrs: { id: "eventInList" },
-                          on: { click: _vm.deleteEventFromCoupon },
-                          model: {
-                            value: _vm.events,
-                            callback: function($$v) {
-                              _vm.events = $$v
-                            },
-                            expression: "events"
-                          }
-                        },
-                        [
-                          _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
-                          _vm._v(" "),
-                          _c("h5", [
-                            _vm._v("Турнир: " + _vm._s(event.tournamentName))
-                          ]),
-                          _vm._v(" "),
-                          _c("h5", [
-                            _vm._v("Событие: " + _vm._s(event.eventName))
-                          ]),
-                          _vm._v(" "),
-                          _c("h4", [
-                            _vm._v("Коэффициент: " + _vm._s(event.coefficient))
-                          ]),
-                          _vm._v(" "),
-                          _vm.bet_type === "single"
-                            ? _c("div", [
-                                _c("label", { attrs: { for: "amount" } }, [
-                                  _vm._v("Сумма ставки")
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  attrs: {
-                                    id: "amount",
-                                    type: "number",
-                                    title:
-                                      "min сумма ставки 50 RUR, max - 1000000 RUR.",
-                                    min: "50",
-                                    max: "1000000",
-                                    step: "1",
-                                    maxlength: "6"
-                                  }
-                                })
-                              ])
-                            : _vm._e()
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("hr")
-                    ]
-                  )
+                  return _c("ul", [
+                    _c(
+                      "li",
+                      {
+                        attrs: { id: "eventInList" },
+                        on: { click: _vm.deleteEventFromCoupon },
+                        model: {
+                          value: _vm.events,
+                          callback: function($$v) {
+                            _vm.events = $$v
+                          },
+                          expression: "events"
+                        }
+                      },
+                      [
+                        _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
+                        _vm._v(" "),
+                        _c("h5", [
+                          _vm._v("Турнир: " + _vm._s(event.tournamentName))
+                        ]),
+                        _vm._v(" "),
+                        _c("h5", [
+                          _vm._v("Событие: " + _vm._s(event.eventName))
+                        ]),
+                        _vm._v(" "),
+                        _c("h4", [
+                          _vm._v("Коэффициент: " + _vm._s(event.coefficient))
+                        ]),
+                        _vm._v(" "),
+                        _vm.bet_type === "single"
+                          ? _c("div", [
+                              _c("label", { attrs: { for: "amount" } }, [
+                                _vm._v("Сумма ставки")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: {
+                                  id: "amount",
+                                  type: "number",
+                                  title:
+                                    "min сумма ставки 50 RUR, max - 1000000 RUR.",
+                                  min: "50",
+                                  max: "1000000",
+                                  step: "1",
+                                  maxlength: "6"
+                                }
+                              })
+                            ])
+                          : _vm._e()
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("hr")
+                  ])
                 })
               )
             ])
@@ -15994,59 +16067,7 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { attrs: { id: "mobile" } }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", [
-        _c("ul", [
-          _c(
-            "li",
-            { staticClass: "mobile" },
-            [
-              _c(
-                "md-button",
-                { attrs: { id: "button_ios" } },
-                [
-                  _c("md-icon", [
-                    _c("i", {
-                      staticClass: "fa fa-apple",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" iOS\n                    ")
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "mobile" },
-            [
-              _c(
-                "md-button",
-                { attrs: { id: "button_android" } },
-                [
-                  _c("md-icon", [
-                    _c("i", {
-                      staticClass: "fa fa-android",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" Anroid\n                    ")
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(2)
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -16055,12 +16076,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [_c("p", [_vm._v("Купон")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("Мобильные приложения")])])
   },
   function() {
     var _vm = this

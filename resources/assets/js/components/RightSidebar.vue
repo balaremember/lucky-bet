@@ -27,9 +27,10 @@
                                 <span></span>
                             </div>-->
                         </div>
+                        <md-button v-if="events.length > 0">Сделать ставку</md-button>
                     </div>
                     <div id="eventsContainer">
-                        <ul v-for="event in events" v-model="events">
+                        <ul v-for="event in events">
                             <li id="eventInList" v-on:click="deleteEventFromCoupon" v-model="events">
                                 <h5>Дата: {{event.date}}</h5>
                                 <h5>Турнир: {{event.tournamentName}}</h5>
@@ -53,19 +54,19 @@
             </div>
         </div>
         <!--Mobile-->
-        <div id="mobile">
+        <!--<div id="mobile">
             <div>
                 <p>Мобильные приложения</p>
             </div>
             <div>
                 <ul>
-                    <!--iOS-->
+                    &lt;!&ndash;iOS&ndash;&gt;
                     <li class="mobile">
                         <md-button id="button_ios">
                             <md-icon><i class="fa fa-apple" aria-hidden="true"></i></md-icon> iOS
                         </md-button>
                     </li>
-                    <!--Android-->
+                    &lt;!&ndash;Android&ndash;&gt;
                     <li class="mobile">
                         <md-button id="button_android">
                             <md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon> Anroid
@@ -73,7 +74,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>-->
         <!--HELP-->
         <div id="help">
             <p>Онлайн поддержка</p>
@@ -176,7 +177,7 @@
             },
 
             clearCoupon: function () {
-                this.events = {};
+                this.events = [];
             }
         }
     }
