@@ -27,11 +27,12 @@
                                 <span></span>
                             </div>-->
                         </div>
-                        <md-button v-if="events.length > 0">Сделать ставку</md-button>
+                        <md-button v-if="events.length > 0">Заключить пари</md-button>
                     </div>
                     <div id="eventsContainer">
                         <ul v-for="event in events">
                             <li id="eventInList" v-on:click="deleteEventFromCoupon" v-model="events">
+                                <p>Номер события: #{{event.id}}</p>
                                 <h5>Дата: {{event.date}}</h5>
                                 <h5>Турнир: {{event.tournamentName}}</h5>
                                 <h5>Событие: {{event.eventName}}</h5>
@@ -173,7 +174,12 @@
         methods: {
             deleteEventFromCoupon: function (event) {
                 let element = event.currentTarget;
-                console.log(element);
+                let stringWithEventId = element.firstChild.textContent;
+                console.log(stringWithEventId);
+                let pattern = /#\d+/;
+                let id = pattern.exec(stringWithEventId);
+                console.log('Кликнули по событию с id:');
+                console.log(id[0]);
             },
 
             clearCoupon: function () {

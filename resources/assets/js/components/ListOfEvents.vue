@@ -91,10 +91,13 @@
             {
                 addEventToCoupon: function (event)
                 {
-                    console.log(event.currentTarget);
                     let element = event.currentTarget;
-                    //element = element.firstChild;
-                    //console.log(element);
+                    let stringWithEventId = element.firstChild.textContent;
+                    console.log(stringWithEventId);
+                    let pattern = /#\d+/;
+                    let id = pattern.exec(stringWithEventId);
+                    console.log('Кликнули по событию с id:');
+                    console.log(id[0]);
                 }
             }
     }

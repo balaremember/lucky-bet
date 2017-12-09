@@ -469,7 +469,7 @@ div #mobile > div > p
 #betsInMainList > li:hover
 {
     cursor: auto;
-    background-color: rgba(249, 76, 6, 0.8);
+    background-color: #ff5722;
 }
 
 div#eventsInMainListContainer
@@ -482,7 +482,7 @@ div#eventsInMainListContainer
 
 div#eventsInMainListContainer > ul > li:hover
 {
-    background-color: rgba(249, 76, 6, 0.8);
+    background-color: #ff5722;
 }
 
 div#eventsInMainListContainer > ul > li:active

@@ -15568,6 +15568,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 //console.log(categoryName);
                 currentLevelOfTree.push(categoryName);
             }
+            console.log('Категории первого уровня');
             console.log(currentLevelOfTree);
             this.currentLevelOfCategoriesTree = currentLevelOfTree;
         }
@@ -15810,6 +15811,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -15888,7 +15890,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         deleteEventFromCoupon: function deleteEventFromCoupon(event) {
             var element = event.currentTarget;
-            console.log(element);
+            var stringWithEventId = element.firstChild.textContent;
+            console.log(stringWithEventId);
+            var pattern = /#\d+/;
+            var id = pattern.exec(stringWithEventId);
+            console.log('Кликнули по событию с id:');
+            console.log(id[0]);
         },
 
         clearCoupon: function clearCoupon() {
@@ -15996,7 +16003,7 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.events.length > 0
-                    ? _c("md-button", [_vm._v("Сделать ставку")])
+                    ? _c("md-button", [_vm._v("Заключить пари")])
                     : _vm._e()
                 ],
                 1
@@ -16021,6 +16028,10 @@ var render = function() {
                         }
                       },
                       [
+                        _c("p", [
+                          _vm._v("Номер события: #" + _vm._s(event.id))
+                        ]),
+                        _vm._v(" "),
                         _c("h5", [_vm._v("Дата: " + _vm._s(event.date))]),
                         _vm._v(" "),
                         _c("h5", [
@@ -16647,10 +16658,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         addEventToCoupon: function addEventToCoupon(event) {
-            console.log(event.currentTarget);
             var element = event.currentTarget;
-            //element = element.firstChild;
-            //console.log(element);
+            var stringWithEventId = element.firstChild.textContent;
+            console.log(stringWithEventId);
+            var pattern = /#\d+/;
+            var id = pattern.exec(stringWithEventId);
+            console.log('Кликнули по событию с id:');
+            console.log(id[0]);
         }
     }
 });

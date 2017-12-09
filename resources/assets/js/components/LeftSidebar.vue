@@ -77,6 +77,7 @@
                     //console.log(categoryName);
                     currentLevelOfTree.push(categoryName);
                 }
+                console.log('Категории первого уровня');
                 console.log(currentLevelOfTree);
                 this.currentLevelOfCategoriesTree = currentLevelOfTree;
             }
