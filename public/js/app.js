@@ -15509,24 +15509,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'categoriesTree',
-
     data: function data() {
         return {
-            categoriesTree: {}
+            categoriesTree: null,
+            currentLevelOfCategoriesTree: []
         };
     },
     mounted: function mounted() {
@@ -15539,13 +15529,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://lucky-bet.com/api/categories_tree').then(function (response) {
-                //console.log(response);
-                //console.log(response.data);
                 _this.categoriesTree = response.data;
+                console.log('Получаем дерево категорий:');
                 console.log(_this.categoriesTree);
+                _this.initLine();
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+
+        initLine: function initLine() {
+            console.log('method initLine start:');
+            console.log(this.categoriesTree);
+            var currentLevelOfTree = [];
+            for (var categoryName in this.categoriesTree) {
+                //console.log(categoryName);
+                currentLevelOfTree.push(categoryName);
+            }
+            console.log(currentLevelOfTree);
+            this.currentLevelOfCategoriesTree = currentLevelOfTree;
         }
     }
 });
@@ -15558,42 +15560,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("aside", { attrs: { id: "left_sidebar" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "ul",
+      _vm._l(_vm.currentLevelOfCategoriesTree, function(categoryName) {
+        return _c("li", [
+          _vm._v("\n            " + _vm._s(categoryName) + "\n        ")
+        ])
+      })
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("aside", { attrs: { id: "left_sidebar" } }, [
-      _c("div", { attrs: { id: "line" } }, [_c("p", [_vm._v("Линия")])]),
-      _vm._v(" "),
-      _c("ul", [
-        _c("li", [_vm._v("Футбол")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Хоккей")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Теннис")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Бокс")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Баскетбол")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Авто-мото спорт")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Бадминтон")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Биатлон")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Гандбол")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Регби")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Хоккей с мячом")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Шахматы")])
-      ])
-    ])
+    return _c("div", { attrs: { id: "line" } }, [_c("p", [_vm._v("Линия")])])
   }
 ]
 render._withStripped = true
@@ -15818,6 +15803,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+
     methods: {
         deleteEventFromCoupon: function deleteEventFromCoupon(event) {
             var element = event.currentTarget;
@@ -15826,9 +15812,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         clearCoupon: function clearCoupon() {
             this.events = {};
-        },
-
-        getPayment: function getPayment(event) {}
+        }
     }
 });
 
@@ -15926,9 +15910,7 @@ var render = function() {
                             step: "1",
                             maxlength: "6"
                           }
-                        }),
-                        _vm._v(" "),
-                        _vm._m(1)
+                        })
                       ])
                     : _vm._e()
                 ],
@@ -15996,17 +15978,7 @@ var render = function() {
                                     step: "1",
                                     maxlength: "6"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("div", [
-                                  _c("p", [_vm._v("Возможный выигрыш")]),
-                                  _vm._v(" "),
-                                  _c("span", [
-                                    _vm._v(
-                                      _vm._s(event.coefficient * event.amount)
-                                    )
-                                  ])
-                                ])
+                                })
                               ])
                             : _vm._e()
                         ]
@@ -16023,7 +15995,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { attrs: { id: "mobile" } }, [
-      _vm._m(2),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", [
         _c("ul", [
@@ -16074,7 +16046,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(3)
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
@@ -16083,16 +16055,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [_c("p", [_vm._v("Купон")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Возможный выигрыш")]),
-      _vm._v(" "),
-      _c("span")
-    ])
   },
   function() {
     var _vm = this

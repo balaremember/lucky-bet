@@ -22,10 +22,10 @@
                             <label for="amount">Сумма ставки</label>
                             <input id="amount" type="number" title="min сумма ставки 50 RUR, max - 1000000 RUR"
                                    min="50" max="1000000" step="1" maxlength="6">
-                            <div>
+                            <!--<div>
                                 <p>Возможный выигрыш</p>
                                 <span></span>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div id="eventsContainer">
@@ -40,10 +40,10 @@
                                     <input id="amount" type="number"
                                            title="min сумма ставки 50 RUR, max - 1000000 RUR."
                                            min="50" max="1000000" step="1" maxlength="6">
-                                    <div>
+                                    <!--<div>
                                         <p>Возможный выигрыш</p>
-                                        <span>{{event.coefficient * event.amount}}</span>
-                                    </div>
+                                        <span></span>
+                                    </div>-->
                                 </div>
                             </li>
                             <hr>
@@ -93,7 +93,7 @@
                 showCoupon: true,
                 bet_type: 'single',
                 expressAmount: 0,
-                events:[
+                events: [
                     {
                         id: 0,
                         eventName: 'eventName #1',
@@ -154,7 +154,7 @@
                         id: 7,
                         eventName: 'eventName #8',
                         tournamentName: 'tournamentName #8',
-                        coefficient:3.34,
+                        coefficient: 3.34,
                         date: '31/01/2017',
                         amount: 0
                     },
@@ -168,21 +168,16 @@
                     }]
             };
         },
-        methods:
-            {
-                deleteEventFromCoupon: function (event)
-                {
-                    let element = event.currentTarget;
-                    console.log(element);
-                },
 
-                clearCoupon: function () {
-                    this.events = {};
-                },
+        methods: {
+            deleteEventFromCoupon: function (event) {
+                let element = event.currentTarget;
+                console.log(element);
+            },
 
-                getPayment: function (event) {
-
-                }
+            clearCoupon: function () {
+                this.events = {};
             }
+        }
     }
 </script>

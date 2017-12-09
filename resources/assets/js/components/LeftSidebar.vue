@@ -5,18 +5,9 @@
         </div>
         <!--ВСЕ ВИДЫ СТАВОК-->
         <ul>
-            <li>Футбол</li>
-            <li>Хоккей</li>
-            <li>Теннис</li>
-            <li>Бокс</li>
-            <li>Баскетбол</li>
-            <li>Авто-мото спорт</li>
-            <li>Бадминтон</li>
-            <li>Биатлон</li>
-            <li>Гандбол</li>
-            <li>Регби</li>
-            <li>Хоккей с мячом</li>
-            <li>Шахматы</li>
+            <li v-for="categoryName in currentLevelOfCategoriesTree">
+                {{categoryName}}
+            </li>
         </ul>
     </aside>
 </template>
@@ -26,12 +17,11 @@
 
     export default
     {
-        name: 'categoriesTree',
-
         data()
         {
             return {
-                categoriesTree: {}
+                categoriesTree: null,
+                currentLevelOfCategoriesTree: []
             };
         },
 
@@ -45,14 +35,28 @@
             {
                 axios.get('http://lucky-bet.com/api/categories_tree')
                     .then((response) => {
-                        //console.log(response);
-                        //console.log(response.data);
                         this.categoriesTree = response.data;
+                        console.log('Получаем дерево категорий:');
                         console.log(this.categoriesTree);
+                        this.initLine();
                     })
                     .catch((error) => {
                         console.log(error);
                     });
+            },
+
+            initLine: function()
+            {
+                console.log('method initLine start:');
+                console.log(this.categoriesTree);
+                let currentLevelOfTree = [];
+                for(let categoryName in this.categoriesTree)
+                {
+                    //console.log(categoryName);
+                    currentLevelOfTree.push(categoryName);
+                }
+                console.log(currentLevelOfTree);
+                this.currentLevelOfCategoriesTree = currentLevelOfTree;
             }
         }
     }
