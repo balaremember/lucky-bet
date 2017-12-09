@@ -15726,6 +15726,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -15737,55 +15753,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 eventName: 'eventName #1',
                 tournamentName: 'tournamentName #1',
                 coefficient: 777,
-                date: '01/01/2017'
+                date: '01/01/2017',
+                amount: 0
             }, {
                 id: 1,
                 eventName: 'eventName #2',
                 tournamentName: 'tournamentName #2',
                 coefficient: 177,
-                date: '01/01/2014'
+                date: '01/01/2014',
+                amount: 0
             }, {
                 id: 2,
                 eventName: 'eventName #3',
                 tournamentName: 'tournamentName #3',
                 coefficient: 7,
-                date: '01/03/2017'
+                date: '01/03/2017',
+                amount: 0
             }, {
                 id: 3,
                 eventName: 'eventName #4',
                 tournamentName: 'tournamentName #4',
                 coefficient: 5,
-                date: '23/01/2017'
+                date: '23/01/2017',
+                amount: 0
             }, {
                 id: 4,
                 eventName: 'eventName #5',
                 tournamentName: 'tournamentName #5',
                 coefficient: 2,
-                date: '30/05/2017'
+                date: '30/05/2017',
+                amount: 0
             }, {
                 id: 5,
                 eventName: 'eventName #6',
                 tournamentName: 'tournamentName #6',
                 coefficient: 12.4,
-                date: '01/12/2016'
+                date: '01/12/2016',
+                amount: 0
             }, {
                 id: 6,
                 eventName: 'eventName #7',
                 tournamentName: 'tournamentName #7',
                 coefficient: 5.34,
-                date: '11/08/2017'
+                date: '11/08/2017',
+                amount: 0
             }, {
                 id: 7,
                 eventName: 'eventName #8',
                 tournamentName: 'tournamentName #8',
                 coefficient: 3.34,
-                date: '31/01/2017'
+                date: '31/01/2017',
+                amount: 0
             }, {
                 id: 8,
                 eventName: 'eventName #9',
                 tournamentName: 'tournamentName #9',
                 coefficient: 2.43,
-                date: '04/07/2017'
+                date: '04/07/2017',
+                amount: 0
             }]
         };
     },
@@ -15878,7 +15903,21 @@ var render = function() {
                       }
                     },
                     [_vm._v("Экспресс")]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.bet_type === "express"
+                    ? _c("div", [
+                        _c("label", { attrs: { for: "amount" } }, [
+                          _vm._v("Сумма ставки")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: { id: "amount", type: "number" }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(1)
+                      ])
+                    : _vm._e()
                 ],
                 1
               ),
@@ -15925,7 +15964,21 @@ var render = function() {
                           _vm._v(" "),
                           _c("h4", [
                             _vm._v("Коэффициент: " + _vm._s(event.coefficient))
-                          ])
+                          ]),
+                          _vm._v(" "),
+                          _vm.bet_type === "single"
+                            ? _c("div", [
+                                _c("label", { attrs: { for: "amount" } }, [
+                                  _vm._v("Сумма ставки")
+                                ]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: { id: "amount", type: "number" }
+                                }),
+                                _vm._v(" "),
+                                _vm._m(2, true)
+                              ])
+                            : _vm._e()
                         ]
                       ),
                       _vm._v(" "),
@@ -15940,7 +15993,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { attrs: { id: "mobile" } }, [
-      _vm._m(1),
+      _vm._m(3),
       _vm._v(" "),
       _c("div", [
         _c("ul", [
@@ -15991,7 +16044,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(2)
+    _vm._m(4)
   ])
 }
 var staticRenderFns = [
@@ -16000,6 +16053,26 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [_c("p", [_vm._v("Купон")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("p", [_vm._v("Возможный выигрыш")]),
+      _vm._v(" "),
+      _c("span")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("p", [_vm._v("Возможный выигрыш")]),
+      _vm._v(" "),
+      _c("span")
+    ])
   },
   function() {
     var _vm = this
