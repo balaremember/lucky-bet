@@ -15813,6 +15813,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -16029,6 +16034,19 @@ var render = function() {
                         }
                       },
                       [
+                        _c(
+                          "div",
+                          { staticClass: "eventAddContainer" },
+                          [
+                            _c(
+                              "md-button",
+                              [_c("md-icon", [_vm._v("clear")])],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
                         _c("p", [
                           _vm._v("Номер события: #" + _vm._s(event.id))
                         ]),

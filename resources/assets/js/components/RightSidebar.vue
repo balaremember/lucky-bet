@@ -32,6 +32,11 @@
                     <div id="eventsContainer">
                         <ul v-for="event in events">
                             <li id="eventInList" v-on:click="deleteEventFromCoupon" v-model="events">
+                                <div class="eventAddContainer">
+                                    <md-button>
+                                        <md-icon>clear</md-icon>
+                                    </md-button>
+                                </div>
                                 <p>Номер события: #{{event.id}}</p>
                                 <h5>Дата: {{event.date}}</h5>
                                 <h5>Турнир: {{event.tournamentName}}</h5>
