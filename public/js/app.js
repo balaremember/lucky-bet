@@ -15795,36 +15795,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             showCoupon: true,
-            bet_type: 'single',
+            betType: 'single',
             expressAmount: 0,
+            totalPayment: this.calcTotalPayment(),
             events: [{
                 id: 0,
                 eventName: 'eventName #1',
@@ -15906,6 +15884,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         clearCoupon: function clearCoupon() {
             this.events = [];
+        },
+
+        calcTotalPayment: function calcTotalPayment() {
+            console.log('method calcTotalPayment start');
+            var totalPayment = 0;
+            switch (this.betType) {
+                case 'single':
+                    {
+                        for (key in this.events) {
+                            totalPayment += this.events[key].coefficient * this.events[key].amount;
+                            console.log(totalPayment);
+                        }
+                        break;
+                    }
+                case 'express':
+                    {
+                        var totalCoefficient = 1;
+                        for (key in this.events) {
+                            totalCoefficient *= this.events[key].coefficient;
+                            console.log(totalPayment);
+                        }
+                        totalPayment = totalCoefficient * this.expressAmount;
+                        break;
+                    }
+            }
+            console.log(totalPayment);
+            return totalPayment;
         }
     }
 });
@@ -15955,15 +15960,15 @@ var render = function() {
                     {
                       attrs: {
                         id: "single",
-                        name: "bet_type",
+                        name: "betType",
                         mdValue: "single"
                       },
                       model: {
-                        value: _vm.bet_type,
+                        value: _vm.betType,
                         callback: function($$v) {
-                          _vm.bet_type = $$v
+                          _vm.betType = $$v
                         },
-                        expression: "bet_type"
+                        expression: "betType"
                       }
                     },
                     [_vm._v("Одиночные")]
@@ -15974,35 +15979,52 @@ var render = function() {
                     {
                       attrs: {
                         id: "express",
-                        name: "bet_type",
+                        name: "betType",
                         mdValue: "express"
                       },
                       model: {
-                        value: _vm.bet_type,
+                        value: _vm.betType,
                         callback: function($$v) {
-                          _vm.bet_type = $$v
+                          _vm.betType = $$v
                         },
-                        expression: "bet_type"
+                        expression: "betType"
                       }
                     },
                     [_vm._v("Экспресс")]
                   ),
                   _vm._v(" "),
-                  _vm.bet_type === "express"
+                  _vm.betType === "express"
                     ? _c("div", [
                         _c("label", { attrs: { for: "amount" } }, [
                           _vm._v("Сумма ставки")
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.expressAmount,
+                              expression: "expressAmount"
+                            }
+                          ],
                           attrs: {
-                            id: "amount",
+                            id: "expressAmount",
                             type: "number",
                             title: "min сумма ставки 50 RUR, max - 1000000 RUR",
                             min: "50",
                             max: "1000000",
                             step: "1",
                             maxlength: "6"
+                          },
+                          domProps: { value: _vm.expressAmount },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.expressAmount = $event.target.value
+                            }
                           }
                         })
                       ])
@@ -16058,7 +16080,7 @@ var render = function() {
                           _vm._v("Коэффициент: " + _vm._s(event.coefficient))
                         ]),
                         _vm._v(" "),
-                        _vm.bet_type === "single"
+                        _vm.betType === "single"
                           ? _c("div", [
                               _c("label", { attrs: { for: "amount" } }, [
                                 _vm._v("Сумма ставки")
@@ -16101,7 +16123,7 @@ var render = function() {
                                   _vm._v(
                                     _vm._s(
                                       (event.coefficient * event.amount
-                                      ).toFixed(4)
+                                      ).toFixed(2)
                                     ) + " руб."
                                   )
                                 ])

@@ -12,22 +12,21 @@
             </div>
             <br><hr>
             <div v-if="showCoupon">
-                <!--Здесь будут отображать выбранные ставки, коэффициенты и суммы-->
-                <!--<p>Кликните на событие чтобы удалить его из купона</p>-->
                 <form id="couponForm">
                     <div id="betTypeContainer">
-                        <md-radio v-model="bet_type" id="single" name="bet_type" mdValue="single">Одиночные</md-radio>
-                        <md-radio v-model="bet_type" id="express" name="bet_type" mdValue="express">Экспресс</md-radio>
-                        <div v-if="bet_type === 'express'">
+                        <md-radio v-model="betType" id="single" name="betType" mdValue="single">Одиночные</md-radio>
+                        <md-radio v-model="betType" id="express" name="betType" mdValue="express">Экспресс</md-radio>
+                        <div v-if="betType === 'express'">
                             <label for="amount">Сумма ставки</label>
-                            <input id="amount" type="number" title="min сумма ставки 50 RUR, max - 1000000 RUR"
-                                   min="50" max="1000000" step="1" maxlength="6">
-                            <!--<div>
-                                <p>Возможный выигрыш</p>
-                                <span></span>
-                            </div>-->
+                            <input id="expressAmount" type="number" title="min сумма ставки 50 RUR, max - 1000000 RUR"
+                                   min="50" max="1000000" step="1" maxlength="6" v-model="expressAmount">
                         </div>
                         <md-button v-if="events.length > 0">Заключить пари</md-button>
+                        <!--TODO: need calc totalPayment-->
+                        <!--<div>
+                            <p>Общая сумма возможного выигрыша</p>
+                            <span>{{totalPayment}} руб.</span>
+                        </div>-->
                     </div>
                     <div id="eventsContainer">
                         <ul v-for="event in events">
@@ -42,14 +41,14 @@
                                 <h5>Турнир: {{event.tournamentName}}</h5>
                                 <h5>Событие: {{event.eventName}}</h5>
                                 <h4>Коэффициент: {{event.coefficient}}</h4>
-                                <div v-if="bet_type === 'single'">
+                                <div v-if="betType === 'single'">
                                     <label for="amount">Сумма ставки</label>
                                     <input id="amount" type="number"
                                            title="min сумма ставки 50 RUR, max - 1000000 RUR."
                                            min="50" max="1000000" step="1" maxlength="6" v-model="event.amount">
                                     <div>
                                         <p>Возможный выигрыш</p>
-                                        <span>{{(event.coefficient * event.amount).toFixed(4)}} руб.</span>
+                                        <span>{{(event.coefficient * event.amount).toFixed(2)}} руб.</span>
                                     </div>
                                 </div>
                             </li>
@@ -59,28 +58,6 @@
                 </form>
             </div>
         </div>
-        <!--Mobile-->
-        <!--<div id="mobile">
-            <div>
-                <p>Мобильные приложения</p>
-            </div>
-            <div>
-                <ul>
-                    &lt;!&ndash;iOS&ndash;&gt;
-                    <li class="mobile">
-                        <md-button id="button_ios">
-                            <md-icon><i class="fa fa-apple" aria-hidden="true"></i></md-icon> iOS
-                        </md-button>
-                    </li>
-                    &lt;!&ndash;Android&ndash;&gt;
-                    <li class="mobile">
-                        <md-button id="button_android">
-                            <md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon> Anroid
-                        </md-button>
-                    </li>
-                </ul>
-            </div>
-        </div>-->
         <!--HELP-->
         <div id="help">
             <p>Онлайн поддержка</p>
@@ -98,8 +75,9 @@
         data() {
             return {
                 showCoupon: true,
-                bet_type: 'single',
+                betType: 'single',
                 expressAmount: 0,
+                totalPayment: this.calcTotalPayment(),
                 events: [
                     {
                         id: 0,
@@ -189,6 +167,37 @@
 
             clearCoupon: function () {
                 this.events = [];
+            },
+
+
+            calcTotalPayment: function(){
+                console.log('method calcTotalPayment start');
+                let totalPayment = 0;
+                switch (this.betType)
+                {
+                    case 'single':
+                    {
+                        for(key in this.events)
+                        {
+                            totalPayment += (this.events[key].coefficient * this.events[key].amount);
+                            console.log(totalPayment);
+                        }
+                        break;
+                    }
+                    case 'express':
+                    {
+                        let totalCoefficient = 1;
+                        for(key in this.events)
+                        {
+                            totalCoefficient *= this.events[key].coefficient;
+                            console.log(totalPayment);
+                        }
+                        totalPayment = totalCoefficient * this.expressAmount;
+                        break;
+                    }
+                }
+                console.log(totalPayment);
+                return totalPayment;
             }
         }
     }
