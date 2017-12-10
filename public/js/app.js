@@ -16024,14 +16024,7 @@ var render = function() {
                       "li",
                       {
                         attrs: { id: "eventInList" },
-                        on: { click: _vm.deleteEventFromCoupon },
-                        model: {
-                          value: _vm.events,
-                          callback: function($$v) {
-                            _vm.events = $$v
-                          },
-                          expression: "events"
-                        }
+                        on: { click: _vm.deleteEventFromCoupon }
                       },
                       [
                         _c(
@@ -16072,6 +16065,14 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: event.amount,
+                                    expression: "event.amount"
+                                  }
+                                ],
                                 attrs: {
                                   id: "amount",
                                   type: "number",
@@ -16081,8 +16082,30 @@ var render = function() {
                                   max: "1000000",
                                   step: "1",
                                   maxlength: "6"
+                                },
+                                domProps: { value: event.amount },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    event.amount = $event.target.value
+                                  }
                                 }
-                              })
+                              }),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("p", [_vm._v("Возможный выигрыш")]),
+                                _vm._v(" "),
+                                _c("span", [
+                                  _vm._v(
+                                    _vm._s(
+                                      (event.coefficient * event.amount
+                                      ).toFixed(4)
+                                    ) + " руб."
+                                  )
+                                ])
+                              ])
                             ])
                           : _vm._e()
                       ]

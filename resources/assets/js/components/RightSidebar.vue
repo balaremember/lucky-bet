@@ -31,7 +31,7 @@
                     </div>
                     <div id="eventsContainer">
                         <ul v-for="event in events">
-                            <li id="eventInList" v-on:click="deleteEventFromCoupon" v-model="events">
+                            <li id="eventInList" v-on:click="deleteEventFromCoupon">
                                 <div class="eventAddContainer">
                                     <md-button>
                                         <md-icon>clear</md-icon>
@@ -46,11 +46,11 @@
                                     <label for="amount">Сумма ставки</label>
                                     <input id="amount" type="number"
                                            title="min сумма ставки 50 RUR, max - 1000000 RUR."
-                                           min="50" max="1000000" step="1" maxlength="6">
-                                    <!--<div>
+                                           min="50" max="1000000" step="1" maxlength="6" v-model="event.amount">
+                                    <div>
                                         <p>Возможный выигрыш</p>
-                                        <span></span>
-                                    </div>-->
+                                        <span>{{(event.coefficient * event.amount).toFixed(4)}} руб.</span>
+                                    </div>
                                 </div>
                             </li>
                             <hr>
