@@ -15602,11 +15602,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         moveToNextLevel: function moveToNextLevel(categoryName) {
             console.log(this.currentLevelOfCategoriesTree);
             if (this.currentLevelOfCategoriesTree.length !== 0) {
+                console.log(categoryName);
                 //TODO: need do transition in tree
                 //this.currentLevelOfCategoriesTree = this.categoriesTree[categoryName];
+                console.log('categoryName:');
+                console.log(categoryName);
+                var pathAsArray = this.getPathFromTreeAsArray();
+                //let keys = pathAsArray.slice(0);
+                //console.log('KEYS:');
+                //console.log(keys);
+                //let key;
+                //let temp = this.currentLevelOfCategoriesTree[categoryName];
+                /*while (keys.length > 0)
+                {
+                    key = keys.shift();
+                    console.log('Ключ:');
+                     console.log(key);
+                    console.log('temp:');
+                    console.log(temp);
+                    temp = Object.keys(temp[key]);
+                }*/
+                //console.log('temp result:');
+                //console.log(this.categoriesTree[categoryName]);
+                this.currentLevelOfCategoriesTree = temp;
             } else {
-                    //last category. need post request
-                }
+                //last category. need post request
+            }
+        },
+
+        getPathFromTreeAsArray: function getPathFromTreeAsArray() {
+            return this.currentPath.split('/');
         }
     }
 });
