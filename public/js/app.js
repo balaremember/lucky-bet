@@ -15531,6 +15531,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -15538,7 +15539,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             categoriesTree: [],
-            currentLevelOfCategoriesTree: []
+            currentLevelOfCategoriesTree: [],
+            currentPath: '', //текущий путь в дереве категорий
+            firstLevelOfCategoriesTree: []
         };
     },
     mounted: function mounted() {
@@ -15572,6 +15575,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log('Категории первого уровня');
             console.log(currentLevelOfTree);
             this.currentLevelOfCategoriesTree = currentLevelOfTree;
+            this.firstLevelOfCategoriesTree = currentLevelOfTree;
+        },
+
+        goToTree: function goToTree(event) {
+            var categoryName = this.getCategoryNameByClick(event);
+            this.buildCurrentPath(categoryName);
+            this.moveToNextLevel(categoryName);
+        },
+
+        getCategoryNameByClick: function getCategoryNameByClick(_event) {
+            var el = _event.currentTarget;
+            var categoryName = el.textContent.trim();
+            console.log(categoryName);
+            return categoryName;
+        },
+
+        buildCurrentPath: function buildCurrentPath(categoryName) {
+            if (this.currentPath.length > 0) {
+                this.currentPath += '/' + categoryName;
+            } else {
+                this.currentPath = categoryName;
+            }
+        },
+
+        moveToNextLevel: function moveToNextLevel(categoryName) {
+            console.log(this.currentLevelOfCategoriesTree);
+            if (this.currentLevelOfCategoriesTree.length !== 0) {
+                //TODO: need do transition in tree
+                //this.currentLevelOfCategoriesTree = this.categoriesTree[categoryName];
+            } else {
+                    //last category. need post request
+                }
         }
     }
 });
@@ -15590,9 +15625,20 @@ var render = function() {
     _c(
       "ul",
       _vm._l(_vm.currentLevelOfCategoriesTree, function(categoryName) {
-        return _c("li", [
-          _vm._v("\n            " + _vm._s(categoryName) + "\n        ")
-        ])
+        return _c(
+          "li",
+          {
+            on: { click: _vm.goToTree },
+            model: {
+              value: _vm.currentLevelOfCategoriesTree,
+              callback: function($$v) {
+                _vm.currentLevelOfCategoriesTree = $$v
+              },
+              expression: "currentLevelOfCategoriesTree"
+            }
+          },
+          [_vm._v("\n            " + _vm._s(categoryName) + "\n        ")]
+        )
       })
     ),
     _vm._v(" "),
@@ -15802,7 +15848,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             showCoupon: true,
             betType: 'single',
             expressAmount: 0,
-            totalPayment: this.calcTotalPayment(),
+            totalPayment: 0,
             events: [{
                 id: 0,
                 eventName: 'eventName #1',

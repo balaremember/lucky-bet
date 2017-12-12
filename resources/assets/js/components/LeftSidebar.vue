@@ -5,7 +5,8 @@
         </div>
         <!--ВСЕ ВИДЫ СТАВОК-->
         <ul>
-            <li v-for="categoryName in currentLevelOfCategoriesTree">
+            <li v-for="categoryName in currentLevelOfCategoriesTree" v-on:click="goToTree"
+                v-model="currentLevelOfCategoriesTree">
                 {{categoryName}}
             </li>
         </ul>
@@ -43,7 +44,9 @@
         {
             return {
                 categoriesTree: [],
-                currentLevelOfCategoriesTree: []
+                currentLevelOfCategoriesTree: [],
+                currentPath: '', //текущий путь в дереве категорий
+                firstLevelOfCategoriesTree: []
             };
         },
 
@@ -81,6 +84,48 @@
                 console.log('Категории первого уровня');
                 console.log(currentLevelOfTree);
                 this.currentLevelOfCategoriesTree = currentLevelOfTree;
+                this.firstLevelOfCategoriesTree = currentLevelOfTree;
+            },
+
+            goToTree: function (event)
+            {
+                let categoryName = this.getCategoryNameByClick(event);
+                this.buildCurrentPath(categoryName);
+                this.moveToNextLevel(categoryName);
+            },
+
+            getCategoryNameByClick: function (_event)
+            {
+                let el = _event.currentTarget;
+                let categoryName = el.textContent.trim();
+                console.log(categoryName);
+                return categoryName;
+            },
+
+            buildCurrentPath: function (categoryName)
+            {
+                if (this.currentPath.length > 0)
+                {
+                    this.currentPath += ('/' + categoryName);
+                }
+                else
+                {
+                    this.currentPath = categoryName;
+                }
+            },
+
+            moveToNextLevel: function (categoryName)
+            {
+                console.log(this.currentLevelOfCategoriesTree);
+                if (this.currentLevelOfCategoriesTree.length !== 0)
+                {
+                    //TODO: need do transition in tree
+                    //this.currentLevelOfCategoriesTree = this.categoriesTree[categoryName];
+                }
+                else
+                {
+                      //last category. need post request
+                }
             }
         }
     }

@@ -77,7 +77,7 @@
                 showCoupon: true,
                 betType: 'single',
                 expressAmount: 0,
-                totalPayment: this.calcTotalPayment(),
+                totalPayment: 0,
                 events: [
                     {
                         id: 0,
