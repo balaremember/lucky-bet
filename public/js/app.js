@@ -15555,8 +15555,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://lucky-bet.com/api/categories_tree').then(function (response) {
                 _this.categoriesTree = response.data;
-                console.log('Получаем дерево категорий:');
-                console.log(_this.categoriesTree);
+                //console.log('Получаем дерево категорий:');
+                //console.log(this.categoriesTree);
                 _this.initLine();
             }).catch(function (error) {
                 console.log(error);
@@ -15572,8 +15572,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 //console.log(categoryName);
                 currentLevelOfTree.push(categoryName);
             }
-            console.log('Категории первого уровня');
-            console.log(currentLevelOfTree);
+            //console.log('Категории первого уровня');
+            //console.log(currentLevelOfTree);
             this.currentLevelOfCategoriesTree = currentLevelOfTree;
             this.firstLevelOfCategoriesTree = currentLevelOfTree;
         },
@@ -15601,32 +15601,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         moveToNextLevel: function moveToNextLevel(categoryName) {
             console.log(this.currentLevelOfCategoriesTree);
-            if (this.currentLevelOfCategoriesTree.length !== 0) {
-                console.log(categoryName);
+            if (this.currentLevelOfCategoriesTree !== []) {
                 //TODO: need do transition in tree
                 //this.currentLevelOfCategoriesTree = this.categoriesTree[categoryName];
                 console.log('categoryName:');
                 console.log(categoryName);
                 var pathAsArray = this.getPathFromTreeAsArray();
-                //let keys = pathAsArray.slice(0);
-                //console.log('KEYS:');
-                //console.log(keys);
-                //let key;
-                //let temp = this.currentLevelOfCategoriesTree[categoryName];
-                /*while (keys.length > 0)
-                {
+                var keys = pathAsArray.slice(0);
+                console.log('KEYS:');
+                console.log(keys);
+                var key = void 0;
+                var temp = this.categoriesTree;
+                while (keys.length > 0) {
                     key = keys.shift();
-                    console.log('Ключ:');
-                     console.log(key);
-                    console.log('temp:');
-                    console.log(temp);
-                    temp = Object.keys(temp[key]);
-                }*/
-                //console.log('temp result:');
-                //console.log(this.categoriesTree[categoryName]);
-                this.currentLevelOfCategoriesTree = temp;
+                    temp = temp[key];
+                    /*console.log('current temp:');
+                    console.log(temp);*/
+                }
+                console.log('categories of new lvl:');
+                console.log(Object.keys(temp));
+                this.currentLevelOfCategoriesTree = Object.keys(temp);
             } else {
                 //last category. need post request
+                console.log('current Level = [] (else block)');
             }
         },
 
