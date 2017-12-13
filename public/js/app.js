@@ -15580,8 +15580,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         goToTree: function goToTree(event) {
             var categoryName = this.getCategoryNameByClick(event);
-            this.buildCurrentPath(categoryName);
-            this.moveToNextLevel(categoryName);
+            if (categoryName.trim() === 'Назад') {
+                this.moveToPreviousLevel();
+            } else {
+                this.buildCurrentPath(categoryName);
+                this.moveToNextLevel(categoryName);
+            }
+            if (this.firstLevelOfCategoriesTree !== this.currentLevelOfCategoriesTree) {
+                this.addBack();
+            }
         },
 
         getCategoryNameByClick: function getCategoryNameByClick(_event) {
@@ -15602,14 +15609,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         moveToNextLevel: function moveToNextLevel(categoryName) {
             console.log(this.currentLevelOfCategoriesTree);
             if (this.currentLevelOfCategoriesTree !== []) {
-                //TODO: need do transition in tree
-                //this.currentLevelOfCategoriesTree = this.categoriesTree[categoryName];
-                console.log('categoryName:');
-                console.log(categoryName);
+                //console.log('categoryName:');
+                //console.log(categoryName);
                 var pathAsArray = this.getPathFromTreeAsArray();
                 var keys = pathAsArray.slice(0);
-                console.log('KEYS:');
-                console.log(keys);
+                //console.log('KEYS:');
+                //console.log(keys);
                 var key = void 0;
                 var temp = this.categoriesTree;
                 while (keys.length > 0) {
@@ -15629,6 +15634,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         getPathFromTreeAsArray: function getPathFromTreeAsArray() {
             return this.currentPath.split('/');
+        },
+
+        addBack: function addBack() {
+            if (this.currentLevelOfCategoriesTree !== this.firstLevelOfCategoriesTree && this.currentLevelOfCategoriesTree[0] !== 'Назад') {
+                this.currentLevelOfCategoriesTree.unshift('Назад');
+            }
+        },
+
+        moveToPreviousLevel: function moveToPreviousLevel() {
+
+            this.deleteLastVertexFromPath();
+            /*!(/[/]/.test(this.currentPath));*/
+            if (false) {
+                this.currentLevelOfCategoriesTree = this.firstLevelOfCategoriesTree;
+            } else {
+                var pathAsArray = this.getPathFromTreeAsArray();
+                var keys = pathAsArray.slice(0);
+                //console.log('KEYS:');
+                //console.log(keys);
+                var key = void 0;
+                var temp = this.categoriesTree;
+                while (keys.length > 0) {
+                    key = keys.shift();
+                    temp = temp[key];
+                    /*console.log('current temp:');
+                     console.log(temp);*/
+                }
+                console.log('categories of new lvl:');
+                console.log(Object.keys(temp));
+                this.currentLevelOfCategoriesTree = Object.keys(temp);
+            }
+        },
+
+        deleteLastVertexFromPath: function deleteLastVertexFromPath() {
+            //console.log('deleteLastVertexFromPath:');
+            var currentPath = this.currentPath.toString();
+            //console.log('было:');
+            //console.log(this.currentPath);
+            currentPath = currentPath.replace(/[/][\u0400-\u04FF|\w| ]+$/, '');
+            this.currentPath = currentPath;
+            //console.log('стало:');
+            //console.log(currentPath);
         }
     }
 });
