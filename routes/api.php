@@ -31,6 +31,8 @@ Route::get('/categories_tree',[
     'uses' => 'CategoryController@sendCategoriesTree'
 ]);
 
+Route::post('/send_events_to_events_list', ['uses' =>'EventController@sendEventsToEventsList']);
+
 /*
  * 'middleware' => 'auth.jwt'
  */
