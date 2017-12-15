@@ -15565,6 +15565,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         initLine: function initLine() {
+            this.currentLevelOfCategoriesTree = [];
+            this.currentPath = '';
+            this.firstLevelOfCategoriesTree = [];
             //console.log('method initLine start:');
             //console.log(this.categoriesTree);
             var currentLevelOfTree = [];
@@ -15579,6 +15582,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         goToTree: function goToTree(event) {
+            if (this.currentLevelOfCategoriesTree === this.firstLevelOfCategoriesTree) {
+                this.initLine();
+            }
             var categoryName = this.getCategoryNameByClick(event);
             if (categoryName === 'Назад') {
                 this.moveToPreviousLevel();

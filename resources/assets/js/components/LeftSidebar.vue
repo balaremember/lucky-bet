@@ -73,6 +73,9 @@
 
             initLine: function()
             {
+                this.currentLevelOfCategoriesTree = [];
+                this.currentPath = '';
+                this.firstLevelOfCategoriesTree = [];
                 //console.log('method initLine start:');
                 //console.log(this.categoriesTree);
                 let currentLevelOfTree = [];
@@ -89,6 +92,10 @@
 
             goToTree: function (event)
             {
+                if (this.currentLevelOfCategoriesTree === this.firstLevelOfCategoriesTree)
+                {
+                    this.initLine();
+                }
                 let categoryName = this.getCategoryNameByClick(event);
                 if (categoryName === 'Назад')
                 {
