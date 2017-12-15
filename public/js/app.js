@@ -15600,7 +15600,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getCategoryNameByClick: function getCategoryNameByClick(_event) {
             var el = _event.currentTarget;
             var categoryName = el.textContent.trim();
-            console.log(categoryName);
+            //console.log(categoryName);
             return categoryName;
         },
 
@@ -15612,30 +15612,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
 
-        moveToNextLevel: function moveToNextLevel(categoryName) {
-            console.log(this.currentLevelOfCategoriesTree);
-            if (this.currentLevelOfCategoriesTree !== []) {
-                //console.log('categoryName:');
-                //console.log(categoryName);
-                var pathAsArray = this.getPathFromTreeAsArray();
-                var keys = pathAsArray.slice(0);
-                //console.log('KEYS:');
-                //console.log(keys);
-                var key = void 0;
-                var temp = this.categoriesTree;
-                while (keys.length > 0) {
-                    key = keys.shift();
-                    temp = temp[key];
-                    /*console.log('current temp:');
-                    console.log(temp);*/
-                }
-                console.log('categories of new lvl:');
-                console.log(Object.keys(temp));
-                this.currentLevelOfCategoriesTree = Object.keys(temp);
-            } else {
-                //last category. need post request
-                console.log('current Level = [] (else block)');
+        moveToNextLevel: function moveToNextLevel() {
+            //console.log(this.currentLevelOfCategoriesTree);
+            var pathAsArray = this.getPathFromTreeAsArray();
+            var keys = pathAsArray.slice(0);
+            //console.log('KEYS:');
+            //console.log(keys);
+            var key = void 0;
+            var temp = this.categoriesTree;
+            while (keys.length > 0) {
+                key = keys.shift();
+                temp = temp[key];
+                /*console.log('current temp:');
+                 console.log(temp);*/
             }
+            //console.log('temp:', temp);
+            if (temp instanceof Array) // if ... then need do request on the server
+                {
+                    //console.log('temp is array!');
+                    //console.log('need category:', this.currentPath);
+                    this.requestCategoriesOnTheServer();
+                }
+            //console.log('categories of new lvl:');
+            //console.log(Object.keys(temp));
+            this.currentLevelOfCategoriesTree = Object.keys(temp);
         },
 
         getPathFromTreeAsArray: function getPathFromTreeAsArray() {
@@ -15649,14 +15649,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         moveToPreviousLevel: function moveToPreviousLevel() {
-            console.log('START moveToPreviousLevel:');
+            //console.log('START moveToPreviousLevel:');
             this.deleteLastVertexFromPath();
             var pathAsArray = this.getPathFromTreeAsArray();
-            console.log('pathAsArray: <<<');
-            console.log(pathAsArray);
+            //console.log('pathAsArray: <<<');
+            //console.log(pathAsArray);
             var keys = pathAsArray.slice(0);
-            console.log('KEYS: <<<');
-            console.log(keys);
+            //console.log('KEYS: <<<');
+            //console.log(keys);
             var key = void 0;
             var temp = this.categoriesTree;
             if (keys.length !== 0) {
@@ -15669,14 +15669,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         /*console.log('current temp:');
                          console.log(temp);*/
                     }
-                    console.log('categories of new lvl:');
-                    console.log(Object.keys(temp));
+                    //console.log('categories of new lvl:');
+                    //console.log(Object.keys(temp));
                     this.currentLevelOfCategoriesTree = Object.keys(temp);
                 }
         },
 
         deleteLastVertexFromPath: function deleteLastVertexFromPath() {
-            console.log('START deleteLastVertexFromPath():');
+            //console.log('START deleteLastVertexFromPath():');
             if (/[/]/.test(this.currentPath.toString())) {
                 //console.log('deleteLastVertexFromPath:');
                 var currentPath = this.currentPath.toString();
@@ -15689,6 +15689,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 this.currentPath = '';
             }
+        },
+
+        requestCategoriesOnTheServer: function requestCategoriesOnTheServer() {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/send_events_to_events_list', {
+                currentPath: this.currentPath
+            }, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            }).then(function (response) {
+                console.log(response.data);
+            }).catch(function (error) {
+                return console.log(error);
+            });
         }
     }
 });

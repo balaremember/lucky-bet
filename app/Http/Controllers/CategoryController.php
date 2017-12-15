@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function sendCategoriesTree()
     {
         $entries = DB::select('SELECT category_name FROM categories');
