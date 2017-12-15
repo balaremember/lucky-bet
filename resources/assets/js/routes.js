@@ -34,16 +34,7 @@ routes = [
         }
     },
 
-    {
-        path: '/404', components: {
-            header: require('./components/Header.vue'),
-            error: require('./components/NotFound.vue'),
-        }
-    },
-
-    {
-        path: '/*', redirect: "/404"
-    },
+   
 
     {
         path: '/ourpage',
@@ -83,6 +74,17 @@ routes = [
             header: require('./components/Header.vue'),
             android: require('./components/PageAndroid.vue'),
         }
+    },
+	
+	{
+        path: '/404', components: {
+            header: require('./components/Header.vue'),
+            error: require('./components/NotFound.vue'),
+        }
+    },
+
+    {
+        path: '/*', redirect: "/404"
     },
 ];
 
