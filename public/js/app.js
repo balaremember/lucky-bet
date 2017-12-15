@@ -497,7 +497,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(58)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -14802,7 +14802,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(19);
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(73);
 
 
 /***/ }),
@@ -15986,25 +15986,25 @@ routes = [{
         right: __webpack_require__(51),
         footer: __webpack_require__(54),
         header: __webpack_require__(3),
-        listOfEvents: __webpack_require__(58)
+        listOfEvents: __webpack_require__(59)
     }
 }, {
     path: '/reg',
     components: {
         header: __webpack_require__(3),
-        registration: __webpack_require__(61)
+        registration: __webpack_require__(62)
 
     }
 }, {
     path: '/login',
     components: {
-        home: __webpack_require__(64),
+        home: __webpack_require__(65),
         header: __webpack_require__(3)
     }
 }, {
     path: '/404', components: {
         header: __webpack_require__(3),
-        error: __webpack_require__(67)
+        error: __webpack_require__(68)
     }
 }, {
     path: '/*', redirect: "/404"
@@ -16952,7 +16952,7 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scripts_authorization__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scripts_authorization__ = __webpack_require__(57);
 //
 //
 //
@@ -16990,6 +16990,72 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+
+    user: false,
+
+    data: function data() {
+        return {
+            email: '',
+            password: '',
+            user: this.user
+        };
+    },
+
+
+    methods: {
+        signin: function signin() {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user/signin', {
+                email: this.email,
+                password: this.password
+            }, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            }).then(function (response) {
+                var token = response.data.token;
+                var base64Url = token.split('.')[1];
+                var base64 = base64Url.replace('-', '+').replace('_', '/');
+                console.log(JSON.parse(window.atob(base64)));
+                localStorage.setItem('token', token);
+
+                if (response.data.message === 'Successfully') {
+                    _this.user = true;
+                    console.log(response.data.message);
+                    console.log(_this.user);
+                    _this.$router.push('/');
+                } else {
+                    _this.$router.push('/login');
+                }
+            }).catch(function (error) {
+                return console.log(error);
+            });
+        },
+        checkAuth: function checkAuth() {
+            var jwt = localStorage.getItem('token');
+            if (jwt) {
+                this.user = true;
+            } else {
+                this.user = false;
+            }
+        },
+        logout: function logout() {
+            localStorage.removeItem('token');
+            this.user = false;
+        }
+    }
+
+});
+
+/***/ }),
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17056,15 +17122,15 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(60)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -17104,7 +17170,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17191,7 +17257,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17235,15 +17301,15 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(62)
+var __vue_script__ = __webpack_require__(63)
 /* template */
-var __vue_template__ = __webpack_require__(63)
+var __vue_template__ = __webpack_require__(64)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -17283,7 +17349,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17493,7 +17559,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18052,15 +18118,15 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(82)
+var __vue_script__ = __webpack_require__(66)
 /* template */
-var __vue_template__ = __webpack_require__(66)
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -18100,8 +18166,74 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */,
 /* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    user: false,
+
+    data: function data() {
+        return {
+            email: '',
+            password: '',
+            user: this.user
+        };
+    },
+
+
+    methods: {
+        signin: function signin() {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user/signin', {
+                email: this.email,
+                password: this.password
+            }, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            }).then(function (response) {
+                var token = response.data.token;
+                var base64Url = token.split('.')[1];
+                var base64 = base64Url.replace('-', '+').replace('_', '/');
+                console.log(JSON.parse(window.atob(base64)));
+                localStorage.setItem('token', token);
+
+                if (response.data.message === 'Successfully') {
+                    _this.user = true;
+                    console.log(response.data.message);
+                    console.log(_this.user);
+                    _this.$router.push('/');
+                } else {
+                    _this.$router.push('/login');
+                }
+            }).catch(function (error) {
+                return console.log(error);
+            });
+        },
+        checkAuth: function checkAuth() {
+            var jwt = localStorage.getItem('token');
+            if (jwt) {
+                this.user = true;
+            } else {
+                this.user = false;
+            }
+        },
+        logout: function logout() {
+            localStorage.removeItem('token');
+            this.user = false;
+        }
+    }
+
+});
+
+/***/ }),
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18225,19 +18357,19 @@ if (false) {
 }
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(68)
+  __webpack_require__(69)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(70)
+var __vue_script__ = __webpack_require__(71)
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(72)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -18277,13 +18409,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(69);
+var content = __webpack_require__(70);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -18303,7 +18435,7 @@ if(false) {
 }
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -18317,7 +18449,7 @@ exports.push([module.i, "\n.error-template {\n    padding: 40px 15px;\n    text-
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports) {
 
 //
@@ -18343,7 +18475,7 @@ exports.push([module.i, "\n.error-template {\n    padding: 40px 15px;\n    text-
 //
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18390,149 +18522,10 @@ if (false) {
 }
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-
-    user: {
-        authenticated: false
-    },
-
-    data: function data() {
-        return {
-            email: '',
-            password: ''
-        };
-    },
-
-
-    methods: {
-        signin: function signin() {
-            var _this = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user/signin', {
-                email: this.email,
-                password: this.password
-            }, {
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            }).then(function (response) {
-                var token = response.data.token;
-                var base64Url = token.split('.')[1];
-                var base64 = base64Url.replace('-', '+').replace('_', '/');
-                console.log(JSON.parse(window.atob(base64)));
-                localStorage.setItem('token', token);
-
-                if (response.data.message === 'Successfully') {
-                    _this.user.authenticated = true;
-                    _this.$router.push('/');
-                } else {
-                    _this.$router.push('/login');
-                }
-            }).catch(function (error) {
-                return console.log(error);
-            });
-        },
-        checkAuth: function checkAuth() {
-            var jwt = localStorage.getItem('token');
-            if (jwt) {
-                this.user.authenticated = true;
-            } else {
-                this.user.authenticated = false;
-            }
-        },
-        logout: function logout() {
-            localStorage.removeItem('token');
-            this.user.authenticated = false;
-        }
-    }
-
-});
-
-/***/ }),
-/* 82 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-
-    user: {
-        authenticated: false
-    },
-
-    data: function data() {
-        return {
-            email: '',
-            password: ''
-        };
-    },
-
-
-    methods: {
-        signin: function signin() {
-            var _this = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://lucky-bet.com/api/user/signin', {
-                email: this.email,
-                password: this.password
-            }, {
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            }).then(function (response) {
-                var token = response.data.token;
-                var base64Url = token.split('.')[1];
-                var base64 = base64Url.replace('-', '+').replace('_', '/');
-                console.log(JSON.parse(window.atob(base64)));
-                localStorage.setItem('token', token);
-
-                if (response.data.message === 'Successfully') {
-                    _this.user.authenticated = true;
-                    _this.$router.push('/');
-                } else {
-                    _this.$router.push('/login');
-                }
-            }).catch(function (error) {
-                return console.log(error);
-            });
-        },
-        checkAuth: function checkAuth() {
-            var jwt = localStorage.getItem('token');
-            if (jwt) {
-                this.user.authenticated = true;
-            } else {
-                this.user.authenticated = false;
-            }
-        },
-        logout: function logout() {
-            localStorage.removeItem('token');
-            this.user.authenticated = false;
-        }
-    }
-
-});
 
 /***/ })
 /******/ ]);

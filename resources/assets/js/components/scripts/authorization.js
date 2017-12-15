@@ -2,14 +2,13 @@ import axios from 'axios';
 
 export default {
 
-    user: {
-        authenticated: false
-    },
+    user: false,
 
     data () {
         return {
             email: '',
-            password: ''
+            password: '',
+            user: this.user,
         };
     },
 
@@ -32,7 +31,9 @@ export default {
                         localStorage.setItem('token', token);
 
                         if(response.data.message === 'Successfully') {
-                            this.user.authenticated = true;
+                            this.user = true;
+                            console.log(response.data.message);
+                            console.log(this.user);
                             this.$router.push('/');
                         } else {
                             this.$router.push('/login');
@@ -47,15 +48,15 @@ export default {
         checkAuth() {
             const jwt = localStorage.getItem('token');
             if(jwt) {
-                this.user.authenticated = true;
+                this.user = true;
             } else {
-                this.user.authenticated = false;
+                this.user = false;
             }
         },
 
         logout() {
             localStorage.removeItem('token');
-            this.user.authenticated = false;
+            this.user = false;
         }
     }
 
