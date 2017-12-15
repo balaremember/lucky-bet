@@ -485,13 +485,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(54)
 /* template */
-<<<<<<< HEAD
-var __vue_template__ = __webpack_require__(58)
-/* template functional */
-  var __vue_template_functional__ = false
-=======
 var __vue_template__ = __webpack_require__(56)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -14088,134 +14082,6 @@ function applyToSingletonTag (styleElement, index, remove, obj) {
       styleElement.insertBefore(cssNode, childNodes[index])
     } else {
       styleElement.appendChild(cssNode)
-<<<<<<< HEAD
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(19);
-module.exports = __webpack_require__(73);
-
-
-/***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(42);
-
-
-
-new Vue({
-    el: '#app',
-
-    router: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */]
-});
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function() {
-  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-};
-exports.setInterval = function() {
-  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-};
-exports.clearTimeout =
-exports.clearInterval = function(timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-Timeout.prototype.close = function() {
-  this._clearFn.call(window, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function(item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function(item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function(item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout)
-        item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(21);
-exports.setImmediate = setImmediate;
-exports.clearImmediate = clearImmediate;
-
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
-    "use strict";
-
-    if (global.setImmediate) {
-        return;
-=======
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
     }
   }
 }
@@ -15402,41 +15268,25 @@ routes = [{
         right: __webpack_require__(49),
         footer: __webpack_require__(52),
         header: __webpack_require__(3),
-<<<<<<< HEAD
-        listOfEvents: __webpack_require__(59)
-=======
         listOfEvents: __webpack_require__(57)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
     }
 }, {
     path: '/reg',
     components: {
         header: __webpack_require__(3),
-<<<<<<< HEAD
-        registration: __webpack_require__(62)
-=======
         registration: __webpack_require__(60)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 
     }
 }, {
     path: '/login',
     components: {
-<<<<<<< HEAD
-        home: __webpack_require__(65),
-=======
         home: __webpack_require__(63),
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
         header: __webpack_require__(3)
     }
 }, {
     path: '/404', components: {
         header: __webpack_require__(3),
-<<<<<<< HEAD
-        error: __webpack_require__(68)
-=======
         error: __webpack_require__(66)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
     }
 }, {
     path: '/*', redirect: "/404"
@@ -16698,11 +16548,7 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scripts_authorization__ = __webpack_require__(57);
-=======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scripts_authorization__ = __webpack_require__(55);
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 //
 //
 //
@@ -16739,11 +16585,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 57 */
-=======
 /* 55 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16753,23 +16595,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 
-<<<<<<< HEAD
     user: false,
-=======
-    user: {
-        authenticated: false
-    },
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 
     data: function data() {
         return {
             email: '',
-<<<<<<< HEAD
             password: '',
             user: this.user
-=======
-            password: ''
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
         };
     },
 
@@ -16791,13 +16623,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 localStorage.setItem('token', token);
 
                 if (response.data.message === 'Successfully') {
-<<<<<<< HEAD
                     _this.user = true;
                     console.log(response.data.message);
                     console.log(_this.user);
-=======
-                    _this.user.authenticated = true;
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
                     _this.$router.push('/');
                 } else {
                     _this.$router.push('/login');
@@ -16809,35 +16637,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         checkAuth: function checkAuth() {
             var jwt = localStorage.getItem('token');
             if (jwt) {
-<<<<<<< HEAD
                 this.user = true;
             } else {
                 this.user = false;
-=======
-                this.user.authenticated = true;
-            } else {
-                this.user.authenticated = false;
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
             }
         },
         logout: function logout() {
             localStorage.removeItem('token');
-<<<<<<< HEAD
             this.user = false;
-=======
-            this.user.authenticated = false;
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
         }
     }
 
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 58 */
-=======
 /* 56 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16866,13 +16680,13 @@ var render = function() {
               _vm._v("Вакансии")
             ]),
             _vm._v(" "),
-            !_vm.user.authenticated
+            !_vm.user
               ? _c("router-link", { attrs: { id: "login", to: "/login" } }, [
                   _vm._v("Авторизоваться/Зарегестрироваться")
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _vm.user.authenticated
+            _vm.user
               ? _c(
                   "router-link",
                   {
@@ -16904,27 +16718,15 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 59 */
-=======
 /* 57 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-<<<<<<< HEAD
-var __vue_script__ = __webpack_require__(60)
-/* template */
-var __vue_template__ = __webpack_require__(61)
-/* template functional */
-  var __vue_template_functional__ = false
-=======
 var __vue_script__ = __webpack_require__(58)
 /* template */
 var __vue_template__ = __webpack_require__(59)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -16962,11 +16764,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 60 */
-=======
 /* 58 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17070,11 +16868,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 61 */
-=======
 /* 59 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17138,27 +16932,15 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 62 */
-=======
 /* 60 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-<<<<<<< HEAD
-var __vue_script__ = __webpack_require__(63)
-/* template */
-var __vue_template__ = __webpack_require__(64)
-/* template functional */
-  var __vue_template_functional__ = false
-=======
 var __vue_script__ = __webpack_require__(61)
 /* template */
 var __vue_template__ = __webpack_require__(62)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -17196,11 +16978,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 63 */
-=======
 /* 61 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17412,11 +17190,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 64 */
-=======
 /* 62 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17975,27 +17749,15 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 65 */
-=======
 /* 63 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-<<<<<<< HEAD
-var __vue_script__ = __webpack_require__(66)
-/* template */
-var __vue_template__ = __webpack_require__(67)
-/* template functional */
-  var __vue_template_functional__ = false
-=======
 var __vue_script__ = __webpack_require__(64)
 /* template */
 var __vue_template__ = __webpack_require__(65)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -18033,11 +17795,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 66 */
-=======
 /* 64 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18048,23 +17806,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-<<<<<<< HEAD
     user: false,
-=======
-    user: {
-        authenticated: false
-    },
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 
     data: function data() {
         return {
             email: '',
-<<<<<<< HEAD
             password: '',
             user: this.user
-=======
-            password: ''
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
         };
     },
 
@@ -18086,13 +17834,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 localStorage.setItem('token', token);
 
                 if (response.data.message === 'Successfully') {
-<<<<<<< HEAD
                     _this.user = true;
                     console.log(response.data.message);
                     console.log(_this.user);
-=======
-                    _this.user.authenticated = true;
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
                     _this.$router.push('/');
                 } else {
                     _this.$router.push('/login');
@@ -18104,35 +17848,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         checkAuth: function checkAuth() {
             var jwt = localStorage.getItem('token');
             if (jwt) {
-<<<<<<< HEAD
                 this.user = true;
             } else {
                 this.user = false;
-=======
-                this.user.authenticated = true;
-            } else {
-                this.user.authenticated = false;
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
             }
         },
         logout: function logout() {
             localStorage.removeItem('token');
-<<<<<<< HEAD
             this.user = false;
-=======
-            this.user.authenticated = false;
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
         }
     }
 
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 67 */
-=======
 /* 65 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18256,27 +17986,12 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 68 */
-=======
 /* 66 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-<<<<<<< HEAD
-  __webpack_require__(69)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(71)
-/* template */
-var __vue_template__ = __webpack_require__(72)
-/* template functional */
-  var __vue_template_functional__ = false
-=======
   __webpack_require__(67)
 }
 var normalizeComponent = __webpack_require__(1)
@@ -18284,7 +17999,6 @@ var normalizeComponent = __webpack_require__(1)
 var __vue_script__ = __webpack_require__(69)
 /* template */
 var __vue_template__ = __webpack_require__(70)
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -18322,21 +18036,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 69 */
-=======
 /* 67 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-<<<<<<< HEAD
-var content = __webpack_require__(70);
-=======
 var content = __webpack_require__(68);
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -18356,11 +18062,7 @@ if(false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 70 */
-=======
 /* 68 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(14)(undefined);
@@ -18374,11 +18076,7 @@ exports.push([module.i, "\n.error-template {\n    padding: 40px 15px;\n    text-
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 71 */
-=======
 /* 69 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports) {
 
 //
@@ -18404,11 +18102,7 @@ exports.push([module.i, "\n.error-template {\n    padding: 40px 15px;\n    text-
 //
 
 /***/ }),
-<<<<<<< HEAD
-/* 72 */
-=======
 /* 70 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18455,11 +18149,7 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 73 */
-=======
 /* 71 */
->>>>>>> e9fe92c3a4daa96ccf0a8760bec0f1a8561f6ab1
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
