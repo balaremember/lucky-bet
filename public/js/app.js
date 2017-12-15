@@ -15580,7 +15580,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         goToTree: function goToTree(event) {
             var categoryName = this.getCategoryNameByClick(event);
-            if (categoryName.trim() === 'Назад') {
+            if (categoryName === 'Назад') {
                 this.moveToPreviousLevel();
             } else {
                 this.buildCurrentPath(categoryName);
@@ -15643,39 +15643,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         moveToPreviousLevel: function moveToPreviousLevel() {
-
+            console.log('START moveToPreviousLevel:');
             this.deleteLastVertexFromPath();
-            /*!(/[/]/.test(this.currentPath));*/
-            if (false) {
+            var pathAsArray = this.getPathFromTreeAsArray();
+            console.log('pathAsArray: <<<');
+            console.log(pathAsArray);
+            var keys = pathAsArray.slice(0);
+            console.log('KEYS: <<<');
+            console.log(keys);
+            var key = void 0;
+            var temp = this.categoriesTree;
+            if (keys.length !== 0) {
                 this.currentLevelOfCategoriesTree = this.firstLevelOfCategoriesTree;
-            } else {
-                var pathAsArray = this.getPathFromTreeAsArray();
-                var keys = pathAsArray.slice(0);
-                //console.log('KEYS:');
-                //console.log(keys);
-                var key = void 0;
-                var temp = this.categoriesTree;
-                while (keys.length > 0) {
-                    key = keys.shift();
-                    temp = temp[key];
-                    /*console.log('current temp:');
-                     console.log(temp);*/
+            } else // поставить FALSE если по первому клику "Назад" хотим вернуться в самое начало
+                {
+                    while (keys.length > 0) {
+                        key = keys.shift();
+                        temp = temp[key];
+                        /*console.log('current temp:');
+                         console.log(temp);*/
+                    }
+                    console.log('categories of new lvl:');
+                    console.log(Object.keys(temp));
+                    this.currentLevelOfCategoriesTree = Object.keys(temp);
                 }
-                console.log('categories of new lvl:');
-                console.log(Object.keys(temp));
-                this.currentLevelOfCategoriesTree = Object.keys(temp);
-            }
         },
 
         deleteLastVertexFromPath: function deleteLastVertexFromPath() {
-            //console.log('deleteLastVertexFromPath:');
-            var currentPath = this.currentPath.toString();
-            //console.log('было:');
-            //console.log(this.currentPath);
-            currentPath = currentPath.replace(/[/][\u0400-\u04FF|\w| ]+$/, '');
-            this.currentPath = currentPath;
-            //console.log('стало:');
-            //console.log(currentPath);
+            console.log('START deleteLastVertexFromPath():');
+            if (/[/]/.test(this.currentPath.toString())) {
+                //console.log('deleteLastVertexFromPath:');
+                var currentPath = this.currentPath.toString();
+                //console.log('было:');
+                //console.log(this.currentPath);
+                currentPath = currentPath.replace(/[/][\u0400-\u04FF|\w| ]+$/, '');
+                this.currentPath = currentPath;
+                //console.log('стало:');
+                //console.log(currentPath);
+            } else {
+                this.currentPath = '';
+            }
         }
     }
 });
@@ -17089,19 +17096,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var date = new Date(now.getFullYear() - 18, now.getMonth(), now.getDate()); /*Дата сейчас - 18 лет*/
             var birthdayAsDate = new Date(this.birthday); /*Сделали датой переменную полученную из формы*/
             /*Проверям что регистрирующийся 18+*/
-            if (birthdayAsDate <= date) {
-                this.invalidMessage_2 = '';
-                this.birthdayValid = true;
-            } else {
-                this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.';
-                this.birthdayValid = false;
-            }
+            console.log(birthdayAsDate, date);
             var minDate = new Date(1920, 0, 1);
-            if (birthdayAsDate >= minDate) {
+            if (birthdayAsDate <= date && birthdayAsDate >= minDate) {
                 this.invalidMessage_2 = '';
                 this.birthdayValid = true;
             } else {
-                this.invalidMessage_2 = 'Введите реальную дату рождения.';
+                this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.' + minDate.toDateString() + ' - ' + date.toDateString();
                 this.birthdayValid = false;
             }
         },

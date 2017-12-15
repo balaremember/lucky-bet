@@ -153,25 +153,17 @@ export default {
                 var date = new Date(now.getFullYear() - 18, now.getMonth(), now.getDate()); /*Дата сейчас - 18 лет*/
                 var birthdayAsDate = new Date(this.birthday); /*Сделали датой переменную полученную из формы*/
                 /*Проверям что регистрирующийся 18+*/
-                if(birthdayAsDate <= date)
+                console.log(birthdayAsDate, date);
+                var minDate = new Date(1920, 0, 1);
+                if(birthdayAsDate <= date && birthdayAsDate >= minDate)
                 {
                     this.invalidMessage_2 = '';
                     this.birthdayValid = true;
                 }
                 else
                 {
-                    this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.';
-                    this.birthdayValid = false;
-                }
-				var minDate = new Date(1920, 0, 1);
-				if(birthdayAsDate >= minDate)
-                {
-                    this.invalidMessage_2 = '';
-                    this.birthdayValid = true;
-                }
-                else
-                {
-                    this.invalidMessage_2 = 'Введите реальную дату рождения.';
+                    this.invalidMessage_2 = 'Регистрация доступна только для совершенолетних.' +
+                                            minDate.toDateString() + ' - ' + date.toDateString();
                     this.birthdayValid = false;
                 }
             },

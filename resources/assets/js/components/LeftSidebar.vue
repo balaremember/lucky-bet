@@ -90,7 +90,7 @@
             goToTree: function (event)
             {
                 let categoryName = this.getCategoryNameByClick(event);
-                if (categoryName.trim() === 'Назад')
+                if (categoryName === 'Назад')
                 {
                     this.moveToPreviousLevel();
                 }
@@ -172,21 +172,22 @@
 
             moveToPreviousLevel: function ()
             {
-
+                console.log('START moveToPreviousLevel:');
                 this.deleteLastVertexFromPath();
-                /*!(/[/]/.test(this.currentPath));*/
-                if (false)
+                let pathAsArray = this.getPathFromTreeAsArray();
+                console.log('pathAsArray: <<<');
+                console.log(pathAsArray);
+                let keys = pathAsArray.slice(0);
+                console.log('KEYS: <<<');
+                console.log(keys);
+                let key;
+                let temp = this.categoriesTree;
+                if (keys.length !== 0)
                 {
                     this.currentLevelOfCategoriesTree = this.firstLevelOfCategoriesTree;
                 }
-                else
+                else // поставить FALSE если по первому клику "Назад" хотим вернуться в самое начало
                 {
-                    let pathAsArray = this.getPathFromTreeAsArray();
-                    let keys = pathAsArray.slice(0);
-                    //console.log('KEYS:');
-                    //console.log(keys);
-                    let key;
-                    let temp = this.categoriesTree;
                     while (keys.length > 0)
                     {
                         key = keys.shift();
@@ -202,14 +203,22 @@
 
             deleteLastVertexFromPath: function ()
             {
-                //console.log('deleteLastVertexFromPath:');
-                let currentPath = this.currentPath.toString();
-                //console.log('было:');
-                //console.log(this.currentPath);
-                currentPath = currentPath.replace(/[/][\u0400-\u04FF|\w| ]+$/, '');
-                this.currentPath = currentPath;
-                //console.log('стало:');
-                //console.log(currentPath);
+                console.log('START deleteLastVertexFromPath():');
+                if (/[/]/.test(this.currentPath.toString()))
+                {
+                    //console.log('deleteLastVertexFromPath:');
+                    let currentPath = this.currentPath.toString();
+                    //console.log('было:');
+                    //console.log(this.currentPath);
+                    currentPath = currentPath.replace(/[/][\u0400-\u04FF|\w| ]+$/, '');
+                    this.currentPath = currentPath;
+                    //console.log('стало:');
+                    //console.log(currentPath);
+                }
+                else
+                {
+                    this.currentPath = '';
+                }
             }
         }
     }
