@@ -37,6 +37,11 @@
             <router-view name="home"></router-view>
             <router-view name="error"></router-view>
             <router-view name="listOfEvents"></router-view>
+            <router-view name="ourpage"></router-view>
+            <router-view name="careers"></router-view>
+            <router-view name="rates"></router-view>
+            <router-view name="ios"></router-view>
+            <router-view name="android"></router-view>
         </section>
     </main>
     <footer>
