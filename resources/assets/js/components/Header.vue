@@ -7,8 +7,8 @@
                 <router-link id="bets" to="/">Как делать ставки</router-link>
                 <router-link id="info" to="/404">О нас</router-link>
                 <router-link id="jobs" to="/">Вакансии</router-link>
-                <router-link id="login" to="/login" v-if="!user.authenticated">Авторизоваться/Зарегестрироваться</router-link>
-                <router-link v-if="user.authenticated" @click.prevent="logout">Logout</router-link>
+                <router-link id="login" to="/login" v-if="!user">Авторизоваться/Зарегестрироваться</router-link>
+                <router-link v-if="user" @click.prevent="logout">Logout</router-link>
             </div>
         </nav>
     </div>
