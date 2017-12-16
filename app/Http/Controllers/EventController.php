@@ -28,5 +28,7 @@ class EventController extends Controller
                 $events[] = $event;
             }
         }
+        return response()->json($events, 200, ['Content-Type' => 'application/json; charset=utf-8'],
+            JSON_UNESCAPED_UNICODE);
     }
 }
