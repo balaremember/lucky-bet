@@ -9,7 +9,7 @@
                         <p>Вы хотите работать в ведущей букмекерской компании России и можете предложить нам свои знания и опыт?</p>
                         <p>В связи с расширением компании и открытием новых центров обслуживания клиентов мы приглашаем на работу в Москве и регионах РФ на следующие вакансии:</p><br>
 						<div>
-						<md-menu md-direction="button-1">
+						<md-menu md-size="auto" md-direction="button-1">
 						<md-button md-menu-trigger>Спортивная аналитика</md-button>
 						<md-menu-content>
 						<md-menu-item>Комментатор спортивных событий </md-menu-item>
@@ -19,7 +19,7 @@
 						</div>
 						
 						<div>
-						<md-menu md-direction="button-2">
+						<md-menu md-size="auto" md-direction="button-2">
 						<md-button md-menu-trigger>Розничный бизнес, клубы</md-button>
 						<md-menu-content>
 						<md-menu-item>Кассир</md-menu-item>
@@ -33,7 +33,7 @@
 						</div>
 						
 						<div>
-						<md-menu md-direction="button-3">
+						<md-menu md-size="auto" md-direction="button-3">
 						<md-button md-menu-trigger>Клиентская поддержка</md-button>
 						<md-menu-content>
 						<md-menu-item>Оператор call-центра</md-menu-item>
@@ -42,7 +42,7 @@
 						</div>
 						
                        <div>
-					   <md-menu md-direction="button-4">
+					   <md-menu md-size="auto" md-direction="button-4">
 						<md-button md-menu-trigger>Бухгалтерия, управленческий учёт, финансы</md-button>
 						<md-menu-content>
 						<md-menu-item>Специалист отдела обработки данных (в финансовый отдел)</md-menu-item>
@@ -52,7 +52,7 @@
 						</div>
 						
 						<div>
-					   <md-menu md-direction="button-5">
+					   <md-menu md-size="auto" md-direction="button-5">
 						<md-button md-menu-trigger>Маркетинг, реклама, PR</md-button>
 						<md-menu-content>
 						<md-menu-item>Руководитель интернет-проектов (терминалы)</md-menu-item>
@@ -62,7 +62,7 @@
 						</div>
 						
 						<div>
-					   <md-menu md-direction="button-6">
+					   <md-menu md-size="auto" md-direction="button-6">
 						<md-button md-menu-trigger>Административный персонал</md-button>
 						<md-menu-content>
 						<md-menu-item>Помощник руководителя</md-menu-item>
@@ -71,7 +71,7 @@
 						</div>		
 						
 						<div>
-					   <md-menu md-direction="button-7">
+					   <md-menu md-size="auto" md-direction="button-7">
 						<md-button md-menu-trigger>Информационные технологии, интернет, телеком</md-button>
 						<md-menu-content>
 						<md-menu-item>Разработчик JavaScript</md-menu-item>
@@ -86,7 +86,7 @@
 						</div>
 						
 						<div>
-						<md-menu md-direction="button-8">
+						<md-menu md-size="auto" md-direction="button-8">
 						<md-button md-menu-trigger>Управление персоналом, тренинги</md-button>
 						<md-menu-content>
 						<md-menu-item>Тренинг-⁢менеджер</md-menu-item>
