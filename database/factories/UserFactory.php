@@ -18,8 +18,16 @@ $factory->define(App\User::class, function (Faker $faker) {
 
     return [
         'name' => $faker->name,
+        'surname' => $faker->lastName,
+        'patronymic' => $faker->lastName,
+        'sex' => $faker->randomElement(array('man', 'woman')),
+        'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'country' => $faker->country,
+        'city' => $faker->city,
+        'telephone' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'balance' => $faker->numberBetween($min = 299, $max = 33000),
         'remember_token' => str_random(10),
     ];
 });
