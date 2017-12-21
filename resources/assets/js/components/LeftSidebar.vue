@@ -116,7 +116,7 @@
             {
                 let el = _event.currentTarget;
                 let categoryName = el.textContent.trim();
-                console.log(categoryName);
+                //console.log(categoryName);
                 return categoryName;
             },
 
@@ -132,35 +132,32 @@
                 }
             },
 
-            moveToNextLevel: function (categoryName)
+            moveToNextLevel: function ()
             {
-                console.log(this.currentLevelOfCategoriesTree);
-                if (this.currentLevelOfCategoriesTree !== [])
+                //console.log(this.currentLevelOfCategoriesTree);
+                let pathAsArray = this.getPathFromTreeAsArray();
+                let keys = pathAsArray.slice(0);
+                //console.log('KEYS:');
+                //console.log(keys);
+                let key;
+                let temp = this.categoriesTree;
+                while (keys.length > 0)
                 {
-                    //console.log('categoryName:');
-                    //console.log(categoryName);
-                    let pathAsArray = this.getPathFromTreeAsArray();
-                    let keys = pathAsArray.slice(0);
-                    //console.log('KEYS:');
-                    //console.log(keys);
-                    let key;
-                    let temp = this.categoriesTree;
-                    while (keys.length > 0)
-                    {
-                        key = keys.shift();
-                        temp = temp[key];
-                        /*console.log('current temp:');
-                        console.log(temp);*/
-                    }
-                    console.log('categories of new lvl:');
-                    console.log(Object.keys(temp));
-                    this.currentLevelOfCategoriesTree = Object.keys(temp);
+                    key = keys.shift();
+                    temp = temp[key];
+                    /*console.log('current temp:');
+                     console.log(temp);*/
                 }
-                else
+                //console.log('temp:', temp);
+                if (temp instanceof Array) // if ... then need do request on the server
                 {
-                    //last category. need post request
-                    console.log('current Level = [] (else block)');
+                    //console.log('temp is array!');
+                    //console.log('need category:', this.currentPath);
+                    this.requestCategoriesOnTheServer();
                 }
+                //console.log('categories of new lvl:');
+                //console.log(Object.keys(temp));
+                this.currentLevelOfCategoriesTree = Object.keys(temp);
             },
 
             getPathFromTreeAsArray: function ()
@@ -179,14 +176,14 @@
 
             moveToPreviousLevel: function ()
             {
-                console.log('START moveToPreviousLevel:');
+                //console.log('START moveToPreviousLevel:');
                 this.deleteLastVertexFromPath();
                 let pathAsArray = this.getPathFromTreeAsArray();
-                console.log('pathAsArray: <<<');
-                console.log(pathAsArray);
+                //console.log('pathAsArray: <<<');
+                //console.log(pathAsArray);
                 let keys = pathAsArray.slice(0);
-                console.log('KEYS: <<<');
-                console.log(keys);
+                //console.log('KEYS: <<<');
+                //console.log(keys);
                 let key;
                 let temp = this.categoriesTree;
                 if (keys.length !== 0)
@@ -202,15 +199,15 @@
                         /*console.log('current temp:');
                          console.log(temp);*/
                     }
-                    console.log('categories of new lvl:');
-                    console.log(Object.keys(temp));
+                    //console.log('categories of new lvl:');
+                    //console.log(Object.keys(temp));
                     this.currentLevelOfCategoriesTree = Object.keys(temp);
                 }
             },
 
             deleteLastVertexFromPath: function ()
             {
-                console.log('START deleteLastVertexFromPath():');
+                //console.log('START deleteLastVertexFromPath():');
                 if (/[/]/.test(this.currentPath.toString()))
                 {
                     //console.log('deleteLastVertexFromPath:');
@@ -226,6 +223,25 @@
                 {
                     this.currentPath = '';
                 }
+            },
+
+            requestCategoriesOnTheServer: function()
+            {
+                axios.post('http://lucky-bet.com/api/send_events_to_events_list',
+                    {
+                        currentPath: this.currentPath
+                    },
+                    {
+                        headers: {'X-Requested-With': 'XMLHttpRequest'}
+                    })
+                    .then(
+                        (response) => {
+                            console.log(response.data);
+                        }
+                    )
+                    .catch(
+                        (error) => console.log(error)
+                    );
             }
         }
     }
