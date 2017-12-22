@@ -26,7 +26,7 @@
                     <!--Android-->
 <li class="mobile">
 <md-button id="button_android">
-<md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon> <router-link to="/android'"> Anroid </router-link>
+<md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon> <router-link to="/android"> Anroid </router-link>
 </md-button>
 </li>
                 </ul>

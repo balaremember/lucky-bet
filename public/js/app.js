@@ -16537,7 +16537,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("router-link", { attrs: { to: "/android'" } }, [
+                  _c("router-link", { attrs: { to: "/android" } }, [
                     _vm._v(" Anroid ")
                   ])
                 ],
