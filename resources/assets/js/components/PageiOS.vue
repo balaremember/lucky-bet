@@ -5,8 +5,12 @@
                 <div>
                     <h1> iOS : </h1>
                     <div>
-                        
+                        <img src="ios_1txt.png" alt="ios1t" width="390" height="430">
                     </div>
+					<div>
+                        <img src="ios_1.png" alt="ios1" width="390" height="680">
+                    </div>
+					
                     <div>
                         <router-link to="/"> Take Me Home </router-link>
                     </div>
