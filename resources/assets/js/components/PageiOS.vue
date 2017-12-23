@@ -52,7 +52,7 @@
                     </div>
 					
 					<div>
-                        <img src="/images/ios_11txt.png" alt="ios1t" width="390" height="360">
+                        <img src="/images/ios_11text.png" alt="ios1t" width="390" height="360">
                         <img src="/images/ios_11.png" alt="ios1" width="390" height="680">
                     </div>
 					

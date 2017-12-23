@@ -19,7 +19,7 @@ class CreateBetsTable extends Migration
             $table->double('amount', 8, 2);
             $table->string('type');
             $table->integer('status')->unsigned()->default(null);
-            $table->double('coefficient', 5, 4);
+            $table->double('coefficient', 5, 6);
             $table->timestamps();
         });
     }
