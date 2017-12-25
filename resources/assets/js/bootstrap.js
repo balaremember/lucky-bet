@@ -5,6 +5,7 @@
  */
 import './bootstrap';
 import Vue from 'vue';
+import Vuex from 'vuex'
 import VueRouter from 'vue-router';
 import VueMaterial from 'vue-material';
 import axios from 'axios';
@@ -19,6 +20,7 @@ Vue.directive('mask', VueMaskDirective);
 
 Vue.use(VueRouter);
 Vue.use(VueMaterial);
+Vue.use(Vuex);
 
 import VueSessionStorage from 'vue-sessionstorage';
 Vue.use(VueSessionStorage);
