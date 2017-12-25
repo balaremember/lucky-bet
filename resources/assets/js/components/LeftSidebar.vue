@@ -18,17 +18,24 @@
             <div>
                 <ul>
                     <!--iOS-->
-<li class="mobile">
-<md-button id="button_ios">
-<md-icon><i class="fa fa-apple" aria-hidden="true"></i></md-icon> <router-link to="/ios"> iOS </router-link>
-</md-button>
-</li>
+                    <li class="mobile">
+                        <router-link to="/ios">
+                            <md-button id="button_ios">
+                                <md-icon>
+                                    <i class="fa fa-apple" aria-hidden="true"></i></md-icon>
+                                iOS
+                            </md-button>
+                        </router-link>
+                    </li>
                     <!--Android-->
-<li class="mobile">
-<md-button id="button_android">
-<md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon> <router-link to="/android"> Anroid </router-link>
-</md-button>
-</li>
+                    <li class="mobile">
+                        <router-link to="/android">
+                            <md-button id="button_android">
+                                <md-icon><i class="fa fa-android" aria-hidden="true"></i></md-icon>
+                                Anroid
+                            </md-button>
+                        </router-link>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -56,8 +63,7 @@
         },
 
         methods: {
-            getCategoriesTree: function ()
-            {
+            getCategoriesTree: function () {
                 axios.get('http://lucky-bet.com/api/categories_tree')
                     .then((response) => {
                         this.categoriesTree = response.data;
@@ -71,16 +77,14 @@
                     });
             },
 
-            initLine: function()
-            {
+            initLine: function () {
                 this.currentLevelOfCategoriesTree = [];
                 this.currentPath = '';
                 this.firstLevelOfCategoriesTree = [];
                 //console.log('method initLine start:');
                 //console.log(this.categoriesTree);
                 let currentLevelOfTree = [];
-                for(let categoryName in this.categoriesTree)
-                {
+                for (let categoryName in this.categoriesTree) {
                     //console.log(categoryName);
                     currentLevelOfTree.push(categoryName);
                 }
@@ -90,50 +94,40 @@
                 this.firstLevelOfCategoriesTree = currentLevelOfTree;
             },
 
-            goToTree: function (event)
-            {
-                if (this.currentLevelOfCategoriesTree === this.firstLevelOfCategoriesTree)
-                {
+            goToTree: function (event) {
+                if (this.currentLevelOfCategoriesTree === this.firstLevelOfCategoriesTree) {
                     this.initLine();
                 }
                 let categoryName = this.getCategoryNameByClick(event);
-                if (categoryName === 'Назад')
-                {
+                if (categoryName === 'Назад') {
                     this.moveToPreviousLevel();
                 }
-                else
-                {
+                else {
                     this.buildCurrentPath(categoryName);
                     this.moveToNextLevel(categoryName);
                 }
-                if (this.firstLevelOfCategoriesTree !== this.currentLevelOfCategoriesTree)
-                {
+                if (this.firstLevelOfCategoriesTree !== this.currentLevelOfCategoriesTree) {
                     this.addBack();
                 }
             },
 
-            getCategoryNameByClick: function (_event)
-            {
+            getCategoryNameByClick: function (_event) {
                 let el = _event.currentTarget;
                 let categoryName = el.textContent.trim();
                 //console.log(categoryName);
                 return categoryName;
             },
 
-            buildCurrentPath: function (categoryName)
-            {
-                if (this.currentPath.length > 0)
-                {
+            buildCurrentPath: function (categoryName) {
+                if (this.currentPath.length > 0) {
                     this.currentPath += ('/' + categoryName);
                 }
-                else
-                {
+                else {
                     this.currentPath = categoryName;
                 }
             },
 
-            moveToNextLevel: function ()
-            {
+            moveToNextLevel: function () {
                 //console.log(this.currentLevelOfCategoriesTree);
                 let pathAsArray = this.getPathFromTreeAsArray();
                 let keys = pathAsArray.slice(0);
@@ -141,8 +135,7 @@
                 //console.log(keys);
                 let key;
                 let temp = this.categoriesTree;
-                while (keys.length > 0)
-                {
+                while (keys.length > 0) {
                     key = keys.shift();
                     temp = temp[key];
                     /*console.log('current temp:');
@@ -160,22 +153,18 @@
                 this.currentLevelOfCategoriesTree = Object.keys(temp);
             },
 
-            getPathFromTreeAsArray: function ()
-            {
+            getPathFromTreeAsArray: function () {
                 return this.currentPath.split('/');
             },
 
-            addBack: function ()
-            {
+            addBack: function () {
                 if (this.currentLevelOfCategoriesTree !== this.firstLevelOfCategoriesTree
-                    && this.currentLevelOfCategoriesTree[0] !== 'Назад')
-                {
+                    && this.currentLevelOfCategoriesTree[0] !== 'Назад') {
                     this.currentLevelOfCategoriesTree.unshift('Назад');
                 }
             },
 
-            moveToPreviousLevel: function ()
-            {
+            moveToPreviousLevel: function () {
                 //console.log('START moveToPreviousLevel:');
                 this.deleteLastVertexFromPath();
                 let pathAsArray = this.getPathFromTreeAsArray();
@@ -186,14 +175,12 @@
                 //console.log(keys);
                 let key;
                 let temp = this.categoriesTree;
-                if (keys.length !== 0)
-                {
+                if (keys.length !== 0) {
                     this.currentLevelOfCategoriesTree = this.firstLevelOfCategoriesTree;
                 }
                 else // поставить FALSE если по первому клику "Назад" хотим вернуться в самое начало
                 {
-                    while (keys.length > 0)
-                    {
+                    while (keys.length > 0) {
                         key = keys.shift();
                         temp = temp[key];
                         /*console.log('current temp:');
@@ -205,11 +192,9 @@
                 }
             },
 
-            deleteLastVertexFromPath: function ()
-            {
+            deleteLastVertexFromPath: function () {
                 //console.log('START deleteLastVertexFromPath():');
-                if (/[/]/.test(this.currentPath.toString()))
-                {
+                if (/[/]/.test(this.currentPath.toString())) {
                     //console.log('deleteLastVertexFromPath:');
                     let currentPath = this.currentPath.toString();
                     //console.log('было:');
@@ -219,14 +204,12 @@
                     //console.log('стало:');
                     //console.log(currentPath);
                 }
-                else
-                {
+                else {
                     this.currentPath = '';
                 }
             },
 
-            requestCategoriesOnTheServer: function()
-            {
+            requestCategoriesOnTheServer: function () {
                 axios.post('http://lucky-bet.com/api/send_events_to_events_list',
                     {
                         currentPath: this.currentPath
